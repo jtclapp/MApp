@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    tools:context="com.example.musicapp.MainActivity">
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="89dp"
+        android:layout_marginBottom="573dp"
+        android:background="@color/design_default_color_primary_dark"
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:onClick="play"/>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="573dp"
+        android:background="@color/design_default_color_primary_dark"
+        app:srcCompat="@android:drawable/ic_media_pause"
+        android:onClick="stop"/>
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="89dp"
+        android:layout_marginBottom="513dp"
+        android:background="@color/design_default_color_primary_dark"
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:onClick="play2"/>
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="513dp"
+        android:background="@color/design_default_color_primary_dark"
+        app:srcCompat="@android:drawable/ic_media_pause"
+        android:onClick="stop"/>
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="137dp"
+        android:layout_marginBottom="573dp"
+        android:text="yung_kartz_05_picture_perfect" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="188dp"
+        android:layout_marginBottom="513dp"
+        android:text="yung_kartz_03_streets" />
+
+</RelativeLayout>

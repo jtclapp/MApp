@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    tools:context=".FinalActivity">
+
+    <Button
+        android:id="@+id/buttonAI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="195dp"
+        android:layout_marginBottom="128dp"
+        android:onClick="LoadAI"
+        android:text="Load AI" />
+
+    <Button
+        android:id="@+id/buttonPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="89dp"
+        android:layout_marginBottom="128dp"
+        android:onClick="FinalPlay2"
+        android:text="Play Song" />
+    <SeekBar
+        android:id="@+id/seekBarPitch"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="93dp"
+        android:layout_marginBottom="200dp" />
+
+    <SeekBar
+        android:id="@+id/seekBarSpeed"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="93dp"
+        android:layout_marginBottom="237dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="256dp"
+        android:layout_marginBottom="237dp"
+        android:text="Speed" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="256dp"
+        android:layout_marginBottom="200dp"
+        android:text="Pitch" />
+
+</RelativeLayout>

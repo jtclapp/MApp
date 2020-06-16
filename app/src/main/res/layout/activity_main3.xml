@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    android:layout_height="match_parent"
+    tools:context="com.example.musicapp.MainActivity">
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="89dp"
+        android:layout_marginBottom="573dp"
+        android:background="@color/design_default_color_primary_dark"
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:onClick="play"/>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="573dp"
+        android:background="@color/design_default_color_primary_dark"
+        app:srcCompat="@android:drawable/ic_media_pause"
+        android:onClick="stop"/>
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="3dp"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="162dp"
+        android:layout_marginBottom="573dp"
+        android:text="chad_crouch_shipping_lanes" />
+
+</RelativeLayout>
