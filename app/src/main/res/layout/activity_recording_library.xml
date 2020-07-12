@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".RecordingLibrary">
+
+    <ListView
+        android:id="@+id/recording_list"
+        android:layout_width="376dp"
+        android:layout_height="469dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="79dp"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="130dp"
+        android:layout_marginBottom="555dp"
+        android:text="Recordings Library:"
+        android:textColor="#E6DADA"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/editRecording"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="183dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="Edit Recording Name"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/UpdateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="88dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:text="Update" />
+
+
+</RelativeLayout>

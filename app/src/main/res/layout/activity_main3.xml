@@ -5,8 +5,21 @@
     android:layout_width="match_parent"
     android:paddingTop="?attr/actionBarSize"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context="com.example.musicapp.MainActivity">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="343dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="545dp"
+        android:text="SELECT THE BEAT FOR YOUR SONG: "
+        android:textColor="#E6DADA"
+        android:textSize="20dp" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -14,11 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="89dp"
-        android:layout_marginBottom="573dp"
-        android:background="@color/design_default_color_primary_dark"
-        app:srcCompat="@android:drawable/ic_media_play"
-        android:onClick="play"/>
+        android:layout_marginRight="99dp"
+        android:layout_marginBottom="494dp"
+        android:background="#E6DADA"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -27,20 +39,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="57dp"
-        android:layout_marginBottom="573dp"
-        android:background="@color/design_default_color_primary_dark"
-        app:srcCompat="@android:drawable/ic_media_pause"
-        android:onClick="stop"/>
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="3dp"
-        app:srcCompat="@android:drawable/ic_menu_send" />
+        android:layout_marginBottom="494dp"
+        android:background="#E6DADA"
+        android:onClick="stop"
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
     <CheckBox
         android:id="@+id/checkBox3"
@@ -48,8 +50,111 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="162dp"
-        android:layout_marginBottom="573dp"
-        android:text="chad_crouch_shipping_lanes" />
+        android:layout_marginRight="154dp"
+        android:layout_marginBottom="490dp"
+        android:text="chad_crouch_shipping_lanes"
+        android:textColor="#E6DADA" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="143dp"
+        android:layout_marginBottom="446dp"
+        android:text="mid_air_machine_underneath_the_world"
+        android:textColor="#E6DADA" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="99dp"
+        android:layout_marginBottom="451dp"
+        android:background="#E6DADA"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="451dp"
+        android:background="#E6DADA"
+        android:onClick="stop"
+        app:srcCompat="@android:drawable/ic_media_pause" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="154dp"
+        android:layout_marginBottom="405dp"
+        android:text="the_new_monitors_11_last_day_on_the_job"
+        android:textColor="#E6DADA" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="99dp"
+        android:layout_marginBottom="408dp"
+        android:background="#E6DADA"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="408dp"
+        android:background="#E6DADA"
+        android:onClick="stop"
+        app:srcCompat="@android:drawable/ic_media_pause" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="140dp"
+        android:layout_marginBottom="365dp"
+        android:text="scott_holmes_04_upbeat_party"
+        android:textColor="#E6DADA" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="99dp"
+        android:layout_marginBottom="364dp"
+        android:background="#E6DADA"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="364dp"
+        android:background="#E6DADA"
+        android:onClick="stop"
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
 </RelativeLayout>

@@ -5,9 +5,21 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
+    android:background="@drawable/gradient_background"
     tools:context="com.example.musicapp.MainActivity">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="545dp"
+        android:text="SELECT THE BEAT FOR YOUR SONG: "
+        android:textColor="#E6DADA"
+        android:textSize="20dp" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -15,11 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="89dp"
-        android:layout_marginBottom="573dp"
-        android:background="@color/design_default_color_primary_dark"
-        app:srcCompat="@android:drawable/ic_media_play"
-        android:onClick="play"/>
+        android:layout_marginRight="84dp"
+        android:layout_marginBottom="482dp"
+        android:background="#E6DADA"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -27,11 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="573dp"
-        android:background="@color/design_default_color_primary_dark"
-        app:srcCompat="@android:drawable/ic_media_pause"
-        android:onClick="stop"/>
+        android:layout_marginRight="46dp"
+        android:layout_marginBottom="482dp"
+        android:background="#E6DADA"
+        android:onClick="stop"
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -39,11 +50,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="89dp"
-        android:layout_marginBottom="513dp"
-        android:background="@color/design_default_color_primary_dark"
-        app:srcCompat="@android:drawable/ic_media_play"
-        android:onClick="play2"/>
+        android:layout_marginRight="84dp"
+        android:layout_marginBottom="444dp"
+        android:background="#E6DADA"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -51,21 +61,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="513dp"
-        android:background="@color/design_default_color_primary_dark"
-        app:srcCompat="@android:drawable/ic_media_pause"
-        android:onClick="stop"/>
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="9dp"
-        android:layout_marginBottom="5dp"
-        app:srcCompat="@android:drawable/ic_menu_send" />
+        android:layout_marginRight="46dp"
+        android:layout_marginBottom="444dp"
+        android:background="#E6DADA"
+        android:onClick="stop"
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -73,9 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="137dp"
-        android:layout_marginBottom="573dp"
-        android:text="yung_kartz_05_picture_perfect" />
+        android:layout_marginRight="225dp"
+        android:layout_marginBottom="482dp"
+        android:text="Hip/Hop Beat#1"
+        android:textColor="#E6DADA" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -83,8 +84,43 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="188dp"
-        android:layout_marginBottom="513dp"
-        android:text="yung_kartz_03_streets" />
+        android:layout_marginRight="186dp"
+        android:layout_marginBottom="444dp"
+        android:text="yung_kartz_03_streets"
+        android:textColor="#E6DADA" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="176dp"
+        android:layout_marginBottom="405dp"
+        android:text="yung_kartz_04_out_cold"
+        android:textColor="#E6DADA" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="84dp"
+        android:layout_marginBottom="405dp"
+        android:background="#E6DADA"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="46dp"
+        android:layout_marginBottom="405dp"
+        android:background="#E6DADA"
+        android:onClick="stop"
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
 </RelativeLayout>

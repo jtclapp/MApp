@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:paddingTop="?attr/actionBarSize"
     android:layout_height="match_parent"
-    android:gravity="top"
     android:orientation="vertical"
+    android:background="@drawable/gradient_background"
     tools:context="com.example.musicapp.MainActivity">
 
     <TextView
@@ -16,23 +15,87 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="SELECT THE GENRE THAT YOU WOULD LIKE TO LISTEN TO"/>
+        android:textColor="#E6DADA"
+        android:textSize="20dp"
+        android:text="SELECT A GENRE FOR YOUR SONG: " />
+
     <Button
         android:id="@+id/button4"
-        android:layout_width="300dp"
-        android:layout_height="109dp"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
         android:layout_gravity="center_horizontal"
-        android:background="@android:color/background_dark"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
         android:text="HipHop/Rap"
-        android:textColor="@android:color/holo_green_light" />
+        android:textColor="#414345"
+        android:textSize="35dp" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="300dp"
-        android:layout_height="109dp"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
         android:layout_gravity="center_horizontal"
-        android:background="@android:color/background_dark"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
         android:text="Rock"
-        android:textColor="@android:color/holo_green_light" />
+        android:textColor="#414345"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/R_B_button"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="5dp"
+        android:backgroundTint="#E6DADA"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="R and B"
+        android:textColor="#414345"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/country_button"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="Country"
+        android:textColor="#414345"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="184dp" />
+
+    <LinearLayout
+        android:id="@+id/progress_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/library"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+
+            app:srcCompat="@drawable/ic_baseline_audiotrack_24" />
+
+        <ImageButton
+            android:id="@+id/recordlibrary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_baseline_record_voice_over_24" />
+
+        >
+    </LinearLayout>
+
 </LinearLayout>
