@@ -1,0 +1,7 @@
+<application>
+  <component name="GithubAccounts">
+    <account id="ef5084b9-de4d-4386-8ce1-ded3155b259b" name="jtclapp">
+      <server host="github.com" />
+    </account>
+  </component>
+</application>
