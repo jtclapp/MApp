@@ -153,6 +153,7 @@ public class MainActivity5 extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayOfStrings);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spFrequency.setAdapter(adapter);
+        setbutton.setEnabled(false);
 
     }
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permission, @NonNull int[] grantResults) {
@@ -192,7 +193,6 @@ public class MainActivity5 extends AppCompatActivity {
             dataOutputStream.close();
         }
     }
-
     private void playRecord() throws IOException {
         int i = 0;
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
@@ -292,6 +292,7 @@ public class MainActivity5 extends AppCompatActivity {
                 path = data.getStringExtra("name");
                 file = new File(path);
                 play.setVisibility(View.VISIBLE);
+                setbutton.setEnabled(true);
             }
         }
     }
@@ -347,6 +348,7 @@ public class MainActivity5 extends AppCompatActivity {
     }
 
     public void stoprecording() {
+        setbutton.setEnabled(true);
         recording = false;
     }
 
@@ -372,8 +374,10 @@ public class MainActivity5 extends AppCompatActivity {
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
         buffersizeinbytes = (int) (file.length() / shortSizeInBytes);
         String editTextData = editText.getText().toString();
+        String songtitle = et_name.getText().toString();
 
         Intent intent = new Intent(this, FinalActivity.class);
+        intent.putExtra("songtitle", songtitle);
         intent.putExtra("svalue", svalue);
         intent.putExtra("sampleRateInHz", sampleRateInHz);
         intent.putExtra("buffersizeinbytes", buffersizeinbytes);

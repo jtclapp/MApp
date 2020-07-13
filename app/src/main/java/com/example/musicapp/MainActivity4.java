@@ -232,6 +232,7 @@ public class MainActivity4 extends AppCompatActivity {
         String voicename = " ";
         String voicecountry = " ";
         String voicelang = " ";
+        String songtitle = et_name.getText().toString();
         speed = (float) seekBarspeed.getProgress() / 50;
         pitch = (float) seekBarpitch.getProgress() / 50;
         String editTextData = editText.getText().toString();
@@ -244,6 +245,7 @@ public class MainActivity4 extends AppCompatActivity {
             voicelang = language;
         }
         Intent i = new Intent(this, FinalActivity.class);
+        i.putExtra("songtitle", songtitle);
         i.putExtra("speed", speed);
         i.putExtra("pitch", pitch);
         i.putExtra("voicename", voicename);

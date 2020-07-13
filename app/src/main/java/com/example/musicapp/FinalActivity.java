@@ -38,7 +38,7 @@ public class FinalActivity extends AppCompatActivity {
     public MediaPlayer player3;
     ToggleButton finalplay;
     Button button;
-    TextView v1;
+    TextView v1, songtitle;
     String song;
     public Set<String> a;
     String recordedvoice;
@@ -76,6 +76,7 @@ public class FinalActivity extends AppCompatActivity {
         button = findViewById(R.id.buttonAI);
         finalplay = findViewById(R.id.finalplay);
         v1 = findViewById(R.id.textView4);
+        songtitle = findViewById(R.id.songtitle);
 
         Intent myintent = getIntent();
         recordedvoice = myintent.getStringExtra("path");
@@ -154,9 +155,12 @@ public class FinalActivity extends AppCompatActivity {
         }
     }
     private void songbuilder() {
-        Intent edit_itent = getIntent();
-        String edittext = edit_itent.getStringExtra("editTextData");
+        Intent edit_intent = getIntent();
+        Intent title_intent = getIntent();
+        String song_title = title_intent.getStringExtra("songtitle");
+        String edittext = edit_intent.getStringExtra("editTextData");
         v1.setText(edittext);
+        songtitle.setText(song_title);
         v1.setMovementMethod(new ScrollingMovementMethod());
         song = edittext;
     }
@@ -199,6 +203,9 @@ public class FinalActivity extends AppCompatActivity {
         if (intvalue == 9) {
             path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.randb_beat_2);
         }
+        if (intvalue == 13) {
+            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.country_beat_1);
+        }
         if (player3 != null) {
             stopPlayer();
         }
@@ -213,7 +220,6 @@ public class FinalActivity extends AppCompatActivity {
         }
         player3.start();
     }
-
     public void RecordPlay() throws IOException {
         File file = new File(recordedvoice);
         Intent HZintent = getIntent();

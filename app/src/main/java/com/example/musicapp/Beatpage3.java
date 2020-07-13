@@ -88,7 +88,6 @@ public class Beatpage3 extends AppCompatActivity {
             }
         });
     }
-
     public void openMainAct5() {
         Intent intent = new Intent(this, MainActivity5.class);
         if (check == 8) {
