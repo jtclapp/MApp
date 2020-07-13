@@ -49,10 +49,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="315dp"
+        android:layout_marginRight="302dp"
         android:layout_marginBottom="547dp"
         android:textColor="#080808"
         android:background="@null"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
 </RelativeLayout>

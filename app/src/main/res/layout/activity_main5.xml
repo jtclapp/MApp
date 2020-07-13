@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="155dp"
+        android:layout_marginRight="130dp"
         android:layout_marginBottom="490dp"
         android:ems="10"
         android:hint="Song Title:"
