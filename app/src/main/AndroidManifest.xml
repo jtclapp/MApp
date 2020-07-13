@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecordingLibrary"></activity>
+        <activity android:name=".Beatpage3"></activity>
+        <activity android:name=".RecordingLibrary" />
         <activity android:name=".RecSelector" />
         <activity android:name=".Selector" />
         <activity android:name=".LyricsLibrary" />

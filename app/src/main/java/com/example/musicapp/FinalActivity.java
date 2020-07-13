@@ -173,16 +173,16 @@ public class FinalActivity extends AppCompatActivity {
         Intent myintent2 = getIntent();
         int intvalue = myintent2.getIntExtra("svalue", 0);
         if (intvalue == 1) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.beat1);
+            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hiphop_beat_1);
         }
         if (intvalue == 2) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.yung_kartz_03_streets);
+            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hiphop_beat_2);
         }
         if (intvalue == 3) {
             path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.yung_kartz_04_out_cold);
         }
         if (intvalue == 4) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.chad_crouch_shipping_lanes);
+            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rock_beat_1);
         }
         if (intvalue == 5) {
             path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.mid_air_machine_underneath_the_world);
@@ -192,6 +192,12 @@ public class FinalActivity extends AppCompatActivity {
         }
         if (intvalue == 7) {
             path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.scott_holmes_04_upbeat_party);
+        }
+        if (intvalue == 8) {
+            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.randb_beat_1);
+        }
+        if (intvalue == 9) {
+            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.randb_beat_2);
         }
         if (player3 != null) {
             stopPlayer();

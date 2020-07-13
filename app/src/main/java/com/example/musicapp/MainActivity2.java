@@ -6,8 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,9 +16,7 @@ public class MainActivity2 extends AppCompatActivity {
     CheckBox checkBox;
     CheckBox checkBox2;
     CheckBox checkBox3;
-    ImageButton I1;
-    ImageButton I2;
-    ImageButton I3;
+    ToggleButton T1, T2, T3;
     int check;
 
     @Override
@@ -27,28 +24,74 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        I1 = findViewById(R.id.imageButton);
-        I1.setOnClickListener(new View.OnClickListener() {
+        T1 = findViewById(R.id.play_hiphop1);
+        T1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.beat1);
-                play(v);
+                T2.setActivated(false);
+                T3.setActivated(false);
+                if (T1.isChecked()) {
+
+                    T1.setActivated(true);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hiphop_beat_1);
+                            play();
+                        }
+                    }).start();
+                }
+                if (T1.isChecked() == false) {
+                    T1.setActivated(false);
+                    pause();
+                }
             }
         });
-        I2 = findViewById(R.id.imageButton3);
-        I2.setOnClickListener(new View.OnClickListener() {
+        T2 = findViewById(R.id.play_hiphop2);
+        T2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.yung_kartz_03_streets);
-                play(v);
+                T1.setActivated(false);
+                T3.setActivated(false);
+                if (T2.isChecked()) {
+                    T2.setActivated(true);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hiphop_beat_2);
+                            play();
+                        }
+                    }).start();
+                }
+                if (T2.isChecked() == false) {
+                    T2.setActivated(false);
+                    pause();
+                }
             }
         });
-        I3 = findViewById(R.id.imageButton6);
-        I3.setOnClickListener(new View.OnClickListener() {
+        T3 = findViewById(R.id.play_hiphop3);
+        T3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.yung_kartz_04_out_cold);
-                play(v);
+                T1.setActivated(false);
+                T2.setActivated(false);
+                if (T3.isChecked()) {
+                    T3.setActivated(true);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.yung_kartz_04_out_cold);
+                            play();
+                        }
+                    }).start();
+                }
+                if (T3.isChecked() == false) {
+                    T3.setActivated(false);
+                    pause();
+                }
             }
         });
         checkBox = findViewById(R.id.checkBox);
@@ -98,7 +141,7 @@ public class MainActivity2 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void play(View view) {
+    public void play() {
         if (player != null) {
             stopPlayer();
         }
@@ -116,23 +159,16 @@ public class MainActivity2 extends AppCompatActivity {
         player.start();
     }
 
-    public void stop(View view) {
-        stopPlayer();
+    public void pause() {
+        if (player != null) {
+            player.pause();
+        }
     }
-
-    //    public void pause(View v)
-//        {
-//            if(player != null)
-//            {
-//                player.pause();
-//            }
-//        }
 
     private void stopPlayer() {
         if (player != null) {
             player.release();
             player = null;
-            Toast.makeText(getApplicationContext(), "MediaPlayer Released", Toast.LENGTH_SHORT).show();
         }
     }
 

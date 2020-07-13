@@ -72,7 +72,7 @@
         android:layout_height="39dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="36dp"
+        android:layout_marginRight="34dp"
         android:layout_marginBottom="515dp"
         android:text="Click HERE to create an AI Voice for your song."
         android:textColor="#E6DADA"

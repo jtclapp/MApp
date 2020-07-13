@@ -1,126 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
+    android:paddingTop="?attr/actionBarSize"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
+    android:orientation="vertical"
     tools:context="com.example.musicapp.MainActivity">
-
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="545dp"
         android:text="SELECT THE BEAT FOR YOUR SONG: "
         android:textColor="#E6DADA"
+        android:layout_margin="5dp"
         android:textSize="20dp" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <LinearLayout
+        android:id="@+id/progress_horizontal2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="84dp"
-        android:layout_marginBottom="482dp"
-        android:background="#E6DADA"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
+        <ToggleButton
+            android:id="@+id/play_hiphop1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button2"
+            android:layout_margin="5dp"
+            android:textOff=""
+            android:textOn="" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Hip/Hop Beat #1"
+            android:textColor="#E6DADA" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_horizontal3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="46dp"
-        android:layout_marginBottom="482dp"
-        android:background="#E6DADA"
-        android:onClick="stop"
-        app:srcCompat="@android:drawable/ic_media_pause" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/imageButton3"
+        <ToggleButton
+            android:id="@+id/play_hiphop2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button2"
+            android:layout_margin="5dp"
+            android:textOff=""
+            android:textOn="" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Hip/Hop Beat #2"
+            android:textColor="#E6DADA" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_horizontal4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="84dp"
-        android:layout_marginBottom="444dp"
-        android:background="#E6DADA"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="46dp"
-        android:layout_marginBottom="444dp"
-        android:background="#E6DADA"
-        android:onClick="stop"
-        app:srcCompat="@android:drawable/ic_media_pause" />
+        <ToggleButton
+            android:id="@+id/play_hiphop3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_button2"
+            android:textOff=""
+            android:textOn="" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="225dp"
-        android:layout_marginBottom="482dp"
-        android:text="Hip/Hop Beat#1"
-        android:textColor="#E6DADA" />
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="yung_kartz_04_out_cold"
+            android:textColor="#E6DADA" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="186dp"
-        android:layout_marginBottom="444dp"
-        android:text="yung_kartz_03_streets"
-        android:textColor="#E6DADA" />
+    </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="176dp"
-        android:layout_marginBottom="405dp"
-        android:text="yung_kartz_04_out_cold"
-        android:textColor="#E6DADA" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="84dp"
-        android:layout_marginBottom="405dp"
-        android:background="#E6DADA"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="46dp"
-        android:layout_marginBottom="405dp"
-        android:background="#E6DADA"
-        android:onClick="stop"
-        app:srcCompat="@android:drawable/ic_media_pause" />
-
-</RelativeLayout>
+</LinearLayout>

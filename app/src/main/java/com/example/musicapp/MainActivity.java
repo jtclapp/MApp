@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private Button button2;
+    private Button button3;
     private ImageButton lib_button;
     private ImageButton reclib_button;
 
@@ -31,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity3();
+            }
+        });
+        button3 = findViewById(R.id.R_B_button);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openBeatpage3();
             }
         });
         lib_button = findViewById(R.id.library);
@@ -56,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openActivity3() {
         Intent intent = new Intent(this, MainActivity3.class);
+        startActivity(intent);
+    }
+
+    public void openBeatpage3() {
+        Intent intent = new Intent(this, Beatpage3.class);
         startActivity(intent);
     }
 

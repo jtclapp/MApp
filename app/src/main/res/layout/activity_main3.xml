@@ -1,160 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:paddingTop="?attr/actionBarSize"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
+    android:orientation="vertical"
     tools:context="com.example.musicapp.MainActivity">
 
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="343dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="545dp"
         android:text="SELECT THE BEAT FOR YOUR SONG: "
         android:textColor="#E6DADA"
+        android:layout_margin="5dp"
         android:textSize="20dp" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <LinearLayout
+        android:id="@+id/progress_horizontal2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="494dp"
-        android:background="#E6DADA"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
+        <ToggleButton
+            android:id="@+id/play_rock1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button2"
+            android:layout_margin="5dp"
+            android:textOff=""
+            android:textOn="" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rock Beat #1"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_horizontal3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="494dp"
-        android:background="#E6DADA"
-        android:onClick="stop"
-        app:srcCompat="@android:drawable/ic_media_pause" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <CheckBox
-        android:id="@+id/checkBox3"
+        <ToggleButton
+            android:id="@+id/play_rock2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button2"
+            android:layout_margin="5dp"
+            android:textOff=""
+            android:textOn="" />
+
+        <CheckBox
+            android:id="@+id/checkBox5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="mid_air_machine_underneath_the_world"
+            android:textColor="#E6DADA" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/progress_horizontal4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="154dp"
-        android:layout_marginBottom="490dp"
-        android:text="chad_crouch_shipping_lanes"
-        android:textColor="#E6DADA" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="223dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="143dp"
-        android:layout_marginBottom="446dp"
-        android:text="mid_air_machine_underneath_the_world"
-        android:textColor="#E6DADA" />
+        <ToggleButton
+            android:id="@+id/play_rock3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button2"
+            android:layout_margin="5dp"
+            android:textOff=""
+            android:textOn="" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
+        <CheckBox
+            android:id="@+id/checkBox6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="the_new_monitors_11_last_day_on_the_job"
+            android:textColor="#E6DADA" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_horizontal5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="451dp"
-        android:background="#E6DADA"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="451dp"
-        android:background="#E6DADA"
-        android:onClick="stop"
-        app:srcCompat="@android:drawable/ic_media_pause" />
+        <ToggleButton
+            android:id="@+id/play_rock4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button2"
+            android:layout_margin="5dp"
+            android:textOff=""
+            android:textOn="" />
 
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="212dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="154dp"
-        android:layout_marginBottom="405dp"
-        android:text="the_new_monitors_11_last_day_on_the_job"
-        android:textColor="#E6DADA" />
+        <CheckBox
+            android:id="@+id/checkBox7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scott_holmes_04_upbeat_party"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA" />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="408dp"
-        android:background="#E6DADA"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="408dp"
-        android:background="#E6DADA"
-        android:onClick="stop"
-        app:srcCompat="@android:drawable/ic_media_pause" />
-
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="140dp"
-        android:layout_marginBottom="365dp"
-        android:text="scott_holmes_04_upbeat_party"
-        android:textColor="#E6DADA" />
-
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="364dp"
-        android:background="#E6DADA"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="364dp"
-        android:background="#E6DADA"
-        android:onClick="stop"
-        app:srcCompat="@android:drawable/ic_media_pause" />
-
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
