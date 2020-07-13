@@ -3,7 +3,6 @@ package com.example.musicapp;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Bundle;
@@ -13,8 +12,9 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
 import android.text.style.ClickableSpan;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +42,7 @@ public class MainActivity5 extends AppCompatActivity {
     String path;
     File file;
     public static Boolean recording;
-    public Spinner spFrequency, UpDown, UpDown2;
+    public Spinner spFrequency;
     Button setbutton;
     ToggleButton custombutton, play;
     EditText editText, et_name;
@@ -84,15 +84,6 @@ public class MainActivity5 extends AppCompatActivity {
         arrayOfStrings[6] = "Helium";
         arrayOfStrings[7] = "Fast Forward";
 
-        final String[] arrayOfStrings2 = new String[5];
-        arrayOfStrings2[0] = "                 ";
-        arrayOfStrings2[1] = "Download Lyrics";
-        arrayOfStrings2[2] = "Upload Lyrics";
-        arrayOfStrings2[3] = "Download Recording";
-        arrayOfStrings2[4] = "Upload Recording";
-
-        UpDown = findViewById(R.id.Download_Upload);
-        UpDown2 = findViewById(R.id.Download_Upload);
         spFrequency = findViewById(R.id.Voice_spinner);
         custombutton = findViewById(R.id.CustomButton);
         play = findViewById(R.id.playrec);
@@ -163,84 +154,7 @@ public class MainActivity5 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spFrequency.setAdapter(adapter);
 
-        adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayOfStrings2);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        UpDown.setAdapter(adapter2);
-        UpDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        TextView tv = (TextView) view;
-                        tv.setTextSize(10);
-                        tv.setText("Download/Upload");
-                        tv.setTextColor(Color.DKGRAY);
-                    case 1:
-                        LyricsModel lyricsModel;
-                        try {
-                            lyricsModel = new LyricsModel(-1, et_name.getText().toString(), editText.getText().toString());
-                        } catch (Exception e) {
-                            Toast.makeText(getApplicationContext(), "Error Creating Lyrics!", Toast.LENGTH_SHORT).show();
-                            lyricsModel = new LyricsModel(-1, "error", "No Lyrics");
-                        }
-                        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity5.this);
-                        boolean success = dataBaseHelper.addOne(lyricsModel);
-                        Toast.makeText(getApplicationContext(), "Entry Added = " + success, Toast.LENGTH_LONG).show();
-                        tv = (TextView) view;
-                        tv.setTextSize(10);
-                        tv.setText("Download/Upload");
-                        tv.setTextColor(Color.DKGRAY);
-                        break;
-                    case 2:
-                        startSelectAct();
-                        tv = (TextView) view;
-                        tv.setTextSize(10);
-                        tv.setText("Download/Upload");
-                        tv.setTextColor(Color.DKGRAY);
-                        break;
-                    case 3:
-                        if (path != null) {
-                            RecordingModel recordingModel;
-                            try {
-                                recordingModel = new RecordingModel(-1, path);
-                            } catch (Exception e) {
-                                Toast.makeText(getApplicationContext(), "Error Creating Recording!", Toast.LENGTH_SHORT).show();
-                                recordingModel = new RecordingModel(-1, "error");
-                            }
-                            DataBaseHelper dataBaseHelper2 = new DataBaseHelper(MainActivity5.this);
-                            success = dataBaseHelper2.addOneRecording(recordingModel);
-                            Toast.makeText(getApplicationContext(), "Saved = " + success, Toast.LENGTH_SHORT).show();
-                            tv = (TextView) view;
-                            tv.setTextSize(10);
-                            tv.setText("Download/Upload");
-                            tv.setTextColor(Color.DKGRAY);
-                            break;
-                        } else {
-                            Toast.makeText(getApplicationContext(), "No Recording to save", Toast.LENGTH_LONG).show();
-                            tv = (TextView) view;
-                            tv.setTextSize(10);
-                            tv.setText("Download/Upload");
-                            tv.setTextColor(Color.DKGRAY);
-                            break;
-                        }
-                    case 4:
-                        startSelectAct2();
-                        tv = (TextView) view;
-                        tv.setTextSize(10);
-                        tv.setText("Download/Upload");
-                        tv.setTextColor(Color.DKGRAY);
-                        break;
-                }
-                UpDown2.setSelection(0);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
-
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permission, @NonNull int[] grantResults) {
         if (requestCode == 111 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             custombutton.setEnabled(true);
@@ -380,6 +294,56 @@ public class MainActivity5 extends AppCompatActivity {
                 play.setVisibility(View.VISIBLE);
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.act5menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.DL:
+                LyricsModel lyricsModel;
+                try {
+                    lyricsModel = new LyricsModel(-1, et_name.getText().toString(), editText.getText().toString());
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Error Creating Lyrics!", Toast.LENGTH_SHORT).show();
+                    lyricsModel = new LyricsModel(-1, "error", "No Lyrics");
+                }
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity5.this);
+                boolean success = dataBaseHelper.addOne(lyricsModel);
+                Toast.makeText(getApplicationContext(), "Entry Added = " + success, Toast.LENGTH_LONG).show();
+                break;
+            case R.id.UL:
+                startSelectAct();
+                break;
+            case R.id.DR:
+                if (path != null) {
+                    RecordingModel recordingModel;
+                    try {
+                        recordingModel = new RecordingModel(-1, path);
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "Error Creating Recording!", Toast.LENGTH_SHORT).show();
+                        recordingModel = new RecordingModel(-1, "error");
+                    }
+                    DataBaseHelper dataBaseHelper2 = new DataBaseHelper(MainActivity5.this);
+                    success = dataBaseHelper2.addOneRecording(recordingModel);
+                    Toast.makeText(getApplicationContext(), "Saved = " + success, Toast.LENGTH_SHORT).show();
+                    break;
+                } else {
+                    Toast.makeText(getApplicationContext(), "No Recording to save", Toast.LENGTH_LONG).show();
+                    break;
+                }
+            case R.id.UR:
+                startSelectAct2();
+                break;
+        }
+        return true;
     }
 
     public void stoprecording() {

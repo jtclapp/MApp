@@ -53,7 +53,7 @@
         android:layout_margin="5dp"
         android:backgroundTint="#E6DADA"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:text="R and B"
+        android:text="@string/RandB"
         android:textColor="#414345"
         android:textSize="35dp" />
 

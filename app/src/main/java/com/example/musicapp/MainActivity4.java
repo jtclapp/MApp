@@ -8,15 +8,17 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -33,7 +35,6 @@ public class MainActivity4 extends AppCompatActivity {
     private SeekBar seekBarpitch;
     private SeekBar seekBarspeed;
     EditText editText, et_name;
-    ImageButton btn_add;
     Spinner spinner;
     Voice selectedvoice;
     ArrayAdapter<String> adapter;
@@ -167,25 +168,7 @@ public class MainActivity4 extends AppCompatActivity {
         seekBarpitch = findViewById(R.id.seekBarPitch);
         seekBarspeed = findViewById(R.id.seekBarSpeed);
         et_name = findViewById(R.id.editTextTextPersonName2);
-        btn_add = findViewById(R.id.Downloadbutton2);
-
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LyricsModel lyricsModel;
-                try {
-                    lyricsModel = new LyricsModel(-1, et_name.getText().toString(), editText.getText().toString());
-                } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Error Creating Customer!", Toast.LENGTH_SHORT).show();
-                    lyricsModel = new LyricsModel(-1, "error", "No Lyrics");
-                }
-                DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity4.this);
-                boolean success = dataBaseHelper.addOne(lyricsModel);
-                Toast.makeText(getApplicationContext(), "Entry Added = " + success, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
-
     public void TestAI(View view) throws IOException {
         String song = "Hello, do you like the sound of my voice? Select me if you do!";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -216,10 +199,41 @@ public class MainActivity4 extends AppCompatActivity {
         editText.setMovementMethod(new ScrollingMovementMethod());
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.act4menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.DL:
+                LyricsModel lyricsModel;
+                try {
+                    lyricsModel = new LyricsModel(-1, et_name.getText().toString(), editText.getText().toString());
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Error Creating Customer!", Toast.LENGTH_SHORT).show();
+                    lyricsModel = new LyricsModel(-1, "error", "No Lyrics");
+                }
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity4.this);
+                boolean success = dataBaseHelper.addOne(lyricsModel);
+                Toast.makeText(getApplicationContext(), "Entry Added = " + success, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.UL:
+                startSelectAct();
+                break;
+        }
+        return true;
+    }
     public void SendVoice(View view) {
         String voicename = " ";
         String voicecountry = " ";
         String voicelang = " ";
+        speed = (float) seekBarspeed.getProgress() / 50;
+        pitch = (float) seekBarpitch.getProgress() / 50;
         String editTextData = editText.getText().toString();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             voicename = selectedvoice.getName();
@@ -247,7 +261,7 @@ public class MainActivity4 extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void startSelectAct(View view) {
+    public void startSelectAct() {
         Intent i = new Intent(this, Selector.class);
         startActivityForResult(i, 1);
     }

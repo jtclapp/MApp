@@ -82,7 +82,9 @@ public class FinalActivity extends AppCompatActivity {
         if (recordedvoice != null) {
             button.setVisibility(View.INVISIBLE);
         }
-
+        if (recordedvoice == null) {
+            finalplay.setEnabled(false);
+        }
         finalplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -140,6 +142,8 @@ public class FinalActivity extends AppCompatActivity {
         } else {
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         }
+        button.setVisibility(View.INVISIBLE);
+        finalplay.setEnabled(true);
     }
 
     public void PlayAI() {
@@ -149,7 +153,6 @@ public class FinalActivity extends AppCompatActivity {
             textToSpeech.speak(song, TextToSpeech.QUEUE_FLUSH, null);
         }
     }
-
     private void songbuilder() {
         Intent edit_itent = getIntent();
         String edittext = edit_itent.getStringExtra("editTextData");
@@ -157,7 +160,6 @@ public class FinalActivity extends AppCompatActivity {
         v1.setMovementMethod(new ScrollingMovementMethod());
         song = edittext;
     }
-
     @Override
     protected void onDestroy() {
         if (textToSpeech != null) {

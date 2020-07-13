@@ -19,10 +19,7 @@
         <activity android:name=".Selector" />
         <activity android:name=".LyricsLibrary" />
         <activity android:name=".MainActivity5" />
-        <activity
-            android:name=".MainActivity4"
-            android:label="@string/title_activity_main4"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity4" />
         <activity
             android:name=".FinalActivity"
             android:label="@string/title_activity_final"

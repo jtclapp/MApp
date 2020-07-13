@@ -18,12 +18,12 @@
         android:layout_marginBottom="575dp"
         android:text="Build An AI Voice:"
         android:textColor="#E6DADA"
-        android:textSize="40dp" />
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/buttonAI"
-        android:layout_width="123dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="167dp"
@@ -123,18 +123,6 @@
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_baseline_refresh_24" />
 
-    <ImageButton
-        android:id="@+id/Downloadbutton2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="70dp"
-        android:layout_marginBottom="296dp"
-        android:background="@android:color/transparent"
-        android:tint="#000000"
-        app:srcCompat="@android:drawable/stat_sys_download" />
-
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
@@ -148,15 +136,4 @@
         android:hint="Song Title:"
         android:inputType="textPersonName" />
 
-    <ImageButton
-        android:id="@+id/Uploadbutton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="66dp"
-        android:layout_marginBottom="322dp"
-        android:background="@android:color/transparent"
-        android:onClick="startSelectAct"
-        app:srcCompat="@android:drawable/ic_menu_upload" />
 </RelativeLayout>
