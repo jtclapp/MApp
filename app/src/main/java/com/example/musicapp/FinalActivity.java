@@ -34,7 +34,7 @@ import static android.Manifest.permission;
 
 public class FinalActivity extends AppCompatActivity {
     private TextToSpeech textToSpeech;
-    public Uri path;
+    public String path;
     public MediaPlayer player3;
     ToggleButton finalplay;
     Button button;
@@ -177,48 +177,56 @@ public class FinalActivity extends AppCompatActivity {
         Intent myintent2 = getIntent();
         int intvalue = myintent2.getIntExtra("svalue", 0);
         if (intvalue == 1) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hiphop_beat_1);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
         }
         if (intvalue == 2) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hiphop_beat_2);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
         }
         if (intvalue == 3) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.yung_kartz_04_out_cold);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
         }
         if (intvalue == 4) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rock_beat_1);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
         }
         if (intvalue == 5) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.mid_air_machine_underneath_the_world);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
         }
         if (intvalue == 6) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.the_new_monitors_11_last_day_on_the_job);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
         }
         if (intvalue == 7) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.scott_holmes_04_upbeat_party);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
         }
         if (intvalue == 8) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.randb_beat_1);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%202.mp3?alt=media&token=a89fb70f-1a91-47a4-b85c-bf0df1584edf";
         }
         if (intvalue == 9) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.randb_beat_2);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%202.mp3?alt=media&token=a89fb70f-1a91-47a4-b85c-bf0df1584edf";
         }
         if (intvalue == 13) {
-            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.country_beat_1);
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Country%20beat%201.mp3?alt=media&token=394ccfa6-ca62-4fee-b646-9e821e1b56ba";
         }
         if (player3 != null) {
             stopPlayer();
         }
-        if (player3 == null) {
-            player3 = MediaPlayer.create(getApplicationContext(), path);
-            player3.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        if (player3 != null) {
+            stopPlayer();
+        }
+        player3 = new MediaPlayer();
+        try {
+            player3.setDataSource(path);
+            player3.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopPlayer();
+                public void onPrepared(MediaPlayer mp) {
+                    player3.start();
                 }
             });
+            player3.prepare();
         }
-        player3.start();
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
     public void RecordPlay() throws IOException {
         File file = new File(recordedvoice);

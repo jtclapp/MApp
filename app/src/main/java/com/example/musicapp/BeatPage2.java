@@ -2,7 +2,6 @@ package com.example.musicapp;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -10,9 +9,11 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
+
 public class BeatPage2 extends AppCompatActivity {
     MediaPlayer player;
-    Uri path;
+    String path;
     CheckBox checkBox1;
     CheckBox checkBox2;
     CheckBox checkBox3;
@@ -23,7 +24,7 @@ public class BeatPage2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.beat2_activity);
 
         T1 = findViewById(R.id.play_rock1);
         T1.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +40,7 @@ public class BeatPage2 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rock_beat_1);
+                            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
                             play();
                         }
                     }).start();
@@ -63,8 +64,7 @@ public class BeatPage2 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.mid_air_machine_underneath_the_world);
-                            play();
+
                         }
                     }).start();
                 }
@@ -87,8 +87,7 @@ public class BeatPage2 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.the_new_monitors_11_last_day_on_the_job);
-                            play();
+
                         }
                     }).start();
                 }
@@ -111,8 +110,7 @@ public class BeatPage2 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.scott_holmes_04_upbeat_party);
-                            play();
+
                         }
                     }).start();
                 }
@@ -181,22 +179,26 @@ public class BeatPage2 extends AppCompatActivity {
     }
 
     public void play() {
+
         if (player != null) {
             stopPlayer();
         }
-        if (player == null) {
-            player = MediaPlayer.create(getApplicationContext(), path);
-
-            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        player = new MediaPlayer();
+        try {
+            player.setDataSource(path);
+            player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopPlayer();
+                public void onPrepared(MediaPlayer mp) {
+                    player.start();
                 }
             });
+            player.prepare();
         }
-        player.start();
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
-
     public void pause() {
         if (player != null) {
             player.pause();

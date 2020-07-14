@@ -10,10 +10,12 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
+
 public class Beatpage4 extends AppCompatActivity {
 
     MediaPlayer player;
-    Uri path;
+    String path;
     CheckBox checkBox1;
     ToggleButton T1;
     int check;
@@ -33,7 +35,7 @@ public class Beatpage4 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.country_beat_1);
+                            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Country%20beat%201.mp3?alt=media&token=394ccfa6-ca62-4fee-b646-9e821e1b56ba";
                             play();
                         }
                     }).start();
@@ -68,18 +70,21 @@ public class Beatpage4 extends AppCompatActivity {
         if (player != null) {
             stopPlayer();
         }
-        if (player == null) {
-            player = MediaPlayer.create(getApplicationContext(), path);
-
-            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        player = new MediaPlayer();
+        try {
+            player.setDataSource(path);
+            player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopPlayer();
+                public void onPrepared(MediaPlayer mp) {
+                    player.start();
                 }
             });
-
+            player.prepare();
         }
-        player.start();
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void pause() {

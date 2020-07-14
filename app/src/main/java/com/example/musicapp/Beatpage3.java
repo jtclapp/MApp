@@ -10,9 +10,11 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
+
 public class Beatpage3 extends AppCompatActivity {
     MediaPlayer player;
-    Uri path;
+    String path;
     CheckBox checkBox1;
     CheckBox checkBox2;
     ToggleButton T1, T2;
@@ -34,8 +36,7 @@ public class Beatpage3 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.randb_beat_1);
-                            play();
+
                         }
                     }).start();
                 }
@@ -56,7 +57,7 @@ public class Beatpage3 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            path = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.randb_beat_2);
+                            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%202.mp3?alt=media&token=a89fb70f-1a91-47a4-b85c-bf0df1584edf";
                             play();
                         }
                     }).start();
@@ -103,20 +104,22 @@ public class Beatpage3 extends AppCompatActivity {
         if (player != null) {
             stopPlayer();
         }
-        if (player == null) {
-            player = MediaPlayer.create(getApplicationContext(), path);
-
-            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        player = new MediaPlayer();
+        try {
+            player.setDataSource(path);
+            player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopPlayer();
+                public void onPrepared(MediaPlayer mp) {
+                    player.start();
                 }
             });
-
+            player.prepare();
         }
-        player.start();
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
-
     public void pause() {
         if (player != null) {
             player.pause();

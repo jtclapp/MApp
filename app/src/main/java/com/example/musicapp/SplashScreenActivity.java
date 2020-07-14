@@ -20,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(4000)
-                .withBackgroundColor(Color.parseColor("#1a1b29"))
+                .withBackgroundColor(Color.parseColor("#1a2a6c"))
                 .withBeforeLogoText("Welcome To Song Creator")
                 .withLogo(R.mipmap.ic_musiclogo);
 

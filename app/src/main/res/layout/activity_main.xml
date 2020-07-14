@@ -88,9 +88,9 @@
 
     <Button
         android:id="@+id/storagebutton"
-        android:layout_width="73dp"
-        android:layout_height="63dp"
+        android:layout_width="67dp"
+        android:layout_height="66dp"
         android:layout_gravity="center"
-        android:background="@drawable/ic_storage_foreground" />
+        android:background="@drawable/ic_folder_foreground" />
 
 </LinearLayout>
