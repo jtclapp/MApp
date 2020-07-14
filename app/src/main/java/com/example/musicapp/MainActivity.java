@@ -1,10 +1,11 @@
 package com.example.musicapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button2;
     private Button button3;
     private Button button4;
-    private ImageButton lib_button;
-    private ImageButton reclib_button;
+    private Button storagebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,22 +49,33 @@ public class MainActivity extends AppCompatActivity {
                 openBeatpage4();
             }
         });
-        lib_button = findViewById(R.id.library);
-        lib_button.setOnClickListener(new View.OnClickListener() {
+        storagebutton = findViewById(R.id.storagebutton);
+        storagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                openLibrary();
-            }
-        });
-        reclib_button = findViewById(R.id.recordlibrary);
-        reclib_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openRecordingLibrary();
+            public void onClick(View view) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Which library would you like to view?");
+                builder.setPositiveButton("Recording Library", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which)
+                    {
+                        openRecordingLibrary();
+                    }
+                });
+                builder.setNegativeButton("Lyrics Library", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        openLibrary();
+                    }
+                });
+                builder.show();
+                {
+
+                }
             }
         });
     }
-
     public void openBeatpage1() {
         Intent intent = new Intent(this, BeatPage1.class);
         startActivity(intent);

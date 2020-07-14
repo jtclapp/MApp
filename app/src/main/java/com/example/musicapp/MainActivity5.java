@@ -1,6 +1,8 @@
 package com.example.musicapp;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioRecord;
@@ -133,17 +135,17 @@ public class MainActivity5 extends AppCompatActivity {
                 if (play.isChecked()) {
                     play.setActivated(true);
 
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                playRecord();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    playRecord();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                        }
-                    }).start();
-                }
+                        }).start();
+                    }
                 if (play.isChecked() == false) {
                     play.setActivated(false);
                     pauseRecord();
