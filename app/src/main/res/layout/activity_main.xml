@@ -81,16 +81,11 @@
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
-
-
-
+        <Button
+            android:id="@+id/storagebutton"
+            android:layout_width="67dp"
+            android:layout_height="66dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_folder_foreground" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/storagebutton"
-        android:layout_width="67dp"
-        android:layout_height="66dp"
-        android:layout_gravity="center"
-        android:background="@drawable/ic_folder_foreground" />
-
 </LinearLayout>

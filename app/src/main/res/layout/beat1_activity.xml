@@ -39,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:text="Hip/Hop Beat #1"
             android:textColor="#E6DADA" />
 
     </LinearLayout>
@@ -90,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:text="Hip/Hop Beat #3"
             android:textColor="#E6DADA" />
 
     </LinearLayout>

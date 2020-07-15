@@ -1,11 +1,9 @@
 package com.example.musicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-
 import gr.net.maroulis.library.EasySplashScreen;
 
 public class SplashScreenActivity extends AppCompatActivity {

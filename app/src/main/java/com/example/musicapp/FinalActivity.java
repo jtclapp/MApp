@@ -1,10 +1,13 @@
 package com.example.musicapp;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioTrack;
 import android.media.MediaPlayer;
-import android.net.Uri;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -16,10 +19,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
@@ -29,7 +30,6 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-
 import static android.Manifest.permission;
 
 public class FinalActivity extends AppCompatActivity {
@@ -43,6 +43,7 @@ public class FinalActivity extends AppCompatActivity {
     public Set<String> a;
     String recordedvoice;
     AudioTrack audioTrack;
+    boolean connected;
 
 
     @Override
@@ -89,6 +90,7 @@ public class FinalActivity extends AppCompatActivity {
         finalplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
+                connected = isConnected();
                 if (finalplay.isChecked()) {
                     finalplay.setActivated(true);
                     new Thread(new Runnable() {
@@ -101,10 +103,16 @@ public class FinalActivity extends AppCompatActivity {
                             }
                         }
                     }).start();
+                    if(connected == false) {
+                        finalplay.setChecked(false);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(FinalActivity.this);
+                        builder.setMessage("Please Connect to the Internet to use this feature!");
+                        builder.show();
+                    }
                 }
                 if (finalplay.isChecked() == false) {
                     finalplay.setActivated(false);
-                    stop(v);
+                    stopPlayer();
                 }
             }
         });
@@ -172,20 +180,33 @@ public class FinalActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
-
+    public boolean isConnected()
+    {
+        boolean result;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            result = true;
+        }
+        else
+        {
+            result = false;
+        }
+        return result;
+    }
     public void play() {
         Intent myintent2 = getIntent();
         int intvalue = myintent2.getIntExtra("svalue", 0);
-        if (intvalue == 1) {
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
+        if (intvalue == 1) { // Complete
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%201.mp3?alt=media&token=7a26b8cf-e64e-406b-84d3-ade2984be72e";
         }
-        if (intvalue == 2) {
+        if (intvalue == 2) { // Complete
             path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
         }
         if (intvalue == 3) {
             path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
         }
-        if (intvalue == 4) {
+        if (intvalue == 4) { // Complete
             path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
         }
         if (intvalue == 5) {
@@ -197,37 +218,40 @@ public class FinalActivity extends AppCompatActivity {
         if (intvalue == 7) {
             path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
         }
-        if (intvalue == 8) {
+        if (intvalue == 8) { // Complete
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat_1.mp3?alt=media&token=f557d7fd-588f-439e-90cc-3cbac575a615";
+        }
+        if (intvalue == 9) { // Complete
             path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%202.mp3?alt=media&token=a89fb70f-1a91-47a4-b85c-bf0df1584edf";
         }
-        if (intvalue == 9) {
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%202.mp3?alt=media&token=a89fb70f-1a91-47a4-b85c-bf0df1584edf";
+        if(intvalue == 10) { // Complete
+            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%203.mp3?alt=media&token=cc711559-5770-4ee5-8697-7071072a4789";
         }
-        if (intvalue == 13) {
+        if (intvalue == 13) { // Complete
             path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Country%20beat%201.mp3?alt=media&token=394ccfa6-ca62-4fee-b646-9e821e1b56ba";
         }
-        if (player3 != null) {
-            stopPlayer();
+            if (player3 != null) {
+                stopPlayer();
+            }
+            if (player3 != null) {
+                stopPlayer();
+            }
+            player3 = new MediaPlayer();
+            try {
+                player3.setDataSource(path);
+                player3.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        player3.start();
+                    }
+                });
+                player3.prepare();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
         }
-        if (player3 != null) {
-            stopPlayer();
-        }
-        player3 = new MediaPlayer();
-        try {
-            player3.setDataSource(path);
-            player3.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    player3.start();
-                }
-            });
-            player3.prepare();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
     public void RecordPlay() throws IOException {
         File file = new File(recordedvoice);
         Intent HZintent = getIntent();
@@ -254,23 +278,16 @@ public class FinalActivity extends AppCompatActivity {
         audioTrack.play();
         audioTrack.write(audioData, 0, bs);
     }
-
-    public void stop(View view) {
-        stopPlayer();
-    }
-
     private void stopPlayer() {
         if (player3 != null && recordedvoice != null) {
             audioTrack.release();
             player3.release();
             player3 = null;
-            Toast.makeText(getApplicationContext(), "MediaPlayer Released", Toast.LENGTH_SHORT).show();
         }
         if (player3 != null) {
             textToSpeech.stop();
             player3.release();
             player3 = null;
-            Toast.makeText(getApplicationContext(), "MediaPlayer Released", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -38,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:text="Chill Beat #1"
             android:textColor="#E6DADA" />
 
     </LinearLayout>
@@ -64,6 +65,32 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Chill Beat #2"
+            android:textColor="#E6DADA" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_horizontal4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/play_RB3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button2"
+            android:layout_margin="5dp"
+            android:textOff=""
+            android:textOn="" />
+
+        <CheckBox
+            android:id="@+id/RB_checkbox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Chill Beat #3"
             android:textColor="#E6DADA" />
 
     </LinearLayout>
