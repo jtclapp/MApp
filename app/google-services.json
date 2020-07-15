@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "896496465636",
+    "firebase_url": "https://beats-651c7.firebaseio.com",
+    "project_id": "beats-651c7",
+    "storage_bucket": "beats-651c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896496465636:android:cc16b20e4c612761ac9ef1",
+        "android_client_info": {
+          "package_name": "com.example.musicapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896496465636-hklf8e89gbe6jilumse2molv3qp6vvpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAMTZv5gGdXVkY9EL3MfY9eUQBzExcJg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896496465636-hklf8e89gbe6jilumse2molv3qp6vvpa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

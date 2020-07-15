@@ -52,23 +52,7 @@ public class MainActivity extends AppCompatActivity {
         storagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage("Which library would you like to view?");
-                builder.setPositiveButton("Recording Library", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which)
-                    {
-                        openRecordingLibrary();
-                    }
-                });
-                builder.setNegativeButton("Lyrics Library", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        openLibrary();
-                    }
-                });
-                builder.show();
+                openNav();
             }
         });
     }
@@ -91,14 +75,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Beatpage4.class);
         startActivity(intent);
     }
-
-    public void openLibrary() {
-        Intent intent = new Intent(this, LyricsLibrary.class);
-        startActivity(intent);
-    }
-
-    public void openRecordingLibrary() {
-        Intent intent = new Intent(this, RecordingLibrary.class);
+    public void openNav()
+    {
+        Intent intent = new Intent(this,Navigator.class);
         startActivity(intent);
     }
 }
