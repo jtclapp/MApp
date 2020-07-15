@@ -78,6 +78,7 @@ public class FinalActivity extends AppCompatActivity {
         finalplay = findViewById(R.id.finalplay);
         v1 = findViewById(R.id.textView4);
         songtitle = findViewById(R.id.songtitle);
+        final LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
         Intent myintent = getIntent();
         recordedvoice = myintent.getStringExtra("path");
@@ -90,7 +91,14 @@ public class FinalActivity extends AppCompatActivity {
         finalplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
+                loadingHelper.startLoadingDialog();
                 connected = isConnected();
+                if(connected == false) {
+                    finalplay.setChecked(false);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(FinalActivity.this);
+                    builder.setMessage("Please Connect to the Internet to use this feature!");
+                    builder.show();
+                }
                 if (finalplay.isChecked()) {
                     finalplay.setActivated(true);
                     new Thread(new Runnable() {
@@ -101,16 +109,12 @@ public class FinalActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+                            loadingHelper.dismissDialog();
                         }
                     }).start();
-                    if(connected == false) {
-                        finalplay.setChecked(false);
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(FinalActivity.this);
-                        builder.setMessage("Please Connect to the Internet to use this feature!");
-                        builder.show();
-                    }
                 }
                 if (finalplay.isChecked() == false) {
+                    loadingHelper.dismissDialog();
                     finalplay.setActivated(false);
                     stopPlayer();
                 }
@@ -249,9 +253,9 @@ public class FinalActivity extends AppCompatActivity {
             }
             catch (IOException e)
             {
-                e.printStackTrace();
-            }
-        }
+        e.printStackTrace();
+    }
+}
     public void RecordPlay() throws IOException {
         File file = new File(recordedvoice);
         Intent HZintent = getIntent();
@@ -296,7 +300,6 @@ public class FinalActivity extends AppCompatActivity {
         super.onStop();
         stopPlayer();
     }
-
     public void FinalPlay(View view) throws IOException {
         if (recordedvoice != null) {
             RecordPlay();

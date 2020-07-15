@@ -186,19 +186,11 @@ public class Beatpage3 extends AppCompatActivity {
             if (player != null) {
                 stopPlayer();
             }
-            if (player != null) {
-                stopPlayer();
-            }
             player = new MediaPlayer();
             try {
                 player.setDataSource(path);
-                player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                    @Override
-                    public void onPrepared(MediaPlayer mp) {
-                        player.start();
-                    }
-                });
                 player.prepare();
+                player.start();
             }
             catch (IOException e)
             {
