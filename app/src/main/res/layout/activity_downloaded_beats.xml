@@ -4,23 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_vertical"
     android:orientation="vertical"
     android:paddingTop="?attr/actionBarSize"
     android:background="@drawable/gradient_background"
     tools:context=".DownloadedBeats">
 
+    <TextView
+        android:id="@+id/BeatTextView"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:text="SELECT THE BEAT YOU WOULD LIKE TO DOWNLOAD: "
+        android:textColor="#E6DADA"
+        android:layout_margin="5dp"
+        android:textSize="20dp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="400dp"
-        android:layout_height="118dp"
-        android:layout_margin="5dp" />
-
-    <Button
-        android:id="@+id/button"
+    <CheckBox
+        android:id="@+id/BeatCheckBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="Hip/Hop Beat #1"
+        android:textColor="#E6DADA" />
+    <CheckBox
+        android:id="@+id/BeatCheckBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="Hip/Hop Beat #2"
+        android:textColor="#E6DADA" />
+    <CheckBox
+        android:id="@+id/BeatCheckBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="Hip/Hop Beat #3"
+        android:textColor="#E6DADA" />
+    <CheckBox
+        android:id="@+id/BeatCheckBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rock Beat #1"
+        android:layout_margin="3dp"
+        android:textColor="#E6DADA" />
+    <CheckBox
+        android:id="@+id/BeatCheckBox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="Chill Beat #1"
+        android:textColor="#E6DADA" />
+    <CheckBox
+        android:id="@+id/BeatCheckBox6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="Chill Beat #2"
+        android:textColor="#E6DADA" />
+    <CheckBox
+        android:id="@+id/BeatCheckBox7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="Chill Beat #3"
+        android:textColor="#E6DADA" />
+    <CheckBox
+        android:id="@+id/BeatCheckBox8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country Beat #1"
+        android:layout_margin="3dp"
+        android:textColor="#E6DADA" />
+
+    <ImageButton
+        android:id="@+id/DownloadButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:text="Download" />
+        android:layout_margin="40dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#696969"
+        app:srcCompat="@android:drawable/stat_sys_download_done" />
 </LinearLayout>

@@ -76,7 +76,7 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="393dp"
-        android:layout_height="50dp" />
+        android:layout_height="60dp" />
 
     <LinearLayout
         android:id="@+id/progress_horizontal"
