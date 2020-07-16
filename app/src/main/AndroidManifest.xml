@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Navigator"></activity>
+        <activity android:name=".DownloadedBeats"></activity>
+        <activity android:name=".Navigator" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Beatpage4" />
         <activity android:name=".Beatpage3" />

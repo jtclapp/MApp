@@ -53,6 +53,7 @@ public class Navigator extends AppCompatActivity {
 
     public void openDownloadedBeats()
     {
-
+        Intent intent = new Intent(this,DownloadedBeats.class);
+        startActivity(intent);
     }
 }
