@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.text.method.ScrollingMovementMethod;
@@ -34,17 +35,15 @@ import static android.Manifest.permission;
 
 public class FinalActivity extends AppCompatActivity {
     private TextToSpeech textToSpeech;
-    public String path;
     public MediaPlayer player3;
     ToggleButton finalplay;
     Button button;
     TextView v1, songtitle;
     String song;
+    File path;
     public Set<String> a;
     String recordedvoice;
     AudioTrack audioTrack;
-    boolean connected;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,13 +91,6 @@ public class FinalActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 loadingHelper.startLoadingDialog();
-                connected = isConnected();
-                if(connected == false) {
-                    finalplay.setChecked(false);
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(FinalActivity.this);
-                    builder.setMessage("Please Connect to the Internet to use this feature!");
-                    builder.show();
-                }
                 if (finalplay.isChecked()) {
                     finalplay.setActivated(true);
                     new Thread(new Runnable() {
@@ -202,37 +194,41 @@ public class FinalActivity extends AppCompatActivity {
         Intent myintent2 = getIntent();
         int intvalue = myintent2.getIntExtra("svalue", 0);
         if (intvalue == 1) { // Complete
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%201.mp3?alt=media&token=7a26b8cf-e64e-406b-84d3-ade2984be72e";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
         }
         if (intvalue == 2) { // Complete
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#2.mp3");
         }
-        if (intvalue == 3) {
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rap%20Beat%202.mp3?alt=media&token=0fded1e5-6c7f-4a47-bedd-e1df48e7f516";
+        if (intvalue == 3) { // Complete
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
         }
         if (intvalue == 4) { // Complete
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
         }
         if (intvalue == 5) {
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
         }
         if (intvalue == 6) {
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
         }
         if (intvalue == 7) {
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Rock%20Beat%201.mp3?alt=media&token=473246ca-d10e-4f88-b15c-4738070f6966";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
         }
         if (intvalue == 8) { // Complete
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat_1.mp3?alt=media&token=f557d7fd-588f-439e-90cc-3cbac575a615";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#1.mp3");
         }
         if (intvalue == 9) { // Complete
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%202.mp3?alt=media&token=a89fb70f-1a91-47a4-b85c-bf0df1584edf";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#2.mp3");
         }
         if(intvalue == 10) { // Complete
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/R%26B%20Beat%203.mp3?alt=media&token=cc711559-5770-4ee5-8697-7071072a4789";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#3.mp3");
+        }
+        if(intvalue == 11) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#4.mp3");
         }
         if (intvalue == 13) { // Complete
-            path = "https://firebasestorage.googleapis.com/v0/b/beats-651c7.appspot.com/o/Country%20beat%201.mp3?alt=media&token=394ccfa6-ca62-4fee-b646-9e821e1b56ba";
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
         }
             if (player3 != null) {
                 stopPlayer();
@@ -242,7 +238,7 @@ public class FinalActivity extends AppCompatActivity {
             }
             player3 = new MediaPlayer();
             try {
-                player3.setDataSource(path);
+                player3.setDataSource(String.valueOf(path));
                 player3.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                     @Override
                     public void onPrepared(MediaPlayer mp) {
@@ -278,9 +274,9 @@ public class FinalActivity extends AppCompatActivity {
         dataInputStream.close();
 
         audioTrack = new AudioTrack(3, SampleHZ, 2, 2, bs, 1);
-        play();
         audioTrack.play();
         audioTrack.write(audioData, 0, bs);
+        play();
     }
     private void stopPlayer() {
         if (player3 != null && recordedvoice != null) {
@@ -294,7 +290,6 @@ public class FinalActivity extends AppCompatActivity {
             player3 = null;
         }
     }
-
     @Override
     protected void onStop() {
         super.onStop();

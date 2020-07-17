@@ -104,6 +104,7 @@ public class MainActivity5 extends AppCompatActivity {
             public void onClick(View v) {
                 if (custombutton.isChecked()) {
                     custombutton.setActivated(true);
+                    play.setVisibility(View.INVISIBLE);
                     setbutton.setEnabled(false);
                     new Thread(new Runnable() {
                         @Override
@@ -120,8 +121,21 @@ public class MainActivity5 extends AppCompatActivity {
                     custombutton.setActivated(false);
                     setbutton.setEnabled(true);
                     play.setVisibility(View.VISIBLE);
-
                     stoprecording();
+                    if (path != null) {
+                        RecordingModel recordingModel;
+                        try {
+                            recordingModel = new RecordingModel(-1, path);
+                        } catch (Exception e) {
+                            Toast.makeText(getApplicationContext(), "Error Creating Recording!", Toast.LENGTH_SHORT).show();
+                            recordingModel = new RecordingModel(-1, "error");
+                        }
+                        DataBaseHelper dataBaseHelper2 = new DataBaseHelper(MainActivity5.this);
+                        dataBaseHelper2.addOneRecording(recordingModel);
+                        Toast.makeText(getApplicationContext(), "Recording Successfully Saved!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "No Recording to save", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
@@ -129,6 +143,8 @@ public class MainActivity5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (play.isChecked()) {
+                    final LoadingHelper loadingHelper = new LoadingHelper(MainActivity5.this);
+                    loadingHelper.startLoadingDialog();
                     play.setActivated(true);
 
                         new Thread(new Runnable() {
@@ -141,6 +157,7 @@ public class MainActivity5 extends AppCompatActivity {
                                 }
                             }
                         }).start();
+                    loadingHelper.dismissDialog();
                     }
                 if (play.isChecked() == false) {
                     play.setActivated(false);
@@ -152,7 +169,6 @@ public class MainActivity5 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spFrequency.setAdapter(adapter);
         setbutton.setEnabled(false);
-
     }
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permission, @NonNull int[] grantResults) {
         if (requestCode == 111 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -161,7 +177,7 @@ public class MainActivity5 extends AppCompatActivity {
     }
 
     private void startRecord() throws IOException {
-        path = Environment.getExternalStorageDirectory() + "/Recording_" + System.currentTimeMillis() + ".pcm";
+        path = getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "/Recording_" + System.currentTimeMillis() + ".pcm";
         file = new File(path);
         file.createNewFile();
 
@@ -321,23 +337,6 @@ public class MainActivity5 extends AppCompatActivity {
             case R.id.UL:
                 startSelectAct();
                 break;
-            case R.id.DR:
-                if (path != null) {
-                    RecordingModel recordingModel;
-                    try {
-                        recordingModel = new RecordingModel(-1, path);
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Error Creating Recording!", Toast.LENGTH_SHORT).show();
-                        recordingModel = new RecordingModel(-1, "error");
-                    }
-                    DataBaseHelper dataBaseHelper2 = new DataBaseHelper(MainActivity5.this);
-                    success = dataBaseHelper2.addOneRecording(recordingModel);
-                    Toast.makeText(getApplicationContext(), "Saved = " + success, Toast.LENGTH_SHORT).show();
-                    break;
-                } else {
-                    Toast.makeText(getApplicationContext(), "No Recording to save", Toast.LENGTH_LONG).show();
-                    break;
-                }
             case R.id.UR:
                 startSelectAct2();
                 break;
@@ -358,13 +357,11 @@ public class MainActivity5 extends AppCompatActivity {
             audioTrack.release();
         }
     }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
     }
-
     public void SetRecord(View view) {
         Intent myintent = getIntent();
         int svalue = myintent.getIntExtra("check", 0);

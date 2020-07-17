@@ -13,67 +13,79 @@
         android:id="@+id/BeatTextView"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:text="SELECT THE BEAT YOU WOULD LIKE TO DOWNLOAD: "
+        android:text="Select A Beat to Download: "
         android:textColor="#E6DADA"
         android:layout_margin="5dp"
         android:textSize="20dp" />
 
-    <CheckBox
-        android:id="@+id/BeatCheckBox1"
+    <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:text="Hip/Hop Beat #1"
-        android:textColor="#E6DADA" />
-    <CheckBox
-        android:id="@+id/BeatCheckBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:text="Hip/Hop Beat #2"
-        android:textColor="#E6DADA" />
-    <CheckBox
-        android:id="@+id/BeatCheckBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:text="Hip/Hop Beat #3"
-        android:textColor="#E6DADA" />
-    <CheckBox
-        android:id="@+id/BeatCheckBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rock Beat #1"
-        android:layout_margin="3dp"
-        android:textColor="#E6DADA" />
-    <CheckBox
-        android:id="@+id/BeatCheckBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:text="Chill Beat #1"
-        android:textColor="#E6DADA" />
-    <CheckBox
-        android:id="@+id/BeatCheckBox6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:text="Chill Beat #2"
-        android:textColor="#E6DADA" />
-    <CheckBox
-        android:id="@+id/BeatCheckBox7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:text="Chill Beat #3"
-        android:textColor="#E6DADA" />
-    <CheckBox
-        android:id="@+id/BeatCheckBox8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Country Beat #1"
-        android:layout_margin="3dp"
-        android:textColor="#E6DADA" />
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Hip/Hop Beat #1"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Hip/Hop Beat #2"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Hip/Hop Beat #3"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Rock Beat #1"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Chill Beat #1"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Chill Beat #2"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Chill Beat #3"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Chill Beat #4"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Country Beat #1"
+            android:layout_margin="3dp"
+            android:textColor="#E6DADA"/>
+</RadioGroup>
 
     <ImageButton
         android:id="@+id/DownloadButton"
@@ -84,4 +96,5 @@
         android:background="@drawable/rounded_button"
         android:backgroundTint="#696969"
         app:srcCompat="@android:drawable/stat_sys_download_done" />
+
 </LinearLayout>
