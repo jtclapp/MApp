@@ -13,7 +13,7 @@
         android:id="@+id/BeatTextView"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:text="Select A Beat to Download: "
+        android:text="Select a beat to download: "
         android:textColor="#E6DADA"
         android:layout_margin="5dp"
         android:textSize="20dp" />

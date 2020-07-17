@@ -77,7 +77,6 @@ public class FinalActivity extends AppCompatActivity {
         finalplay = findViewById(R.id.finalplay);
         v1 = findViewById(R.id.textView4);
         songtitle = findViewById(R.id.songtitle);
-        final LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
         Intent myintent = getIntent();
         recordedvoice = myintent.getStringExtra("path");
@@ -90,7 +89,6 @@ public class FinalActivity extends AppCompatActivity {
         finalplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                loadingHelper.startLoadingDialog();
                 if (finalplay.isChecked()) {
                     finalplay.setActivated(true);
                     new Thread(new Runnable() {
@@ -101,12 +99,10 @@ public class FinalActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                            loadingHelper.dismissDialog();
                         }
                     }).start();
                 }
                 if (finalplay.isChecked() == false) {
-                    loadingHelper.dismissDialog();
                     finalplay.setActivated(false);
                     stopPlayer();
                 }
@@ -237,6 +233,13 @@ public class FinalActivity extends AppCompatActivity {
             {
                 e.printStackTrace();
             }
+            player3.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+
+                        finalplay.setActivated(false);
+                }
+            });
 }
     public void RecordPlay() throws IOException {
         File file = new File(recordedvoice);
@@ -258,9 +261,9 @@ public class FinalActivity extends AppCompatActivity {
         dataInputStream.close();
 
         audioTrack = new AudioTrack(3, SampleHZ, 2, 2, bs, 1);
+        play();
         audioTrack.play();
         audioTrack.write(audioData, 0, bs);
-        play();
     }
     private void stopPlayer() {
         if (player3 != null && recordedvoice != null) {

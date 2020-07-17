@@ -18,11 +18,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(3000)
-                .withBackgroundColor(Color.parseColor("#1a2a6c"))
-                .withBeforeLogoText("Welcome To Song Creator")
+                .withBackgroundColor(Color.parseColor("#110c11"))
                 .withLogo(R.mipmap.ic_musiclogo);
-
-        config.getBeforeLogoTextView().setTextColor(Color.WHITE);
 
         View easySplashScreen = config.create();
         setContentView(easySplashScreen);

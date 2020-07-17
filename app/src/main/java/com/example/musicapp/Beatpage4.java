@@ -117,6 +117,7 @@ public class Beatpage4 extends AppCompatActivity {
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    T1.setActivated(false);
                     Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
                     startActivity(intentdownload);
                 }

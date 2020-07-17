@@ -12,7 +12,7 @@
         android:id="@+id/RB_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SELECT THE BEAT FOR YOUR SONG: "
+        android:text="SELECT A BEAT FOR YOUR SONG: "
         android:textColor="#E6DADA"
         android:layout_margin="5dp"
         android:textSize="20dp" />

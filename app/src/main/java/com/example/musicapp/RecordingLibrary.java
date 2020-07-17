@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+
 public class RecordingLibrary extends AppCompatActivity {
     ListView lv_recordinglist;
     ArrayAdapter recordingArrayAdapter;
@@ -61,7 +63,7 @@ public class RecordingLibrary extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         RecordingModel clickedRecording = (RecordingModel) adapterView.getItemAtPosition(i);
-                        String newname = Environment.getExternalStorageDirectory() + "/Recording_" + recordingname.getText().toString();
+                        String newname = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + recordingname.getText().toString();
                         boolean update = dataBaseHelper.updateOneRecording(clickedRecording, newname);
                         Toast.makeText(RecordingLibrary.this, " Updated = " + update, Toast.LENGTH_SHORT).show();
                         ShowRecording();

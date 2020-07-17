@@ -16,8 +16,7 @@
         android:gravity="center"
         android:textColor="#E6DADA"
         android:textSize="25dp"
-        android:layout_margin="5dp"
-        android:text="View Saved Content: " />
+        android:layout_margin="5dp"/>
     <Button
         android:id="@+id/ViewLyrics"
         android:layout_width="318dp"
@@ -53,7 +52,7 @@
         android:layout_margin="5dp"
         android:backgroundTint="#E6DADA"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:text="Downloaded Beats"
+        android:text="Beats Library"
         android:textColor="#414345"
         android:textSize="30dp" />
 

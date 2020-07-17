@@ -75,15 +75,16 @@ public class MainActivity5 extends AppCompatActivity {
         textView.setText(ss);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
 
-        String[] arrayOfStrings = new String[8];
+        String[] arrayOfStrings = new String[9];
         arrayOfStrings[0] = "Slow Motion";
-        arrayOfStrings[1] = "Robot";
-        arrayOfStrings[2] = "Deep Pitch";
+        arrayOfStrings[1] = "Bass";
+        arrayOfStrings[2] = "Alto";
         arrayOfStrings[3] = "Normal";
-        arrayOfStrings[4] = "High Pitch";
-        arrayOfStrings[5] = "Squeaky Pitch";
-        arrayOfStrings[6] = "Helium";
-        arrayOfStrings[7] = "Fast Forward";
+        arrayOfStrings[4] = "Tenor";
+        arrayOfStrings[5] = "Soprano";
+        arrayOfStrings[6] = "Coloratura Soprano";
+        arrayOfStrings[7] = "Helium";
+        arrayOfStrings[8] = "2x Speed";
 
         spFrequency = findViewById(R.id.Voice_spinner);
         custombutton = findViewById(R.id.CustomButton);
@@ -180,7 +181,7 @@ public class MainActivity5 extends AppCompatActivity {
     }
 
     private void startRecord() throws IOException {
-        path = getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "/Recording_" + System.currentTimeMillis() + ".pcm";
+        path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + "Recording_" + System.currentTimeMillis() + ".pcm";
         file = new File(path);
         file.createNewFile();
 
@@ -230,48 +231,52 @@ public class MainActivity5 extends AppCompatActivity {
             audioTrack.play();
             audioTrack.write(audioData, 0, buffersizeinbytes);
         }
+        play.setActivated(false);
     }
-
     public void pauseRecord() {
         if (audioTrack != null) {
             audioTrack.pause();
         }
     }
-
     public int GetHZ() {
         //arrayOfStrings[0] = "Slow Motion";
-        //arrayOfStrings[1] = "Robot";
-        //arrayOfStrings[2] = "Deep Pitch";
+        //arrayOfStrings[1] = "Bass";
+        //arrayOfStrings[2] = "Alto";
         //arrayOfStrings[3] = "Normal";
-        //arrayOfStrings[4] = "High Pitch";
-        //arrayOfStrings[5] = "Squeaky Pitch";
-        //arrayOfStrings[6] = "Helium";
-        //arrayOfStrings[7] = "Fast Forward";
+        //arrayOfStrings[4] = "Tenor";
+        //arrayOfStrings[5] = "Soprano";
+        //arrayOfStrings[6] = "Coloratura Soprano";
+        //arrayOfStrings[7] = "Helium";
+        //arrayOfStrings[8] = "2x Speed";
         int i = 0;
         String str = (String) spFrequency.getSelectedItem();
         if (str.equals("Slow Motion")) {
-            i = 6050;
+            i = 6400;
         }
-        if (str.equals("Robot")) {
-            i = 8500;
+        if (str.equals("Bass")) {
+            i = 8450;
         }
-        if (str.equals("Deep Pitch")) {
-            i = 9300;
+        if (str.equals("Alto")) {
+            i = 9800;
         }
         if (str.equals("Normal")) {
             i = 11025;
         }
-        if (str.equals("High Pitch")) {
-            i = 13000;
+        if(str.equals("Tenor"))
+        {
+            i = 12800;
         }
-        if (str.equals("Squeaky Pitch")) {
-            i = 15150;
+        if (str.equals("Soprano")) {
+            i = 14100;
+        }
+        if (str.equals("Coloratura Soprano")) {
+            i = 15000;
         }
         if (str.equals("Helium")) {
-            i = 19000;
+            i = 20000;
         }
-        if (str.equals("Fast Forward")) {
-            i = 25000;
+        if (str.equals("2x Speed")) {
+            i = 24200;
         }
         return i;
     }
@@ -335,7 +340,14 @@ public class MainActivity5 extends AppCompatActivity {
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity5.this);
                 boolean success = dataBaseHelper.addOne(lyricsModel);
-                Toast.makeText(getApplicationContext(), "Entry Added = " + success, Toast.LENGTH_LONG).show();
+                if(success == true)
+                {
+                    Toast.makeText(getApplicationContext(), "Lyrics were successfully saved.", Toast.LENGTH_LONG).show();
+                }
+                if(success == false)
+                {
+                    Toast.makeText(getApplicationContext(),"Error occurred when trying to save lyrics.", Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.UL:
                 startSelectAct();
