@@ -64,6 +64,9 @@ public class MainActivity5 extends AppCompatActivity {
             public void onClick(@NonNull View widget) {
                 Intent myintent = getIntent();
                 int svalue = myintent.getIntExtra("check", 0);
+                Intent myintent2 = getIntent();
+                float volume = myintent2.getFloatExtra("setVolume",0);
+                k.putExtra("volume",volume);
                 k.putExtra("svalue", svalue);
                 startActivity(k);
             }
@@ -366,7 +369,7 @@ public class MainActivity5 extends AppCompatActivity {
         Intent myintent = getIntent();
         Intent myintent2 = getIntent();
         int svalue = myintent.getIntExtra("check", 0);
-        float volume = myintent2.getFloatExtra("setVolume",0f);
+        float volume = myintent2.getFloatExtra("setVolume",0);
         int sampleRateInHz = GetHZ();
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
         buffersizeinbytes = (int) (file.length() / shortSizeInBytes);

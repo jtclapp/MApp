@@ -3,6 +3,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -133,8 +134,17 @@ public class DownloadedBeats extends AppCompatActivity {
 
         if (dir.exists() == true)
             {
+                String newfilepath = dir.getAbsolutePath();
+                final File standin = new File(newfilepath);
                 AlertDialog.Builder builder = new AlertDialog.Builder(DownloadedBeats.this);
                 builder.setMessage("This beat appears to be already downloaded.");
+                builder.setPositiveButton("Delete Download", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        boolean success = standin.delete();
+                        Toast.makeText(getApplicationContext(),"Deleted = " + success,Toast.LENGTH_SHORT).show();
+                    }
+                });
                 builder.setNegativeButton("Cancel", null);
                 builder.show();
             }

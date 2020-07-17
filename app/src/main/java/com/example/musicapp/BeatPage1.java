@@ -138,12 +138,10 @@ public class BeatPage1 extends AppCompatActivity {
             }
         });
         volumeadj = findViewById(R.id.Volume);
-        setVolume = (float) volumeadj.getProgress() / 50;
     }
 
     public void openMainAct5() {
         Intent intent = new Intent(this, MainActivity5.class);
-
         if (check == 1) {
             intent.putExtra("check", 1);
         }
@@ -153,7 +151,9 @@ public class BeatPage1 extends AppCompatActivity {
         if (check == 3) {
             intent.putExtra("check", 3);
         }
-        intent.putExtra("setvolume",setVolume);
+        setVolume = (float) volumeadj.getProgress() / 50;
+        if (setVolume < 0.1) {setVolume = 0.1f;}
+        intent.putExtra("setVolume",setVolume);
         startActivity(intent);
     }
 

@@ -178,9 +178,9 @@ public class FinalActivity extends AppCompatActivity {
     }
     public void play() {
         Intent myintent2 = getIntent();
-        Intent myintent0 = getIntent();
+        Intent myintent = getIntent();
         int intvalue = myintent2.getIntExtra("svalue", 0);
-        float finalvolume = myintent0.getFloatExtra("volume",0);
+        float final_volume = myintent.getFloatExtra("volume",0);
         if (intvalue == 1) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
         }
@@ -231,7 +231,7 @@ public class FinalActivity extends AppCompatActivity {
                     }
                 });
                 player3.prepare();
-                player3.setVolume(finalvolume,finalvolume);
+                player3.setVolume(final_volume,final_volume);
             }
             catch (IOException e)
             {
