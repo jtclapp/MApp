@@ -255,8 +255,11 @@ public class MainActivity4 extends AppCompatActivity {
 
         Intent myintent2 = getIntent();
         int svalue = myintent2.getIntExtra("svalue", 0);
+        Intent myintent3 = getIntent();
+        float volume = myintent3.getFloatExtra("volume",0);
 
         i.putExtra("svalue", svalue);
+        i.putExtra("volume",volume);
         startActivity(i);
     }
 

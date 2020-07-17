@@ -364,7 +364,9 @@ public class MainActivity5 extends AppCompatActivity {
     }
     public void SetRecord(View view) {
         Intent myintent = getIntent();
+        Intent myintent2 = getIntent();
         int svalue = myintent.getIntExtra("check", 0);
+        float volume = myintent2.getFloatExtra("setVolume",0f);
         int sampleRateInHz = GetHZ();
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
         buffersizeinbytes = (int) (file.length() / shortSizeInBytes);
@@ -374,6 +376,7 @@ public class MainActivity5 extends AppCompatActivity {
         Intent intent = new Intent(this, FinalActivity.class);
         intent.putExtra("songtitle", songtitle);
         intent.putExtra("svalue", svalue);
+        intent.putExtra("volume",volume);
         intent.putExtra("sampleRateInHz", sampleRateInHz);
         intent.putExtra("buffersizeinbytes", buffersizeinbytes);
         intent.putExtra("path", path);

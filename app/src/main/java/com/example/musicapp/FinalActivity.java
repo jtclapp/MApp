@@ -176,23 +176,11 @@ public class FinalActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
-    public boolean isConnected()
-    {
-        boolean result;
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            result = true;
-        }
-        else
-        {
-            result = false;
-        }
-        return result;
-    }
     public void play() {
         Intent myintent2 = getIntent();
+        Intent myintent0 = getIntent();
         int intvalue = myintent2.getIntExtra("svalue", 0);
+        float finalvolume = myintent0.getFloatExtra("volume",0);
         if (intvalue == 1) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
         }
@@ -233,9 +221,6 @@ public class FinalActivity extends AppCompatActivity {
             if (player3 != null) {
                 stopPlayer();
             }
-            if (player3 != null) {
-                stopPlayer();
-            }
             player3 = new MediaPlayer();
             try {
                 player3.setDataSource(String.valueOf(path));
@@ -246,11 +231,12 @@ public class FinalActivity extends AppCompatActivity {
                     }
                 });
                 player3.prepare();
+                player3.setVolume(finalvolume,finalvolume);
             }
             catch (IOException e)
             {
-        e.printStackTrace();
-    }
+                e.printStackTrace();
+            }
 }
     public void RecordPlay() throws IOException {
         File file = new File(recordedvoice);
@@ -260,9 +246,7 @@ public class FinalActivity extends AppCompatActivity {
         int bs = Bufferintent.getIntExtra("buffersizeinbytes", 0);
 
         short[] audioData = new short[bs];
-
         InputStream inputStream = new FileInputStream(file);
-
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
         DataInputStream dataInputStream = new DataInputStream(bufferedInputStream);
 

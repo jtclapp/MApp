@@ -2,13 +2,16 @@ package com.example.musicapp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.SeekBar;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AlertDialog;
@@ -24,6 +27,8 @@ public class BeatPage1 extends AppCompatActivity {
     CheckBox checkBox3;
     ToggleButton T1, T2, T3;
     int check;
+    SeekBar volumeadj;
+    float setVolume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +137,8 @@ public class BeatPage1 extends AppCompatActivity {
                 }
             }
         });
+        volumeadj = findViewById(R.id.Volume);
+        setVolume = (float) volumeadj.getProgress() / 50;
     }
 
     public void openMainAct5() {
@@ -146,15 +153,17 @@ public class BeatPage1 extends AppCompatActivity {
         if (check == 3) {
             intent.putExtra("check", 3);
         }
+        intent.putExtra("setvolume",setVolume);
         startActivity(intent);
     }
 
     public void play() {
-
             if (player != null) {
                 stopPlayer();
             }
             player = new MediaPlayer();
+            setVolume = (float) volumeadj.getProgress() / 50;
+            if (setVolume < 0.1) {setVolume = 0.1f;}
             try {
                 player.setDataSource(String.valueOf(path));
                 player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -164,6 +173,7 @@ public class BeatPage1 extends AppCompatActivity {
                     }
                 });
                 player.prepare();
+                player.setVolume(setVolume,setVolume);
             }
             catch (IOException e)
             {
