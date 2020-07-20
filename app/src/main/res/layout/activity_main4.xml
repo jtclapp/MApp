@@ -1,110 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    android:paddingLeft="?attr/actionBarSize"
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity4">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="115dp"
-        android:layout_marginBottom="575dp"
-        android:text="Build An AI Voice:"
-        android:textColor="#E6DADA"
-        android:textSize="25dp" />
-
-    <Button
-        android:id="@+id/buttonAI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="167dp"
-        android:layout_marginBottom="90dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#E6DADA"
-        android:onClick="TestAI"
-        android:text="Test Voice" />
-
-    <SeekBar
-        android:id="@+id/seekBarPitch"
-        android:layout_width="171dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="118dp"
-        android:layout_marginBottom="190dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="294dp"
-        android:layout_marginBottom="190dp"
-        android:textColor="#E6DADA"
-        android:text="Pitch" />
-
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="254dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="120dp"
-        android:layout_marginBottom="205dp" />
-
-    <SeekBar
-        android:id="@+id/seekBarSpeed"
-        android:layout_width="171dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="117dp"
-        android:layout_marginBottom="163dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="292dp"
-        android:layout_marginBottom="163dp"
-        android:textColor="#E6DADA"
-        android:text="Speed" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="118dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#E6DADA"
-        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:onClick="SendVoice"
-        android:text="SET VOICE" />
+        android:background="@null"
+        android:ems="10"
+        android:layout_gravity="left"
+        android:layout_margin="5dp"
+        android:hint="Song Title:"
+        android:inputType="textPersonName" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
         android:layout_width="285dp"
         android:layout_height="288dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="259dp"
+        android:layout_gravity="center"
         android:gravity="top"
         android:hint="Input Lyircs/Generate Lyrics:"
         android:inputType="textMultiLine"
@@ -115,25 +44,78 @@
         android:id="@+id/generatelyrics2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="70dp"
-        android:layout_marginBottom="264dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="5dp"
         android:onClick="LyricBuilder2"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_baseline_refresh_24" />
+</LinearLayout>
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="254dp"
+        android:layout_gravity="left"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="145dp"
-        android:layout_marginBottom="545dp"
-        android:background="@null"
-        android:ems="10"
-        android:hint="Song Title:"
-        android:inputType="textPersonName" />
+        android:orientation="horizontal"
+        android:layout_gravity="left">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA"
+            android:text="Pitch" />
+        <SeekBar
+            android:id="@+id/seekBarPitch"
+            android:layout_width="171dp"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA"
+            android:text="Speed" />
+        <SeekBar
+            android:id="@+id/seekBarSpeed"
+            android:layout_width="171dp"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonAI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="left"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#E6DADA"
+            android:onClick="TestAI"
+            android:text="Test Voice" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:layout_gravity="right"
+        android:layout_margin="5dp"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:onClick="SendVoice"
+        android:text="SET VOICE" />
+</LinearLayout>
+</ScrollView>

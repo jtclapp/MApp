@@ -12,6 +12,10 @@ import android.widget.SeekBar;
 import android.widget.ToggleButton;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -24,11 +28,15 @@ public class BeatPage1 extends AppCompatActivity {
     int check;
     SeekBar volumeadj;
     float setVolume;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beat1_activity);
+        mAdView = findViewById(R.id.adView2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         R1 = findViewById(R.id.checkBox);

@@ -1,59 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
     android:background="@drawable/gradient_background"
+    android:paddingTop="?attr/actionBarSize"
     tools:context=".FinalActivity">
 
-    <Button
-        android:id="@+id/buttonAI"
-        android:layout_width="101dp"
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/songtitle"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="159dp"
-        android:layout_marginBottom="45dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#E6DADA"
-        android:drawableBottom="@drawable/ic_baseline_refresh_24"
-        android:onClick="LoadAI"
-        android:text="Load AI" />
+        android:textColor="#080808"
+        android:layout_margin="5dp"
+        android:background="@null"
+        android:textSize="25dp" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="308dp"
+        android:layout_height="349dp"
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        android:layout_margin="5dp"
+        android:textColor="#E6DADA" />
 
     <ToggleButton
         android:id="@+id/finalplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="157dp"
-        android:layout_marginBottom="77dp"
         android:background="@drawable/custom_button3"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
         android:textOff=""
         android:textOn="" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="308dp"
-        android:layout_height="349dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="193dp"
-        android:textSize="16dp"
-        android:textColor="#E6DADA" />
-
-    <TextView
-        android:id="@+id/songtitle"
-        android:layout_width="300dp"
+    <Button
+        android:id="@+id/buttonAI"
+        android:layout_width="101dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="547dp"
-        android:textColor="#080808"
-        android:background="@null"
-        android:textSize="25dp" />
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:drawableBottom="@drawable/ic_baseline_refresh_24"
+        android:onClick="LoadAI"
+        android:text="Load AI" />
 
-</RelativeLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView12"
+        android:layout_width="406dp"
+        android:layout_height="63dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+</LinearLayout>
+</ScrollView>

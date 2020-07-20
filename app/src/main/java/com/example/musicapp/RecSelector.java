@@ -10,15 +10,23 @@ import android.widget.ListView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class RecSelector extends AppCompatActivity {
     ListView lv_recordinglist;
     ArrayAdapter recordingArrayAdapter;
     DataBaseHelper dataBaseHelper;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rec_selector);
+
+        mAdView = findViewById(R.id.adView11);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         lv_recordinglist = findViewById(R.id.recording_list2);
         dataBaseHelper = new DataBaseHelper(RecSelector.this);

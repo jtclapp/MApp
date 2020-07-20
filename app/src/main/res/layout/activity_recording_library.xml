@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
     android:background="@drawable/gradient_background"
     tools:context=".RecordingLibrary">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:text="Recordings Library:"
+        android:textColor="#E6DADA"
+        android:textSize="25dp" />
 
     <ListView
         android:id="@+id/recording_list"
         android:layout_width="376dp"
         android:layout_height="469dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="14dp"
-        android:layout_marginBottom="79dp"
         android:textSize="16dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="257dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="130dp"
-        android:layout_marginBottom="555dp"
-        android:text="Recordings Library:"
-        android:textColor="#E6DADA"
-        android:textSize="25dp" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <EditText
         android:id="@+id/editRecording"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="183dp"
-        android:layout_marginBottom="28dp"
         android:ems="10"
+        android:layout_margin="5dp"
         android:hint="Edit Recording Name"
         android:inputType="textPersonName" />
 
@@ -44,13 +42,20 @@
         android:id="@+id/UpdateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="88dp"
-        android:layout_marginBottom="28dp"
         android:background="@drawable/rounded_button"
+        android:layout_margin="5dp"
         android:backgroundTint="#E6DADA"
         android:text="Update" />
+</LinearLayout>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView9"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_gravity="center"
+        android:layout_margin="2dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
 
-</RelativeLayout>
+</LinearLayout>
+</ScrollView>

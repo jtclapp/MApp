@@ -12,6 +12,11 @@ import android.widget.SeekBar;
 import android.widget.ToggleButton;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -24,11 +29,15 @@ public class BeatPage2 extends AppCompatActivity {
     RadioButton R1,R2,R3,R4;
     ToggleButton FinalPlay;
     Button next;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beat2_activity);
+        mAdView = findViewById(R.id.adView3);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         R1 = findViewById(R.id.checkBox3);
         R1.setOnClickListener(new View.OnClickListener() {

@@ -7,17 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class Navigator extends AppCompatActivity {
 
     private Button button;
     private Button button2;
     private Button button3;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigator);
+        mAdView = findViewById(R.id.adView6);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         button = findViewById(R.id.ViewLyrics);
         button.setOnClickListener(new View.OnClickListener() {

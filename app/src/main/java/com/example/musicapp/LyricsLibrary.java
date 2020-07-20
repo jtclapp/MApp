@@ -9,15 +9,22 @@ import android.widget.ListView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class LyricsLibrary extends AppCompatActivity {
     ListView lv_customerList;
     ArrayAdapter lyricArrayAdapter;
     DataBaseHelper dataBaseHelper;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics_library);
+        mAdView = findViewById(R.id.adView8);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         lv_customerList = findViewById(R.id.lyrics_list);
         dataBaseHelper = new DataBaseHelper(LyricsLibrary.this);

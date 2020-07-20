@@ -1,91 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity5">
-
-    <Spinner
-        android:id="@+id/Voice_spinner"
-        android:layout_width="254dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="114dp"
-        android:layout_marginBottom="153dp" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="77dp"
-        android:layout_marginBottom="555dp"
-        android:text="RECORD AUDIO:"
+        android:layout_gravity="center"
         android:textColor="#E6DADA"
-        android:textSize="40dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="115dp"
-        android:layout_height="55dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#E6DADA"
-        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:onClick="SetRecord"
-        android:text="SET VOICE" />
-
-    <ToggleButton
-        android:id="@+id/CustomButton"
-        android:layout_width="81dp"
-        android:layout_height="75dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="182dp"
-        android:layout_marginBottom="67dp"
-        android:background="@drawable/custom_button"
-        android:textOff=""
-        android:textOn="" />
-
-    <ToggleButton
-        android:id="@+id/playrec"
-        android:layout_width="81dp"
-        android:layout_height="75dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="182dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/custom_button2"
-        android:textOff=""
-        android:textOn="" />
+        android:textSize="35dp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="39dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="34dp"
-        android:layout_marginBottom="515dp"
+        android:layout_gravity="center"
         android:text="Click HERE to create an AI Voice for your song."
         android:textColor="#E6DADA"
         android:textSize="16dp" />
 
     <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Song Title:"
+        android:background="@null"
+        android:inputType="textPersonName" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="263dp"
         android:layout_height="298dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="103dp"
-        android:layout_marginBottom="190dp"
         android:gravity="top"
         android:hint="Input Lyircs/Generate Lyrics:"
         android:textColor="#E6DADA"
@@ -96,27 +56,48 @@
         android:id="@+id/generatelyrics1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="77dp"
-        android:layout_marginBottom="190dp"
         android:background="@android:color/transparent"
         android:onClick="LyricBuilder"
+        android:layout_gravity="bottom"
         app:srcCompat="@drawable/ic_baseline_refresh_24"
         android:tint="#000000"
         tools:ignore="VectorDrawableCompat" />
+    </LinearLayout>
+    <Spinner
+        android:id="@+id/Voice_spinner"
+        android:layout_width="254dp"
+        android:layout_margin="2dp"
+        android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="135dp"
-        android:layout_marginBottom="490dp"
-        android:ems="10"
-        android:hint="Song Title:"
-        android:background="@null"
-        android:inputType="textPersonName" />
+    <ToggleButton
+        android:id="@+id/CustomButton"
+        android:layout_width="81dp"
+        android:layout_margin="1dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button"
+        android:textOff=""
+        android:textOn="" />
 
-</RelativeLayout>
+    <ToggleButton
+        android:id="@+id/playrec"
+        android:layout_width="81dp"
+        android:layout_height="75dp"
+
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button2"
+        android:textOff=""
+        android:textOn="" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="115dp"
+        android:layout_height="55dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:layout_gravity="right"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:onClick="SetRecord"
+        android:text="SET VOICE" />
+</LinearLayout>
+</ScrollView>

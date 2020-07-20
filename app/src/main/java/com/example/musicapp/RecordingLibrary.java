@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 
 public class RecordingLibrary extends AppCompatActivity {
@@ -22,11 +25,15 @@ public class RecordingLibrary extends AppCompatActivity {
     DataBaseHelper dataBaseHelper;
     EditText recordingname;
     Button update, update2;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recording_library);
+        mAdView = findViewById(R.id.adView9);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         lv_recordinglist = findViewById(R.id.recording_list);
         update = findViewById(R.id.UpdateButton);

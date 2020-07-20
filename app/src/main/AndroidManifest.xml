@@ -21,8 +21,10 @@
             android:theme="@style/AppTheme"
             android:label="Saved Content"/>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Beatpage4" />
-        <activity android:name=".Beatpage3" />
+        <activity android:name=".Beatpage4"
+                  android:configChanges="orientation|screenSize"/>
+        <activity android:name=".Beatpage3"
+                  android:configChanges="orientation|screenSize"/>
         <activity android:name=".RecordingLibrary" />
         <activity android:name=".RecSelector" />
         <activity android:name=".Selector" />
@@ -30,17 +32,22 @@
 
         <activity android:name=".MainActivity5"
             android:theme="@style/AppTheme"
-            android:label="Song Creator"/>
+            android:label="Song Creator"
+            android:configChanges="orientation|screenSize"/>
         <activity android:name=".MainActivity4"
             android:theme="@style/AppTheme"
-            android:label="Song Creator"/>
+            android:label="Song Creator"
+            android:configChanges="orientation|screenSize"/>
 
         <activity
-            android:name=".FinalActivity" />
+            android:name=".FinalActivity"
+            android:configChanges="orientation|screenSize"/>
         <activity
-            android:name=".BeatPage2" />
+            android:name=".BeatPage2"
+            android:configChanges="orientation|screenSize"/>
         <activity
-            android:name=".BeatPage1" />
+            android:name=".BeatPage1"
+            android:configChanges="orientation|screenSize"/>
         <activity android:name=".SplashScreenActivity">
 
             <intent-filter>
@@ -49,6 +56,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
     </application>
 
 </manifest>

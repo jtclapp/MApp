@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
@@ -29,10 +32,14 @@ public class DownloadedBeats extends AppCompatActivity {
     String child;
     String path;
     boolean connected;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_downloaded_beats);
+        mAdView = findViewById(R.id.adView7);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         B1 = findViewById(R.id.DownloadButton);
         RB1 = findViewById(R.id.radioButton1);

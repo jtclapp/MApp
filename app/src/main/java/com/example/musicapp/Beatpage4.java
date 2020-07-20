@@ -13,6 +13,10 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -26,11 +30,15 @@ public class Beatpage4 extends AppCompatActivity {
     RadioButton R1;
     ToggleButton FinalPlay;
     Button next;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beatpage4);
+        mAdView = findViewById(R.id.adView5);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         R1 = findViewById(R.id.country_box1);
         R1.setOnClickListener(new View.OnClickListener() {
