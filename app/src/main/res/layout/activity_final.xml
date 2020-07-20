@@ -15,7 +15,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="159dp"
         android:layout_marginBottom="45dp"
-        android:background="#E6DADA"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
         android:drawableBottom="@drawable/ic_baseline_refresh_24"
         android:onClick="LoadAI"
         android:text="Load AI" />

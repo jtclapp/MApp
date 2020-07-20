@@ -75,7 +75,6 @@ public class RecordingLibrary extends AppCompatActivity {
             }
         });
     }
-
     private void ShowRecording() {
         recordingArrayAdapter = new ArrayAdapter<RecordingModel>(RecordingLibrary.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone2());
         lv_recordinglist.setAdapter(recordingArrayAdapter);

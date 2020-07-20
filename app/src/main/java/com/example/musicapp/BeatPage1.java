@@ -1,19 +1,15 @@
 package com.example.musicapp;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import java.io.File;
@@ -22,10 +18,9 @@ import java.io.IOException;
 public class BeatPage1 extends AppCompatActivity {
     MediaPlayer player;
     File path;
-    CheckBox checkBox;
-    CheckBox checkBox2;
-    CheckBox checkBox3;
-    ToggleButton T1, T2, T3;
+    RadioButton R1,R2,R3;
+    ToggleButton FinalPlay;
+    Button next;
     int check;
     SeekBar volumeadj;
     float setVolume;
@@ -35,65 +30,50 @@ public class BeatPage1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beat1_activity);
 
-        T1 = findViewById(R.id.play_hiphop1);
-        T1.setOnClickListener(new View.OnClickListener() {
+
+        R1 = findViewById(R.id.checkBox);
+        R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                T2.setActivated(false);
-                T3.setActivated(false);
-                if (T1.isChecked()) {
-                    T1.setActivated(true);
+                if (R1.isChecked()) {
+                    check = 1;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
                     DownloadDialog();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            play();
-                        }
-                    }).start();
-
-                    }
-                if (T1.isChecked() == false) {
-                    T1.setActivated(false);
-                    stopPlayer();
+                    next.setEnabled(true);
                 }
             }
         });
-        T2 = findViewById(R.id.play_hiphop2);
-        T2.setOnClickListener(new View.OnClickListener() {
+        R2 = findViewById(R.id.checkBox2);
+        R2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                T1.setActivated(false);
-                T3.setActivated(false);
-                if (T2.isChecked()) {
-                    T2.setActivated(true);
+                if (R2.isChecked()) {
+                    check = 2;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#2.mp3");
                     DownloadDialog();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            play();
-                        }
-                    }).start();
-
-                }
-                if (T2.isChecked() == false) {
-                    T2.setActivated(false);
-                    stopPlayer();
+                    next.setEnabled(true);
                 }
             }
         });
-        T3 = findViewById(R.id.play_hiphop3);
-        T3.setOnClickListener(new View.OnClickListener() {
+        R3 = findViewById(R.id.checkBox4);
+        R3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                T1.setActivated(false);
-                T2.setActivated(false);
-                if (T3.isChecked()) {
-                    T3.setActivated(true);
+                if (R3.isChecked()) {
+                    check = 3;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
                     DownloadDialog();
+                    next.setEnabled(true);
+                }
+            }
+        });
+        FinalPlay = findViewById(R.id.Beat1Play);
+        FinalPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                if (FinalPlay.isChecked()) {
+                    FinalPlay.setActivated(true);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -101,45 +81,21 @@ public class BeatPage1 extends AppCompatActivity {
                         }
                     }).start();
                 }
-                if (T3.isChecked() == false) {
-                    T3.setActivated(false);
+                if (FinalPlay.isChecked() == false) {
+                    FinalPlay.setActivated(false);
                     stopPlayer();
                 }
             }
         });
-        checkBox = findViewById(R.id.checkBox);
-        checkBox.setOnClickListener(new View.OnClickListener() {
+        next = findViewById(R.id.nextpage1);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (checkBox.isChecked()) {
-                    check = 1;
-                    openMainAct5();
-                }
-            }
-        });
-        checkBox2 = findViewById(R.id.checkBox2);
-        checkBox2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkBox2.isChecked()) {
-                    check = 2;
-                    openMainAct5();
-                }
-            }
-        });
-        checkBox3 = findViewById(R.id.checkBox4);
-        checkBox3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkBox3.isChecked()) {
-                    check = 3;
-                    openMainAct5();
-                }
+            public void onClick(View view) {
+                openMainAct5();
             }
         });
         volumeadj = findViewById(R.id.Volume);
     }
-
     public void openMainAct5() {
         Intent intent = new Intent(this, MainActivity5.class);
         if (check == 1) {
@@ -200,7 +156,7 @@ public class BeatPage1 extends AppCompatActivity {
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    T1.setActivated(false);T2.setActivated(false);T3.setActivated(false);
+                    FinalPlay.setActivated(false);
                     Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
                     startActivity(intentdownload);
                 }

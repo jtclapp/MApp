@@ -7,6 +7,8 @@ import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -42,18 +44,16 @@ public class MainActivity5 extends AppCompatActivity {
     public static Boolean recording;
     public Spinner spFrequency;
     Button setbutton;
-    ToggleButton custombutton, play;
+    ToggleButton custombutton,play;
     EditText editText, et_name;
-    ArrayAdapter<String> adapter, adapter2;
+    ArrayAdapter<String> adapter;
     AudioTrack audioTrack;
     int buffersizeinbytes;
-    private int STORAGE_PERMISSSION_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
-
 
         TextView textView = findViewById(R.id.textView5);
         String textViewtext = "Click HERE to create an AI Voice for your song.";
@@ -93,6 +93,7 @@ public class MainActivity5 extends AppCompatActivity {
         setbutton = findViewById(R.id.button3);
         editText = findViewById(R.id.editTextTextMultiLine);
         et_name = findViewById(R.id.editTextTextPersonName);
+        final LoadingHelper loadingHelper = new LoadingHelper(MainActivity5.this);
         buffersizeinbytes = 0;
 
         custombutton.setEnabled(false);
@@ -110,6 +111,7 @@ public class MainActivity5 extends AppCompatActivity {
                     custombutton.setActivated(true);
                     play.setVisibility(View.INVISIBLE);
                     setbutton.setEnabled(false);
+
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -145,25 +147,25 @@ public class MainActivity5 extends AppCompatActivity {
         });
         play.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 if (play.isChecked()) {
-                    final LoadingHelper loadingHelper = new LoadingHelper(MainActivity5.this);
-                    loadingHelper.startLoadingDialog();
                     play.setActivated(true);
-
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    playRecord();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
+                    play.setEnabled(false);
+                    Toast.makeText(MainActivity5.this, "Please wait. Loading...", Toast.LENGTH_LONG).show();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                playRecord();
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                        }).start();
-                    loadingHelper.dismissDialog();
-                    }
-                if (play.isChecked() == false) {
+                        }
+                    }).start();
+                    play.setEnabled(true);
+                }
+                if (play.isChecked() == false || play.isActivated() == false) {
                     play.setActivated(false);
                     pauseRecord();
                 }

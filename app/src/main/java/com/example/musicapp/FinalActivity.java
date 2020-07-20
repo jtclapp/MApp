@@ -110,7 +110,6 @@ public class FinalActivity extends AppCompatActivity {
         });
         songbuilder();
     }
-
     public void LoadAI(View view) throws IOException {
         stopPlayer();
         Intent myintent2 = getIntent();
@@ -247,7 +246,7 @@ public class FinalActivity extends AppCompatActivity {
         Intent Bufferintent = getIntent();
         int SampleHZ = HZintent.getIntExtra("sampleRateInHz", 0);
         int bs = Bufferintent.getIntExtra("buffersizeinbytes", 0);
-
+        Toast.makeText(FinalActivity.this, "Please wait. Loading...", Toast.LENGTH_LONG).show();
         short[] audioData = new short[bs];
         InputStream inputStream = new FileInputStream(file);
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
