@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
@@ -15,8 +14,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:textColor="#E6DADA"
         android:textSize="35dp" />
@@ -72,32 +71,37 @@
     <ToggleButton
         android:id="@+id/CustomButton"
         android:layout_width="81dp"
-        android:layout_margin="1dp"
+
         android:layout_height="75dp"
         android:layout_gravity="center"
         android:background="@drawable/custom_button"
         android:textOff=""
         android:textOn="" />
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="right">
     <ToggleButton
         android:id="@+id/playrec"
         android:layout_width="81dp"
         android:layout_height="75dp"
-
-        android:layout_gravity="center"
+        android:layout_margin="6dp"
         android:background="@drawable/custom_button2"
         android:textOff=""
         android:textOn="" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="115dp"
-        android:layout_height="55dp"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"
         android:backgroundTint="#E6DADA"
-        android:layout_gravity="right"
+        android:layout_margin="6dp"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
         android:onClick="SetRecord"
-        android:text="SET VOICE" />
+        android:text="Play" />
+
+</LinearLayout>
 </LinearLayout>
 </ScrollView>

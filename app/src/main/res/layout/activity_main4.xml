@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="left">
+        android:layout_gravity="center">
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="left">
+        android:layout_gravity="center">
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -100,22 +100,21 @@
             android:id="@+id/buttonAI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_gravity="left"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#E6DADA"
             android:onClick="TestAI"
             android:text="Test Voice" />
     <Button
         android:id="@+id/button2"
-        android:layout_width="118dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"
         android:backgroundTint="#E6DADA"
         android:layout_gravity="right"
-        android:layout_margin="5dp"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
         android:onClick="SendVoice"
-        android:text="SET VOICE" />
+        android:text="Play" />
 </LinearLayout>
 </ScrollView>

@@ -12,6 +12,19 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView12"
+        android:layout_width="406dp"
+        android:layout_height="63dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
     <TextView
         android:id="@+id/songtitle"
         android:layout_width="300dp"
@@ -35,7 +48,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button3"
-        android:layout_margin="5dp"
         android:layout_gravity="center"
         android:textOff=""
         android:textOn="" />
@@ -46,24 +58,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"
         android:backgroundTint="#E6DADA"
-        android:layout_margin="5dp"
         android:layout_gravity="center"
         android:drawableBottom="@drawable/ic_baseline_refresh_24"
         android:onClick="LoadAI"
         android:text="Load AI" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView12"
-        android:layout_width="406dp"
-        android:layout_height="63dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
 </LinearLayout>
 </ScrollView>

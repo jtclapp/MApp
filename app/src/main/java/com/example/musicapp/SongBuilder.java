@@ -1,5 +1,7 @@
 package com.example.musicapp;
 
+import java.util.HashMap;
+
 public class SongBuilder {
     public String rapsong;
     public String[] rapverse;
@@ -27,20 +29,13 @@ public class SongBuilder {
                 "I'ma show you, show you, show you, show you\n" +
                 "I'ma show 'em how to act\n" +
                 "Hard labor let me pay the price\n" +
-                "You and the six raised me right that shit saved my life\n" +
-                "Never get sloppy drunk, but alcohol is problem solving\n" +
                 "I think I need to let it loose\n" +
                 "Let her loose, let her loose\n" +
                 "She only want me for my pimp juice\n";
-        String chorusbunch = "Take your shoes off, let your hair down and (go berzerk) all night long " +
-                "No matter what I do\n" +
+        String chorusbunch = "No matter what I do\n" +
                 "All I think about is you\n" +
                 "Even when I'm with my boo\n" +
                 "Boy, you know I'm crazy over you\n" +
-                "I ain't never ran from nothin' but the police\n" +
-                "I ain't never ran from nothin' but the police\n" +
-                "From the city where the skinny carry strong heat\n" +
-                "Norfside, Long Beach, Norfside, Long Beach\n" +
                 "Drop top with the top down now\n" +
                 "All the bad girls gon' feel me now\n" +
                 "Then you're left in the dust\n" +
@@ -49,19 +44,13 @@ public class SongBuilder {
                 "I think your love would be too much\n" +
                 "Or you'll be left in the dust\n" +
                 "Unless I stuck by ya\n" +
-                "You're the sunflower\n" +
                 "Father, father, unforgivable\n" +
                 "This is my house, you made it personal\n" +
                 "It's always trouble when they go too far\n" +
-                "Nobody mention my familia\n" +
                 "Father, father, could you bless his soul?\n" +
                 "He talking crazy, I may lose control\n" +
                 "It's always trouble when they go too far\n" +
-                "Nobody mention my familia\n" +
-                "Oh my God, oh my God\n" +
-                "If I die, I'm a legend\n" +
-                "Oh my God, oh my God\n" +
-                "If I die, I'm a legend\n";
+                "Oh my God, oh my God\n";
         String versebunch = "When I walk through\n" +
                 "The city streets\n" +
                 "So quiet and so bare\n" +
@@ -111,16 +100,24 @@ public class SongBuilder {
                 "They don't love you like they used to man\n" +
                 "Weight I'm carrying, gotta let it go\n" +
                 "It won't hold me down no more\n";
-
         String[] chorusparts = chorusbunch.split("\n");
         int min3 = 0;
         int max3 = chorusparts.length - 1;
-        for (int i = 0; i < chorusparts.length; i++) {
-            chorusparts[i] = chorusparts[i].concat("...");
-        }
-        for (int j = 0; j < rapchorus.length; j++) {
+
+        for (int j = 0; j < rapchorus.length; j++)
+        {
             int randomnum = (int) (Math.random() * (max3 - min3 + 1) + min3);
-            rapchorus[j] = chorusparts[randomnum];
+            if((j % 2) == 0) {
+                rapchorus[j] = chorusparts[randomnum].concat(" " + RhythmPool1() + ".");
+            }
+            else
+            {
+                rapchorus[j] = chorusparts[randomnum];
+            }
+        }
+        for(int i = 0; i < rapchorus.length; i++)
+        {
+            rapchorus[i] = rapchorus[i].concat("...");
         }
 
         String[] bridgeparts = bridgebunch.split("\n");
@@ -154,40 +151,34 @@ public class SongBuilder {
             display += " ";
             display += rapverse[i].substring(0, rapverse[i].length() - 3);
         }
-        display += "\n";
-        display += "\n";
+        display += "\n\n";
 
         for (int i = 0; i < rapchorus.length; i++) {
             display += " ";
             display += rapchorus[i].substring(0, rapchorus[i].length() - 3);
         }
-        display += "\n";
-        display += "\n";
+        display += "\n\n";
 
         for (int i = 0; i < rapverse2.length; i++) {
             display += " ";
             display += rapverse2[i].substring(0, rapverse2[i].length() - 3);
         }
-        display += "\n";
-        display += "\n";
+        display += "\n\n";
 
         for (int i = 0; i < rapchorus.length; i++) {
             display += " ";
             display += rapchorus[i].substring(0, rapchorus[i].length() - 3);
         }
-        display += "\n";
-        display += "\n";
+        display += "\n\n";
 
         for (int i = 0; i < rapbridge.length; i++) {
             display += " ";
             display += rapbridge[i].substring(0, rapbridge[i].length() - 3);
         }
-        display += "\n";
-        display += "\n";
+        display += "\n\n";
 
         return display;
     }
-
     public String ReturningRap() {
         for (int i = 0; i < rapverse.length; i++) {
             rapsong += rapverse[i];
@@ -205,5 +196,32 @@ public class SongBuilder {
             rapsong += rapbridge[k];
         }
         return rapsong;
+    }
+    public String RhythmPool1()
+    {
+        String word = null;
+        String[] unk = new String[16];
+        unk[0] = "bunk";
+        unk[1] = "chunk";
+        unk[2] = "drunk";
+        unk[3] = "dunk";
+        unk[4] = "flunk";
+        unk[5] = "funk";
+        unk[6] = "hunk";
+        unk[7] = "junk";
+        unk[8] = "lunk";
+        unk[9] = "plunk";
+        unk[10] = "punk";
+        unk[11] = "skunk";
+        unk[12] = "slunk";
+        unk[13] = "spunk";
+        unk[14] = "sunk";
+        unk[15] = "trunk";
+        int min = 0;
+        int max = unk.length - 1;
+        int randomnum = (int) (Math.random() * (max - min + 1) + min);
+        word = unk[randomnum];
+
+        return word;
     }
 }
