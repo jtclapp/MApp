@@ -5,7 +5,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
 
@@ -18,46 +20,54 @@ public class Beatpage4 extends AppCompatActivity {
 
     MediaPlayer player;
     File path;
-    CheckBox checkBox1;
-    ToggleButton T1;
     int check;
     SeekBar volumeadj;
     float setVolume;
+    RadioButton R1;
+    ToggleButton FinalPlay;
+    Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beatpage4);
 
-        T1 = findViewById(R.id.play_country1);
-        T1.setOnClickListener(new View.OnClickListener() {
+        R1 = findViewById(R.id.country_box1);
+        R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (T1.isChecked()) {
-                    T1.setActivated(true);
+                if (R1.isChecked()) {
+                    check = 13;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
                     DownloadDialog();
+                }
+            }
+        });
+        FinalPlay = findViewById(R.id.Beat4Play);
+        FinalPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (FinalPlay.isChecked()) {
+                    FinalPlay.setActivated(true);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            DownloadDialog();
                             play();
                         }
                     }).start();
                 }
-                if (T1.isChecked() == false) {
-                    T1.setActivated(false);
+                if (FinalPlay.isChecked() == false) {
+                    FinalPlay.setActivated(false);
                     stopPlayer();
                 }
             }
         });
-        checkBox1 = findViewById(R.id.country_box1);
-        checkBox1.setOnClickListener(new View.OnClickListener() {
+        next = findViewById(R.id.nextpage4);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (checkBox1.isChecked()) {
-                    check = 13;
-                    openMainAct5();
-                }
+            public void onClick(View view) {
+                openMainAct5();
             }
         });
         volumeadj = findViewById(R.id.Volume4);
@@ -112,18 +122,25 @@ public class Beatpage4 extends AppCompatActivity {
     public void DownloadDialog()
     {
         if(path.exists() != true) {
+            next.setEnabled(false);
+            FinalPlay.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(Beatpage4.this);
             builder.setMessage("Please Download This Beat To Play It.");
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    T1.setActivated(false);
+                    FinalPlay.setActivated(false);
                     Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
                     startActivity(intentdownload);
                 }
             });
             builder.setNegativeButton("Cancel", null);
             builder.show();
+        }
+        if(path.exists() == true)
+        {
+            next.setEnabled(true);
+            FinalPlay.setEnabled(true);
         }
     }
 }

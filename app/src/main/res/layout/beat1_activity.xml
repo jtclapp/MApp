@@ -80,14 +80,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
+        android:enabled="false"
         android:background="@drawable/custom_button3"
         android:textOff=""
         android:textOn="" />
 
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
-        android:layout_height="195dp"/>
+        android:layout_height="117dp"/>
 
     <Button
         android:id="@+id/nextpage1"

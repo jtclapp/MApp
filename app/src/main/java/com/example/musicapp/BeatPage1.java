@@ -39,7 +39,6 @@ public class BeatPage1 extends AppCompatActivity {
                     check = 1;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
                     DownloadDialog();
-                    next.setEnabled(true);
                 }
             }
         });
@@ -51,7 +50,6 @@ public class BeatPage1 extends AppCompatActivity {
                     check = 2;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#2.mp3");
                     DownloadDialog();
-                    next.setEnabled(true);
                 }
             }
         });
@@ -63,7 +61,6 @@ public class BeatPage1 extends AppCompatActivity {
                     check = 3;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
                     DownloadDialog();
-                    next.setEnabled(true);
                 }
             }
         });
@@ -77,6 +74,7 @@ public class BeatPage1 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            DownloadDialog();
                             play();
                         }
                     }).start();
@@ -151,6 +149,8 @@ public class BeatPage1 extends AppCompatActivity {
     public void DownloadDialog()
     {
         if(path.exists() != true) {
+            next.setEnabled(false);
+            FinalPlay.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage1.this);
             builder.setMessage("Please Download This Beat To Play It.");
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
@@ -163,6 +163,11 @@ public class BeatPage1 extends AppCompatActivity {
             });
             builder.setNegativeButton("Cancel", null);
             builder.show();
+        }
+        if(path.exists() == true)
+        {
+            next.setEnabled(true);
+            FinalPlay.setEnabled(true);
         }
     }
 }

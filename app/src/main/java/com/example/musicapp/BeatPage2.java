@@ -5,7 +5,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
 import androidx.appcompat.app.AlertDialog;
@@ -16,152 +18,81 @@ import java.io.IOException;
 public class BeatPage2 extends AppCompatActivity {
     MediaPlayer player;
     File path;
-    CheckBox checkBox1;
-    CheckBox checkBox2;
-    CheckBox checkBox3;
-    CheckBox checkBox4;
     SeekBar volumeadj;
     float setVolume;
-
-    ToggleButton T1, T2, T3, T4;
     int check;
+    RadioButton R1,R2,R3,R4;
+    ToggleButton FinalPlay;
+    Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beat2_activity);
 
-        T1 = findViewById(R.id.play_rock1);
-        T1.setOnClickListener(new View.OnClickListener() {
+        R1 = findViewById(R.id.checkBox3);
+        R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                T2.setActivated(false);
-                T3.setActivated(false);
-                T4.setActivated(false);
-                if (T1.isChecked()) {
-                    T1.setActivated(true);
+                if (R1.isChecked()) {
+                    check = 4;
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
                     DownloadDialog();
+                }
+            }
+        });
+        R2 = findViewById(R.id.checkBox5);
+        R2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (R2.isChecked()) {
+                    check = 5;
+                }
+            }
+        });
+        R3 = findViewById(R.id.checkBox6);
+        R3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (R3.isChecked()) {
+                    check = 6;
+                }
+            }
+        });
+        R4 = findViewById(R.id.checkBox7);
+        R4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (R4.isChecked()) {
+                    check = 7;
+                }
+            }
+        });
+        FinalPlay = findViewById(R.id.Beat2Play);
+        FinalPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (FinalPlay.isChecked()) {
+                    FinalPlay.setActivated(true);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            DownloadDialog();
                             play();
                         }
                     }).start();
                 }
-                if (T1.isChecked() == false) {
-                    T1.setActivated(false);
+                if (FinalPlay.isChecked() == false) {
+                    FinalPlay.setActivated(false);
                     stopPlayer();
                 }
             }
         });
-        T2 = findViewById(R.id.play_rock2);
-        T2.setOnClickListener(new View.OnClickListener() {
+        next = findViewById(R.id.nextpage2);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                T1.setActivated(false);
-                T3.setActivated(false);
-                T4.setActivated(false);
-                if (T2.isChecked()) {
-                    T2.setActivated(true);
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                        }
-                    }).start();
-                }
-                if (T2.isChecked() == false) {
-                    T2.setActivated(false);
-                    stopPlayer();
-                }
-            }
-        });
-        T3 = findViewById(R.id.play_rock3);
-        T3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                T1.setActivated(false);
-                T2.setActivated(false);
-                T4.setActivated(false);
-                if (T3.isChecked()) {
-                    T3.setActivated(true);
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                        }
-                    }).start();
-                }
-                if (T3.isChecked() == false) {
-                    T3.setActivated(false);
-                    stopPlayer();
-                }
-            }
-        });
-        T4 = findViewById(R.id.play_rock4);
-        T4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                T1.setActivated(false);
-                T2.setActivated(false);
-                T3.setActivated(false);
-                if (T4.isChecked()) {
-                    T4.setActivated(true);
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                        }
-                    }).start();
-                }
-                if (T4.isChecked() == false) {
-                    T4.setActivated(false);
-                    stopPlayer();
-                }
-            }
-        });
-        checkBox1 = findViewById(R.id.checkBox3);
-        checkBox1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkBox1.isChecked()) {
-                    check = 4;
-                    openMainAct5();
-                }
-            }
-        });
-        checkBox2 = findViewById(R.id.checkBox5);
-        checkBox2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkBox2.isChecked()) {
-                    check = 5;
-                    openMainAct5();
-                }
-            }
-        });
-        checkBox3 = findViewById(R.id.checkBox6);
-        checkBox3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkBox3.isChecked()) {
-                    check = 6;
-                    openMainAct5();
-                }
-            }
-        });
-        checkBox4 = findViewById(R.id.checkBox7);
-        checkBox4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkBox4.isChecked()) {
-                    check = 7;
-                    openMainAct5();
-                }
+            public void onClick(View view) {
+                openMainAct5();
             }
         });
         volumeadj = findViewById(R.id.Volume2);
@@ -222,18 +153,25 @@ public class BeatPage2 extends AppCompatActivity {
     public void DownloadDialog()
     {
         if(path.exists() != true) {
+            next.setEnabled(false);
+            FinalPlay.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage2.this);
             builder.setMessage("Please Download This Beat To Play It.");
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    T1.setActivated(false);T2.setActivated(false);T3.setActivated(false);T4.setActivated(false);
+                    FinalPlay.setActivated(false);
                     Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
                     startActivity(intentdownload);
                 }
             });
             builder.setNegativeButton("Cancel", null);
             builder.show();
+        }
+        if(path.exists() == true)
+        {
+            next.setEnabled(true);
+            FinalPlay.setEnabled(true);
         }
     }
 }

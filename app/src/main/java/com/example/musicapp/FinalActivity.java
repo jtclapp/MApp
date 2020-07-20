@@ -91,6 +91,10 @@ public class FinalActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 if (finalplay.isChecked()) {
                     finalplay.setActivated(true);
+                    if(recordedvoice != null)
+                    {
+                        Toast.makeText(FinalActivity.this, "Please wait. Loading...", Toast.LENGTH_LONG).show();
+                    }
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -246,7 +250,6 @@ public class FinalActivity extends AppCompatActivity {
         Intent Bufferintent = getIntent();
         int SampleHZ = HZintent.getIntExtra("sampleRateInHz", 0);
         int bs = Bufferintent.getIntExtra("buffersizeinbytes", 0);
-        Toast.makeText(FinalActivity.this, "Please wait. Loading...", Toast.LENGTH_LONG).show();
         short[] audioData = new short[bs];
         InputStream inputStream = new FileInputStream(file);
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);

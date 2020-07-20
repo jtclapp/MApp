@@ -226,6 +226,10 @@ public class MainActivity4 extends AppCompatActivity {
         return true;
     }
     public void SendVoice(View view) {
+        if(textToSpeech.isSpeaking())
+        {
+            textToSpeech.stop();
+        }
         String voicename = " ";
         String voicecountry = " ";
         String voicelang = " ";
