@@ -58,6 +58,7 @@ public class MainActivity5 extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     AudioTrack audioTrack;
     int buffersizeinbytes,idvalue;
+    LoadingHelper loadingHelper = new LoadingHelper(MainActivity5.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,8 +170,6 @@ public class MainActivity5 extends AppCompatActivity {
             public void onClick(View v) {
                 if (play.isChecked()) {
                     play.setActivated(true);
-                    play.setEnabled(false);
-                    Toast.makeText(MainActivity5.this, "Audio is loading! Please wait...", Toast.LENGTH_SHORT).show();
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -181,7 +180,6 @@ public class MainActivity5 extends AppCompatActivity {
                             }
                         }
                     }).start();
-                    play.setEnabled(true);
                 }
                 if (play.isChecked() == false || play.isActivated() == false) {
                     play.setActivated(false);
@@ -232,6 +230,12 @@ public class MainActivity5 extends AppCompatActivity {
         }
     }
     private void playRecord() throws IOException {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                loadingHelper.startLoadingDialog();
+            }
+        });
         int i = 0;
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
         buffersizeinbytes = (int) (file.length() / shortSizeInBytes);
@@ -249,8 +253,15 @@ public class MainActivity5 extends AppCompatActivity {
         if (buffersizeinbytes != 0) {
             audioTrack = new AudioTrack(3, i, 2, 2, buffersizeinbytes, 1);
             audioTrack.play();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    loadingHelper.dismissDialog();
+                }
+            });
             audioTrack.write(audioData, 0, buffersizeinbytes);
         }
+        play.setActivated(false);
     }
     public void pauseRecord() {
         if (audioTrack != null) {

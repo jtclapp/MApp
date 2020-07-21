@@ -44,6 +44,7 @@ public class FinalActivity extends AppCompatActivity {
     String recordedvoice;
     AudioTrack audioTrack;
     private AdView mAdView;
+    LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,10 +101,6 @@ public class FinalActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 if (finalplay.isChecked()) {
                     finalplay.setActivated(true);
-                    if(recordedvoice != null)
-                    {
-                        Toast.makeText(FinalActivity.this, "Audio is loading! Please wait...", Toast.LENGTH_SHORT).show();
-                    }
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -264,6 +261,12 @@ public class FinalActivity extends AppCompatActivity {
             });
 }
     public void RecordPlay() throws IOException {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                loadingHelper.startLoadingDialog();
+            }
+        });
         File file = new File(recordedvoice);
         Intent HZintent = getIntent();
         Intent Bufferintent = getIntent();
@@ -284,6 +287,12 @@ public class FinalActivity extends AppCompatActivity {
         audioTrack = new AudioTrack(3, SampleHZ, 2, 2, bs, 1);
         play();
         audioTrack.play();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                loadingHelper.dismissDialog();
+            }
+        });
         audioTrack.write(audioData, 0, bs);
     }
     private void stopPlayer() {
