@@ -112,8 +112,8 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#E6DADA"
-        android:layout_gravity="right"
-        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:layout_gravity="end"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:onClick="SendVoice"/>
 </LinearLayout>
 </ScrollView>

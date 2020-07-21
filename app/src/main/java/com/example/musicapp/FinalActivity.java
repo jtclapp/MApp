@@ -1,14 +1,9 @@
 package com.example.musicapp;
-
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.AudioTrack;
 import android.media.MediaPlayer;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,10 +19,8 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
@@ -176,12 +169,14 @@ public class FinalActivity extends AppCompatActivity {
     private void songbuilder() {
         Intent edit_intent = getIntent();
         Intent title_intent = getIntent();
+        Intent AI_intent = getIntent();
         String song_title = title_intent.getStringExtra("songtitle");
         String edittext = edit_intent.getStringExtra("editTextData");
+        String AI_song = AI_intent.getStringExtra("song");
         v1.setText(edittext);
         songtitle.setText(song_title);
         v1.setMovementMethod(new ScrollingMovementMethod());
-        song = edittext;
+        song = AI_song;
     }
     @Override
     protected void onDestroy() {

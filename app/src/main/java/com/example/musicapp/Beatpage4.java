@@ -84,6 +84,7 @@ public class Beatpage4 extends AppCompatActivity {
         volumeadj = findViewById(R.id.Volume4);
     }
     public void openMainAct5() {
+        int id = 4;
         Intent intent = new Intent(this, MainActivity5.class);
         if (check == 13) {
             intent.putExtra("check", 13);
@@ -91,6 +92,7 @@ public class Beatpage4 extends AppCompatActivity {
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}
         intent.putExtra("setVolume",setVolume);
+        intent.putExtra("id",id);
         startActivity(intent);
     }
     public void play() {

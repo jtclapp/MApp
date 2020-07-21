@@ -57,9 +57,7 @@ public class MainActivity5 extends AppCompatActivity {
     EditText editText, et_name;
     ArrayAdapter<String> adapter;
     AudioTrack audioTrack;
-    int buffersizeinbytes;
-    int loaded;
-
+    int buffersizeinbytes,idvalue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +77,7 @@ public class MainActivity5 extends AppCompatActivity {
                 float volume = myintent2.getFloatExtra("setVolume",0);
                 k.putExtra("volume",volume);
                 k.putExtra("svalue", svalue);
+                k.putExtra("idvalue",idvalue);
                 startActivity(k);
             }
         };
@@ -107,7 +106,8 @@ public class MainActivity5 extends AppCompatActivity {
         final LoadingHelper loadingHelper = new LoadingHelper(MainActivity5.this);
         chronometer = findViewById(R.id.chronometer);
         buffersizeinbytes = 0;
-        loaded = 0;
+        Intent idintent = getIntent();
+        idvalue = idintent.getIntExtra("id",0);
 
         custombutton.setEnabled(false);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
@@ -249,10 +249,6 @@ public class MainActivity5 extends AppCompatActivity {
         if (buffersizeinbytes != 0) {
             audioTrack = new AudioTrack(3, i, 2, 2, buffersizeinbytes, 1);
             audioTrack.play();
-            if(audioTrack.getPlayState()==3)
-            {
-                loaded = 1;
-            }
             audioTrack.write(audioData, 0, buffersizeinbytes);
         }
     }
@@ -306,12 +302,26 @@ public class MainActivity5 extends AppCompatActivity {
 
     public void LyricBuilder(View view) {
         SongBuilder songBuilder = new SongBuilder();
-        songBuilder.CreatingRapVerse1();
-        String display = songBuilder.ReturningRapDisplay();
-        editText.setText(display);
-        editText.setMovementMethod(new ScrollingMovementMethod());
+        if(idvalue == 1)
+        {
+            songBuilder.CreatingRapVerse1();
+            String display = songBuilder.ReturningRapDisplay();
+            editText.setText(display);
+            editText.setMovementMethod(new ScrollingMovementMethod());
+        }
+        if(idvalue == 2)
+        {
+            songBuilder.CreatingRockVerse1();
+        }
+        if(idvalue == 3)
+        {
+            songBuilder.CreatingRandBVerse1();
+        }
+        if(idvalue == 4)
+        {
+            songBuilder.CreatingCountryVerse1();
+        }
     }
-
     public void startSelectAct() {
         Intent i = new Intent(this, Selector.class);
         startActivityForResult(i, 1);
@@ -363,11 +373,11 @@ public class MainActivity5 extends AppCompatActivity {
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity5.this);
                 boolean success = dataBaseHelper.addOne(lyricsModel);
-                if(success == true)
+                if(success)
                 {
                     Toast.makeText(getApplicationContext(), "Lyrics were successfully saved.", Toast.LENGTH_LONG).show();
                 }
-                if(success == false)
+                if(!success)
                 {
                     Toast.makeText(getApplicationContext(),"Error occurred when trying to save lyrics.", Toast.LENGTH_LONG).show();
                 }

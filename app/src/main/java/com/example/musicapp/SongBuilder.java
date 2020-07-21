@@ -10,6 +10,7 @@ public class SongBuilder {
     public String[] rapbridge;
 
     public void CreatingRapVerse1() {
+        int randomchorus = (int) (Math.random() * 2) + 1;
         rapverse = new String[7];
         rapverse2 = new String[7];
         rapbridge = new String[3];
@@ -45,6 +46,19 @@ public class SongBuilder {
                 "Where is the love? Where is love?And no woman that I know loves me this way\n" +
                 "But I know some people that they really love me\n" +
                 "I love everybody with their arm around them";
+
+        String chorusbunch2 = "Or I live another day\n" +
+                "With my head against the world\n" +
+                "And my heart to the grind\n" +
+                "I grind hard, grind, grind hard, grind hard, grind hard\n" +
+                "Hey yeah, we be on the grind\n" +
+                "This too will give you a rush\n" +
+                "I want ya brain and this too, put it behind me\n" +
+                "Imma a grind, imma a grind, imma a grind\n" +
+                "Baby girl, give it to me now\n" +
+                "Bumping and grinding with the top turned\n" +
+                "Both my stick fingers right up she know I grind daily\n" +
+                "In the hood on the grind, nothing aint goin so good";
 
         String versebunch = "Straight out the pointy dungeons of rap.\n" +
                 "The angel drops deep as does my money.\n" +
@@ -98,21 +112,36 @@ public class SongBuilder {
                 "I never thought I'd see that rail.\n" +
                 "Ain't a soul alive that could take my husband's hail.\n" +
                 "A smooth pineapple is quite the snapple.";
-
-        String[] chorusparts = chorusbunch.split("\n");
-        int min3 = 0;
-        int max3 = chorusparts.length - 1;
-
+        if(randomchorus == 1);
+        {
+            String[] chorusparts = chorusbunch.split("\n");
+            int min3 = 0;
+            int max3 = chorusparts.length - 1;
         for (int j = 0; j < rapchorus.length; j++)
         {
             int randomnum = (int) (Math.random() * (max3 - min3 + 1) + min3);
-                rapchorus[j] = chorusparts[randomnum];
+                rapchorus[j] = chorusparts[randomnum].concat(".");
         }
         for(int i = 0; i < rapchorus.length; i++)
         {
             rapchorus[i] = rapchorus[i].concat("...");
         }
-
+        }
+        if(randomchorus == 2)
+        {
+            String[] chorusparts2 = chorusbunch2.split("\n");
+            int minchourus = 0;
+            int maxchourus = chorusparts2.length-1;
+            for (int j = 0; j < rapchorus.length; j++)
+            {
+                int randomnum = (int) (Math.random() * (maxchourus - minchourus + 1) + minchourus);
+                rapchorus[j] = chorusparts2[randomnum].concat(".");
+            }
+            for(int i = 0; i < rapchorus.length; i++)
+            {
+                rapchorus[i] = rapchorus[i].concat("...");
+            }
+        }
         String[] bridgeparts = bridgebunch.split("\n");
         int min2 = 0;
         int max2 = bridgeparts.length - 1;
@@ -196,5 +225,17 @@ public class SongBuilder {
             rapsong += rapbridge[k];
         }
         return rapsong;
+    }
+    public void CreatingRockVerse1()
+    {
+
+    }
+    public void CreatingRandBVerse1()
+    {
+
+    }
+    public void CreatingCountryVerse1()
+    {
+
     }
 }

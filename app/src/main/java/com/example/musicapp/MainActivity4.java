@@ -38,6 +38,8 @@ public class MainActivity4 extends AppCompatActivity {
     EditText editText, et_name;
     Spinner spinner;
     Voice selectedvoice;
+    String song;
+    int idvalue;
     ArrayAdapter<String> adapter;
     float speed = 0.1f;
     float pitch = 0.1f;
@@ -78,7 +80,7 @@ public class MainActivity4 extends AppCompatActivity {
         String[] names = {"Voice1", "Voice2", "Voice3", "Voice4", "Voice5", "Voice6", "Voice7", "Voice8"};
 
         spinner = findViewById(R.id.spinner);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, names);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, names);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -169,8 +171,10 @@ public class MainActivity4 extends AppCompatActivity {
         seekBarpitch = findViewById(R.id.seekBarPitch);
         seekBarspeed = findViewById(R.id.seekBarSpeed);
         et_name = findViewById(R.id.editTextTextPersonName2);
+        Intent idintent = getIntent();
+        idvalue = idintent.getIntExtra("idvalue",0);
     }
-    public void TestAI(View view) throws IOException {
+    public void TestAI(View view) {
         String song = "Hello, do you like the sound of my voice? Select me if you do!";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             textToSpeech.setVoice(selectedvoice);
@@ -191,13 +195,28 @@ public class MainActivity4 extends AppCompatActivity {
             textToSpeech.speak(song, TextToSpeech.QUEUE_FLUSH, null);
         }
     }
-
     public void LyricBuilder2(View view) {
         SongBuilder songBuilder = new SongBuilder();
-        songBuilder.CreatingRapVerse1();
+        if(idvalue == 1)
+        {
+            songBuilder.CreatingRapVerse1();
+        song = songBuilder.ReturningRap();
         String display = songBuilder.ReturningRapDisplay();
         editText.setText(display);
         editText.setMovementMethod(new ScrollingMovementMethod());
+        }
+        if(idvalue == 2)
+        {
+            songBuilder.CreatingRockVerse1();
+        }
+        if(idvalue == 3)
+        {
+            songBuilder.CreatingRandBVerse1();
+        }
+        if(idvalue == 4)
+        {
+            songBuilder.CreatingCountryVerse1();
+        }
     }
 
     @Override
@@ -239,7 +258,13 @@ public class MainActivity4 extends AppCompatActivity {
         String voicelang = " ";
         String songtitle = et_name.getText().toString();
         speed = (float) seekBarspeed.getProgress() / 50;
+        if (speed < 0.1) {
+            speed = 0.1f;
+        }
         pitch = (float) seekBarpitch.getProgress() / 50;
+        if (pitch < 0.1) {
+            pitch = 0.1f;
+        }
         String editTextData = editText.getText().toString();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             voicename = selectedvoice.getName();
@@ -257,6 +282,7 @@ public class MainActivity4 extends AppCompatActivity {
         i.putExtra("voicelang", voicelang);
         i.putExtra("voicecountry", voicecountry);
         i.putExtra("editTextData", editTextData);
+        i.putExtra("song",song);
 
         String print = "Press Load AI First";
         Toast.makeText(getApplicationContext(), print, Toast.LENGTH_LONG).show();

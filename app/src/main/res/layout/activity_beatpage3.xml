@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
     <TextView
         android:id="@+id/RB_textview"
@@ -18,7 +18,7 @@
         android:text="SELECT A BEAT FOR YOUR SONG: "
         android:textColor="#E6DADA"
         android:layout_margin="5dp"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <RadioGroup
         android:id="@+id/Group3"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #1"
+            android:text=" Chill Beat #1  (2:47)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #2"
+            android:text=" Chill Beat #2  (2:52)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #3"
+            android:text=" Chill Beat #3  (2:30)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #4"
+            android:text=" Chill Beat #4  (2:40)"
             android:textColor="#E6DADA" />
     </RadioGroup>
 
@@ -99,10 +99,9 @@
         android:id="@+id/nextpage3"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:backgroundTint="#E6DADA"
+        android:layout_gravity="end"
         android:layout_margin="5dp"
-        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:enabled="false"/>
 
     <com.google.android.gms.ads.AdView
