@@ -1,6 +1,7 @@
 package com.example.musicapp;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioRecord;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.SystemClock;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -19,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -45,6 +48,8 @@ import java.io.OutputStream;
 public class MainActivity5 extends AppCompatActivity {
     String path;
     File file;
+    private Chronometer chronometer;
+    private long stopOffset;
     public static Boolean recording;
     public Spinner spFrequency;
     Button setbutton;
@@ -53,6 +58,8 @@ public class MainActivity5 extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     AudioTrack audioTrack;
     int buffersizeinbytes;
+    int loaded;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +105,9 @@ public class MainActivity5 extends AppCompatActivity {
         editText = findViewById(R.id.editTextTextMultiLine);
         et_name = findViewById(R.id.editTextTextPersonName);
         final LoadingHelper loadingHelper = new LoadingHelper(MainActivity5.this);
+        chronometer = findViewById(R.id.chronometer);
         buffersizeinbytes = 0;
+        loaded = 0;
 
         custombutton.setEnabled(false);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
@@ -112,6 +121,9 @@ public class MainActivity5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (custombutton.isChecked()) {
+                    chronometer.setBase(SystemClock.elapsedRealtime() - stopOffset);
+                    chronometer.setVisibility(View.VISIBLE);
+                    chronometer.start();
                     custombutton.setActivated(true);
                     play.setVisibility(View.INVISIBLE);
                     setbutton.setEnabled(false);
@@ -127,7 +139,10 @@ public class MainActivity5 extends AppCompatActivity {
                             }
                         }
                     }).start();
-                } else {
+                }
+                else {
+                    chronometer.stop();
+                    stopOffset = 0;
                     custombutton.setActivated(false);
                     setbutton.setEnabled(true);
                     play.setVisibility(View.VISIBLE);
@@ -151,12 +166,11 @@ public class MainActivity5 extends AppCompatActivity {
         });
         play.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (play.isChecked()) {
                     play.setActivated(true);
                     play.setEnabled(false);
-                    Toast.makeText(MainActivity5.this, "Please wait. Loading...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity5.this, "Audio is loading! Please wait...", Toast.LENGTH_SHORT).show();
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -235,9 +249,12 @@ public class MainActivity5 extends AppCompatActivity {
         if (buffersizeinbytes != 0) {
             audioTrack = new AudioTrack(3, i, 2, 2, buffersizeinbytes, 1);
             audioTrack.play();
+            if(audioTrack.getPlayState()==3)
+            {
+                loaded = 1;
+            }
             audioTrack.write(audioData, 0, buffersizeinbytes);
         }
-        play.setActivated(false);
     }
     public void pauseRecord() {
         if (audioTrack != null) {
@@ -384,6 +401,7 @@ public class MainActivity5 extends AppCompatActivity {
         finish();
     }
     public void SetRecord(View view) {
+        pauseRecord();
         Intent myintent = getIntent();
         Intent myintent2 = getIntent();
         int svalue = myintent.getIntExtra("check", 0);

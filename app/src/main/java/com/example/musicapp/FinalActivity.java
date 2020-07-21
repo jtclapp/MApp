@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.AudioTrack;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
@@ -17,6 +18,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -54,6 +56,11 @@ public class FinalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
+        ScrollView scrollView = findViewById(R.id.final_layout);
+        AnimationDrawable animationDrawable = (AnimationDrawable) scrollView.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
         mAdView = findViewById(R.id.adView12);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -102,7 +109,7 @@ public class FinalActivity extends AppCompatActivity {
                     finalplay.setActivated(true);
                     if(recordedvoice != null)
                     {
-                        Toast.makeText(FinalActivity.this, "Please wait. Loading...", Toast.LENGTH_LONG).show();
+                        Toast.makeText(FinalActivity.this, "Audio is loading! Please wait...", Toast.LENGTH_SHORT).show();
                     }
                     new Thread(new Runnable() {
                         @Override
@@ -197,6 +204,14 @@ public class FinalActivity extends AppCompatActivity {
         }
         if (intvalue == 3) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
+        }
+        if(intvalue == 24)
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#4.mp3");
+        }
+        if(intvalue == 25)
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
         }
         if (intvalue == 4) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");

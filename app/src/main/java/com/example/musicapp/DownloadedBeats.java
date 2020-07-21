@@ -27,7 +27,7 @@ public class DownloadedBeats extends AppCompatActivity {
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     StorageReference ref;
-    RadioButton RB1,RB2,RB3,RB4,RB5,RB6,RB7,RB8,RB9;
+    RadioButton RB1,RB2,RB3,RB4,RB5,RB6,RB7,RB8,RB9,RB10,RB11;
     ImageButton B1;
     String child;
     String path;
@@ -51,6 +51,8 @@ public class DownloadedBeats extends AppCompatActivity {
         RB7 = findViewById(R.id.radioButton7);
         RB8 = findViewById(R.id.radioButton8);
         RB9 = findViewById(R.id.radioButton9);
+        RB10 = findViewById(R.id.radioButton24);
+        RB11 = findViewById(R.id.radioButton25);
 
         RB1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +115,20 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Country beat 1.mp3";
                 path = "Country_Beat#1.mp3";
+            }
+        });
+        RB10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                child = "Rap Beat 4.mp3";
+                path = "HipHop_Beat#4.mp3";
+            }
+        });
+        RB11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                child = "Rap Beat 5.mp3";
+                path = "HipHop_Beat#5.mp3";
             }
         });
         B1.setOnClickListener(new View.OnClickListener() {

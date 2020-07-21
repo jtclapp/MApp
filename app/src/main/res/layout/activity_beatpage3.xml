@@ -21,6 +21,7 @@
         android:textSize="20dp" />
 
     <RadioGroup
+        android:id="@+id/Group3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -60,7 +61,7 @@
     <TextView
         android:id="@+id/Beat3TextView"
         android:layout_width="match_parent"
-        android:layout_height="124dp" />
+        android:layout_height="110dp" />
     <LinearLayout
         android:id="@+id/progress_horizontal7"
         android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:text="Volume Adjuster:"
+            android:text="Beat Volume:"
             android:textColor="#E6DADA" />
 
         <SeekBar
@@ -94,22 +95,15 @@
         android:textOff=""
         android:textOn="" />
 
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"/>
-
     <Button
         android:id="@+id/nextpage3"
-        android:layout_width="115dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:background="@drawable/rounded_button"
         android:backgroundTint="#E6DADA"
+        android:layout_margin="5dp"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:enabled="false"
-        android:text="Set Beat" />
+        android:enabled="false"/>
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"

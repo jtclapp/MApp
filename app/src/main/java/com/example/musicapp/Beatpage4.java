@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
 
@@ -28,6 +29,7 @@ public class Beatpage4 extends AppCompatActivity {
     SeekBar volumeadj;
     float setVolume;
     RadioButton R1;
+    RadioGroup radioGroup;
     ToggleButton FinalPlay;
     Button next;
     private AdView mAdView;
@@ -40,6 +42,7 @@ public class Beatpage4 extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        radioGroup = findViewById(R.id.Group4);
         R1 = findViewById(R.id.country_box1);
         R1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +140,7 @@ public class Beatpage4 extends AppCompatActivity {
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    FinalPlay.setActivated(false);
+                    radioGroup.clearCheck();
                     Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
                     startActivity(intentdownload);
                 }

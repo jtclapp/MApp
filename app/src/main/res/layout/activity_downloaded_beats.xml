@@ -46,6 +46,23 @@
             android:layout_margin="3dp"
             android:text="Hip/Hop Beat #3"
             android:textColor="#E6DADA"/>
+
+        <RadioButton
+            android:id="@+id/radioButton24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Hip/Hop Beat #4"
+            android:textColor="#E6DADA"/>
+
+        <RadioButton
+            android:id="@+id/radioButton25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Hip/Hop Beat #5"
+            android:textColor="#E6DADA"/>
+
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"

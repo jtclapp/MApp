@@ -44,7 +44,7 @@
     <EditText
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="263dp"
-        android:layout_height="298dp"
+        android:layout_height="265dp"
         android:gravity="top"
         android:hint="Input Lyircs/Generate Lyrics:"
         android:textColor="#E6DADA"
@@ -68,40 +68,39 @@
         android:layout_margin="2dp"
         android:layout_height="wrap_content"/>
 
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:visibility="invisible"/>
+
     <ToggleButton
         android:id="@+id/CustomButton"
         android:layout_width="81dp"
-
         android:layout_height="75dp"
         android:layout_gravity="center"
         android:background="@drawable/custom_button"
         android:textOff=""
         android:textOn="" />
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_gravity="right">
     <ToggleButton
         android:id="@+id/playrec"
         android:layout_width="81dp"
         android:layout_height="75dp"
-        android:layout_margin="6dp"
+        android:layout_gravity="center"
         android:background="@drawable/custom_button2"
         android:textOff=""
         android:textOn="" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="105dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
+        android:layout_gravity="right"
         android:backgroundTint="#E6DADA"
-        android:layout_margin="6dp"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:onClick="SetRecord"
-        android:text="Play" />
+        android:onClick="SetRecord" />
 
-</LinearLayout>
 </LinearLayout>
 </ScrollView>

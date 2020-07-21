@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
 import androidx.appcompat.app.AlertDialog;
@@ -22,7 +23,8 @@ import java.io.IOException;
 public class BeatPage1 extends AppCompatActivity {
     MediaPlayer player;
     File path;
-    RadioButton R1,R2,R3;
+    RadioGroup radioGroup;
+    RadioButton R1,R2,R3,R4,R5;
     ToggleButton FinalPlay;
     Button next;
     int check;
@@ -38,7 +40,7 @@ public class BeatPage1 extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
+        radioGroup = findViewById(R.id.Group1);
         R1 = findViewById(R.id.checkBox);
         R1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +72,24 @@ public class BeatPage1 extends AppCompatActivity {
                     path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
                     DownloadDialog();
                 }
+            }
+        });
+        R4 = findViewById(R.id.checkBox5);
+        R4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check = 24;
+                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#4.mp3");
+                DownloadDialog();
+            }
+        });
+        R5 = findViewById(R.id.checkBox6);
+        R5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check = 25;
+                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
+                DownloadDialog();
             }
         });
         FinalPlay = findViewById(R.id.Beat1Play);
@@ -113,12 +133,19 @@ public class BeatPage1 extends AppCompatActivity {
         if (check == 3) {
             intent.putExtra("check", 3);
         }
+        if(check == 24)
+        {
+            intent.putExtra("check",24);
+        }
+        if(check == 25)
+        {
+            intent.putExtra("check",25);
+        }
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}
         intent.putExtra("setVolume",setVolume);
         startActivity(intent);
     }
-
     public void play() {
             if (player != null) {
                 stopPlayer();
@@ -164,7 +191,7 @@ public class BeatPage1 extends AppCompatActivity {
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    FinalPlay.setActivated(false);
+                    radioGroup.clearCheck();
                     Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
                     startActivity(intentdownload);
                 }
