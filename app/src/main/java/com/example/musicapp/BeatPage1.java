@@ -129,7 +129,6 @@ public class BeatPage1 extends AppCompatActivity {
             intent.putExtra("check", 1);
         }
         if (check == 2) {
-            check = 2;
             intent.putExtra("check", 2);
         }
         if (check == 3) {
