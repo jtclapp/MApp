@@ -170,10 +170,11 @@ public class FinalActivity extends AppCompatActivity {
         String song_title = title_intent.getStringExtra("songtitle");
         String edittext = edit_intent.getStringExtra("editTextData");
         String AI_song = AI_intent.getStringExtra("song");
+
+        song = AI_song;
         v1.setText(edittext);
         songtitle.setText(song_title);
         v1.setMovementMethod(new ScrollingMovementMethod());
-        song = AI_song;
     }
     @Override
     protected void onDestroy() {

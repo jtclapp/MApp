@@ -310,6 +310,16 @@ public class MainActivity4 extends AppCompatActivity {
                 String strLyrics = data.getStringExtra("lyrics");
                 et_name.setText(strName);
                 editText.setText(strLyrics);
+                String place = editText.getText().toString();
+                String[] parts = place.split("\n");
+                for(int j = 0; j < parts.length; j++)
+                {
+                    parts[j] = parts[j].concat("...");
+                }
+                for(int i = 0; i < parts.length; i++)
+                {
+                    song += parts[i];
+                }
             }
         }
     }
