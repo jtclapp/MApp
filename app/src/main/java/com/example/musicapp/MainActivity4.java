@@ -245,6 +245,9 @@ public class MainActivity4 extends AppCompatActivity {
             case R.id.UL:
                 startSelectAct();
                 break;
+            case R.id.homeitem1:
+                Intent home = new Intent(this,MainActivity.class);
+                startActivity(home);
         }
         return true;
     }

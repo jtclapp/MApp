@@ -54,7 +54,7 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="254dp"
-        android:layout_gravity="left"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"/>
 
     <LinearLayout

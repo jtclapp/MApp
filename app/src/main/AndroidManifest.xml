@@ -11,12 +11,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_icon_foreground"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".DownloadedBeats"></activity>
         <activity android:name=".Navigator"
             android:theme="@style/AppTheme"
             android:label="Saved Content"/>
@@ -29,7 +28,7 @@
         <activity android:name=".RecSelector" />
         <activity android:name=".Selector" />
         <activity android:name=".LyricsLibrary" />
-
+        <activity android:name=".DownloadedBeats" />
         <activity android:name=".MainActivity5"
             android:theme="@style/AppTheme"
             android:label="Record Audio"
@@ -41,6 +40,8 @@
 
         <activity
             android:name=".FinalActivity"
+            android:theme="@style/AppTheme"
+            android:label="Created Song"
             android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".BeatPage2"

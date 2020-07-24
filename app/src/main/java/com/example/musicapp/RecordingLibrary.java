@@ -72,7 +72,14 @@ public class RecordingLibrary extends AppCompatActivity {
                         RecordingModel clickedRecording = (RecordingModel) adapterView.getItemAtPosition(i);
                         String newname = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + recordingname.getText().toString();
                         boolean update = dataBaseHelper.updateOneRecording(clickedRecording, newname);
-                        Toast.makeText(RecordingLibrary.this, " Updated = " + update, Toast.LENGTH_SHORT).show();
+                        if(update == true)
+                        {
+                            Toast.makeText(RecordingLibrary.this, "Recording Directory Successfully Updated.", Toast.LENGTH_SHORT).show();
+                        }
+                        if(update == false)
+                        {
+                            Toast.makeText(RecordingLibrary.this, "Error Occurred While Updating.", Toast.LENGTH_SHORT).show();
+                        }
                         ShowRecording();
                         recordingname.setVisibility(View.INVISIBLE);
                         update2.setVisibility(View.INVISIBLE);

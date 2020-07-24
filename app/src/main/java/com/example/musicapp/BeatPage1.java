@@ -117,6 +117,7 @@ public class BeatPage1 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DownloadDialog();
                 openMainAct5();
             }
         });

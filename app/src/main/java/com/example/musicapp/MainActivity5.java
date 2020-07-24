@@ -399,6 +399,10 @@ public class MainActivity5 extends AppCompatActivity {
             case R.id.UR:
                 startSelectAct2();
                 break;
+            case  R.id.homeitem2:
+                Intent home = new Intent(this, MainActivity.class);
+                startActivity(home);
+
         }
         return true;
     }

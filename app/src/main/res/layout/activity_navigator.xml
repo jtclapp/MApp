@@ -12,15 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#E6DADA"
-        android:textSize="25dp"
-        android:layout_margin="5dp"/>
     <Button
         android:id="@+id/ViewLyrics"
         android:layout_width="318dp"
@@ -60,7 +51,17 @@
         android:textColor="#414345"
         android:textSize="30dp" />
 
-    <com.google.android.gms.ads.AdView
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="184dp"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:textColor="#E6DADA"
+            android:textSize="25dp" />
+
+        <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView6"
         android:layout_width="wrap_content"

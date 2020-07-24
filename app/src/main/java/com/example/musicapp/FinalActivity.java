@@ -11,12 +11,16 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import com.google.android.gms.ads.AdRequest;
@@ -320,5 +324,21 @@ public class FinalActivity extends AppCompatActivity {
             PlayAI();
             play();
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finalactmenu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case  R.id.homeitem3:
+                Intent home = new Intent(this, MainActivity.class);
+                startActivity(home);
+        }
+        return true;
     }
 }

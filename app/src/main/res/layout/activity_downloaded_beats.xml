@@ -63,6 +63,12 @@
             android:text="Hip/Hop Beat #5"
             android:textColor="#E6DADA"/>
 
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:layout_height="wrap_content"
+            android:text="____________________" />
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
@@ -70,6 +76,13 @@
             android:layout_margin="3dp"
             android:text="Rock Beat #1"
             android:textColor="#E6DADA"/>
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="____________________" />
+
         <RadioButton
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
@@ -98,6 +111,13 @@
             android:layout_margin="3dp"
             android:text="Chill Beat #4"
             android:textColor="#E6DADA"/>
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="____________________" />
+
         <RadioButton
             android:id="@+id/radioButton9"
             android:layout_width="match_parent"
@@ -105,16 +125,16 @@
             android:text="Country Beat #1"
             android:layout_margin="3dp"
             android:textColor="#E6DADA"/>
-</RadioGroup>
+    </RadioGroup>
 
     <ImageButton
         android:id="@+id/DownloadButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_margin="40dp"
+        android:layout_margin="20dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#696969"
+        android:backgroundTint="#303030"
         app:srcCompat="@android:drawable/stat_sys_download_done" />
 
     <com.google.android.gms.ads.AdView
@@ -123,7 +143,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
         ads:adSize="SMART_BANNER"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
     </com.google.android.gms.ads.AdView>

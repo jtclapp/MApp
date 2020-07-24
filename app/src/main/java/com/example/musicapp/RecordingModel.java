@@ -27,7 +27,7 @@ public class RecordingModel {
 
     @Override
     public String toString() {
-        return "Recording Name: " + name + "\n" + "id= " + id;
+        return "Recording Directory: " + name + "\n" + "id= " + id;
     }
 }
 

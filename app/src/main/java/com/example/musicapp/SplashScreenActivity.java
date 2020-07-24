@@ -23,7 +23,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(3000)
                 .withBackgroundColor(Color.parseColor("#000000"))
-                .withLogo(R.mipmap.ic_musiclogo);
+                .withLogo(R.mipmap.ic_launcher_icon_foreground);
 
         View easySplashScreen = config.create();
         setContentView(easySplashScreen);
