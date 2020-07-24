@@ -8,6 +8,21 @@ public class SongBuilder {
     public String[] rapverse2;
     public String[] rapchorus;
     public String[] rapbridge;
+    public String rocksong;
+    public String[] rockverse;
+    public String[] rockverse2;
+    public String[] rockchorus;
+    public String[] rockbridge;
+    public String randbsong;
+    public String[] randbverse;
+    public String[] randbverse2;
+    public String[] randbchorus;
+    public String[] randbbridge;
+    public String countrysong;
+    public String[] countryverse;
+    public String[] countryverse2;
+    public String[] countrychorus;
+    public String[] countrybridge;
 
     public void CreatingRapVerse1() {
         int randomchorus = (int) (Math.random() * 2) + 1;
@@ -175,7 +190,7 @@ public class SongBuilder {
     }
 
     public String ReturningRapDisplay() {
-        String display = " ";
+        String display = "";
         for (int i = 0; i < rapverse.length; i++) {
             display += " ";
             display += rapverse[i].substring(0, rapverse[i].length() - 3);
@@ -204,8 +219,6 @@ public class SongBuilder {
             display += " ";
             display += rapbridge[i].substring(0, rapbridge[i].length() - 3);
         }
-        display += "\n\n";
-
         return display;
     }
     public String ReturningRap() {
@@ -228,14 +241,217 @@ public class SongBuilder {
     }
     public void CreatingRockVerse1()
     {
+        int randomchorus = (int) (Math.random() * 2) + 1;
+        rockverse = new String[7];
+        rockverse2 = new String[7];
+        rockbridge = new String[3];
+        rockchorus = new String[5];
+        String versebunch = "The world is hard, so many are lost\n" +
+                "How hard it is just to believe\n" +
+                "I said it made me happy\n" +
+                "I know it must have been hard\n" +
+                "When the wind blows hard\n" +
+                "Sometimes I feel just like a thief\n" +
+                "Every day I walk this thin line\n" +
+                "Hard to keep my cool at nightTell me, am I crazy?\n" +
+                "Yeah, you look like trouble\n" +
+                "Crazy people coming up with\n" +
+                "Strangers trying to break into my heart\n" +
+                "Welcome sign, come inside\n" +
+                "Where did they take you?\n" +
+                "Got your book, here with me\n" +
+                "Sounds like a fun day\n" +
+                "Well I had a name, I had a number\n" +
+                "I had a price, I thought I had hit the bottom\n" +
+                "Must have meant nothing to ya\n" +
+                "Cause I fall for this every time\n" +
+                "And this is my experience\n" +
+                "Of love in a distant, lonely world\n" +
+                "I see loyalty, when I see you\n" +
+                "I see hope when I see you ";
 
+        String chorusbunch = "I made my way by sitting on the cold hard ground\n" +
+                "I used to scream like a baby, now I just scream into the night\n" +
+                "Well you might be the hardest\n" +
+                "With your heart in your hand the hard wayIn it comes, comes and it hits\n" +
+                "And it hits hard\n" +
+                "Harder than it ever then\n" +
+                "Youll even call it\n" +
+                "I think I might go crazy, go crazy, go crazy\n" +
+                "To really know where I am\n" +
+                "Please put her arms around me, around me\n" +
+                "She may never give me genuine loveWhich is always the first one to warn you\n" +
+                "Things will get pretty crazy you always know the weather well\n" +
+                "Nothing to get crazy\n" +
+                "That was long time ago\n" +
+                "I cry, I cry, no one else can help me please\n" +
+                "Lord, I wanna fall, I wanna fall, in love\n" +
+                "Peace and love, would you let me know?";
+        String chorusbunch2 = "I just came to have a ball\n" +
+                "And party with all my friends\n" +
+                "A rich man must have a party\n" +
+                "Party that lasts a year";
+
+        String bridgebunch = "Where did all your fun go?\n" +
+                "Round and around rolling round\n" +
+                "Let your party house go up in flames\n" +
+                "If we just start today\n" +
+                "A place in the past for love\n" +
+                "Fly so high, stay so free\n" +
+                "Keep that in mind, before we lose this\n" +
+                "And I may never get the chance again to";
+
+        if(randomchorus == 1);
+        {
+            String[] chorusparts = chorusbunch.split("\n");
+            int min3 = 0;
+            int max3 = chorusparts.length - 1;
+            for (int j = 0; j < rockchorus.length; j++)
+            {
+                int randomnum = (int) (Math.random() * (max3 - min3 + 1) + min3);
+                rockchorus[j] = chorusparts[randomnum].concat(".");
+            }
+            for(int i = 0; i < rockchorus.length; i++)
+            {
+                rockchorus[i] = rockchorus[i].concat("...");
+            }
+        }
+        if(randomchorus == 2)
+        {
+//            String[] chorusparts2 = chorusbunch2.split("\n");
+//            int minchourus = 0;
+//            int maxchourus = chorusparts2.length-1;
+//            for (int j = 0; j < rockchorus.length; j++)
+//            {
+//                int randomnum = (int) (Math.random() * (maxchourus - minchourus + 1) + minchourus);
+//                rockchorus[j] = chorusparts2[randomnum].concat(".");
+//            }
+//            for(int i = 0; i < rockchorus.length; i++)
+//            {
+//                rockchorus[i] = rockchorus[i].concat("...");
+//            }
+        }
+        String[] bridgeparts = bridgebunch.split("\n");
+        int min2 = 0;
+        int max2 = bridgeparts.length - 1;
+
+        for (int j = 0; j < rockbridge.length; j++) {
+            int randomnum = (int) (Math.random() * (max2 - min2 + 1) + min2);
+            rockbridge[j] = bridgeparts[randomnum];
+        }
+        for(int i = 0; i < rockbridge.length; i++)
+        {
+            rockbridge[i] = rockbridge[i].concat("...");
+        }
+
+        String[] verseparts = versebunch.split("\n");
+        int min = 0;
+        int max = verseparts.length - 1;
+
+        for (int j = 0; j < rockverse.length; j++)
+        {
+            int randomnum = (int) (Math.random() * (max - min + 1) + min);
+            int randomnum2 = (int) (Math.random() * (max - min + 1) + min);
+
+            rockverse[j] = verseparts[randomnum];
+            rockverse2[j] = verseparts[randomnum2];
+        }
+        for(int i = 0; i < rockverse.length; i++)
+        {
+            rockverse[i] = rockverse[i].concat("...");
+            rockverse2[i] = rockverse2[i].concat("...");
+        }
+    }
+    public String ReturningRockDisplay()
+    {
+        String display = "";
+        for (int i = 0; i < rockverse.length; i++) {
+            display += rockverse[i].substring(0, rockverse[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
+
+        for (int i = 0; i < rockchorus.length; i++) {
+            display += rockchorus[i].substring(0, rockchorus[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
+
+        for (int i = 0; i < rockverse2.length; i++) {
+            display += rockverse2[i].substring(0, rockverse2[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
+
+        for (int i = 0; i < rockchorus.length; i++) {
+            display += rockchorus[i].substring(0, rockchorus[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
+
+        for (int i = 0; i < rockbridge.length; i++) {
+            display += rockbridge[i].substring(0, rockbridge[i].length() - 3);
+            display += ". ";
+        }
+        return display;
+    }
+    public String ReturningRock()
+    {
+        for (int i = 0; i < rockverse.length; i++) {
+            rocksong += rockverse[i];
+        }
+        for (int e = 0; e < rockchorus.length; e++) {
+            rocksong += rockchorus[e];
+        }
+        for (int j = 0; j < rockverse2.length; j++) {
+            rocksong += rockverse2[j];
+        }
+        for (int t = 0; t < rockchorus.length; t++) {
+            rocksong += rockchorus[t];
+        }
+        for (int k = 0; k < rockbridge.length; k++) {
+            rocksong += rockbridge[k];
+        }
+        return rocksong;
     }
     public void CreatingRandBVerse1()
     {
 
     }
+    public String ReturningRandBDisplay()
+    {
+        String display = "";
+
+
+
+        return display;
+    }
+    public String ReturningRandB()
+    {
+
+
+
+        return randbsong;
+    }
     public void CreatingCountryVerse1()
     {
 
+    }
+    public String ReturningCountryDisplay()
+    {
+        String display = "";
+
+
+
+
+        return display;
+    }
+    public String ReturningCountry()
+    {
+
+
+
+
+        return countrysong;
     }
 }

@@ -208,6 +208,10 @@ public class MainActivity4 extends AppCompatActivity {
         if(idvalue == 2)
         {
             songBuilder.CreatingRockVerse1();
+            song = songBuilder.ReturningRock();
+            String display2 = songBuilder.ReturningRockDisplay();
+            editText.setText(display2);
+            editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 3)
         {

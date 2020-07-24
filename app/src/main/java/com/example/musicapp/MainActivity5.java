@@ -323,6 +323,9 @@ public class MainActivity5 extends AppCompatActivity {
         if(idvalue == 2)
         {
             songBuilder.CreatingRockVerse1();
+            String display2 = songBuilder.ReturningRockDisplay();
+            editText.setText(display2);
+            editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 3)
         {
