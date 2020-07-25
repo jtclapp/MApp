@@ -216,10 +216,18 @@ public class MainActivity4 extends AppCompatActivity {
         if(idvalue == 3)
         {
             songBuilder.CreatingRandBVerse1();
+            song = songBuilder.ReturningRandB();
+            String display3 = songBuilder.ReturningRandBDisplay();
+            editText.setText(display3);
+            editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 4)
         {
             songBuilder.CreatingCountryVerse1();
+            song = songBuilder.ReturningCountry();
+            String display4 = songBuilder.ReturningCountryDisplay();
+            editText.setText(display4);
+            editText.setMovementMethod(new ScrollingMovementMethod());
         }
     }
 

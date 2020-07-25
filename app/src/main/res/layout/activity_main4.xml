@@ -38,7 +38,7 @@
         android:hint="Input Lyircs/Generate Lyrics:"
         android:inputType="textMultiLine"
         android:textColor="#E6DADA"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
     <ImageButton
         android:id="@+id/generatelyrics2"
@@ -54,7 +54,7 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="254dp"
-        android:layout_gravity="center"
+        android:layout_gravity="start"
         android:layout_height="wrap_content"/>
 
     <LinearLayout
@@ -73,8 +73,8 @@
             android:id="@+id/seekBarPitch"
             android:layout_width="171dp"
             android:layout_margin="5dp"
-            android:layout_height="wrap_content"
-            />
+            android:thumb="@drawable/custom_thumb"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -93,6 +93,7 @@
             android:id="@+id/seekBarSpeed"
             android:layout_width="171dp"
             android:layout_margin="5dp"
+            android:thumb="@drawable/custom_thumb"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
@@ -111,7 +112,6 @@
         android:layout_width="50dp"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#E6DADA"
         android:layout_gravity="end"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:onClick="SendVoice"/>

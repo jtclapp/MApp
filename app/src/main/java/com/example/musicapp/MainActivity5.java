@@ -318,23 +318,26 @@ public class MainActivity5 extends AppCompatActivity {
             songBuilder.CreatingRapVerse1();
             String display = songBuilder.ReturningRapDisplay();
             editText.setText(display);
-            editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 2)
         {
             songBuilder.CreatingRockVerse1();
             String display2 = songBuilder.ReturningRockDisplay();
             editText.setText(display2);
-            editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 3)
         {
             songBuilder.CreatingRandBVerse1();
+            String display3 = songBuilder.ReturningRandBDisplay();
+            editText.setText(display3);
         }
         if(idvalue == 4)
         {
             songBuilder.CreatingCountryVerse1();
+            String display4 = songBuilder.ReturningCountryDisplay();
+            editText.setText(display4);
         }
+        editText.setMovementMethod(new ScrollingMovementMethod());
     }
     public void startSelectAct() {
         Intent i = new Intent(this, Selector.class);

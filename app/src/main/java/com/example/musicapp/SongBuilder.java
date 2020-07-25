@@ -1,7 +1,5 @@
 package com.example.musicapp;
 
-import java.util.HashMap;
-
 public class SongBuilder {
     public String rapsong;
     public String[] rapverse;
@@ -135,7 +133,7 @@ public class SongBuilder {
         for (int j = 0; j < rapchorus.length; j++)
         {
             int randomnum = (int) (Math.random() * (max3 - min3 + 1) + min3);
-                rapchorus[j] = chorusparts[randomnum].concat(".");
+                rapchorus[j] = chorusparts[randomnum];
         }
         for(int i = 0; i < rapchorus.length; i++)
         {
@@ -150,7 +148,7 @@ public class SongBuilder {
             for (int j = 0; j < rapchorus.length; j++)
             {
                 int randomnum = (int) (Math.random() * (maxchourus - minchourus + 1) + minchourus);
-                rapchorus[j] = chorusparts2[randomnum].concat(".");
+                rapchorus[j] = chorusparts2[randomnum];
             }
             for(int i = 0; i < rapchorus.length; i++)
             {
@@ -192,32 +190,32 @@ public class SongBuilder {
     public String ReturningRapDisplay() {
         String display = "";
         for (int i = 0; i < rapverse.length; i++) {
-            display += " ";
             display += rapverse[i].substring(0, rapverse[i].length() - 3);
+            display += ". ";
         }
         display += "\n\n";
 
         for (int i = 0; i < rapchorus.length; i++) {
-            display += " ";
             display += rapchorus[i].substring(0, rapchorus[i].length() - 3);
+            display += ". ";
         }
         display += "\n\n";
 
         for (int i = 0; i < rapverse2.length; i++) {
-            display += " ";
             display += rapverse2[i].substring(0, rapverse2[i].length() - 3);
+            display += ". ";
         }
         display += "\n\n";
 
         for (int i = 0; i < rapchorus.length; i++) {
-            display += " ";
             display += rapchorus[i].substring(0, rapchorus[i].length() - 3);
+            display += ". ";
         }
         display += "\n\n";
 
         for (int i = 0; i < rapbridge.length; i++) {
-            display += " ";
             display += rapbridge[i].substring(0, rapbridge[i].length() - 3);
+            display += ". ";
         }
         return display;
     }
@@ -300,7 +298,6 @@ public class SongBuilder {
                 "Fly so high, stay so free\n" +
                 "Keep that in mind, before we lose this\n" +
                 "And I may never get the chance again to";
-
         if(randomchorus == 1);
         {
             String[] chorusparts = chorusbunch.split("\n");
@@ -309,7 +306,7 @@ public class SongBuilder {
             for (int j = 0; j < rockchorus.length; j++)
             {
                 int randomnum = (int) (Math.random() * (max3 - min3 + 1) + min3);
-                rockchorus[j] = chorusparts[randomnum].concat(".");
+                rockchorus[j] = chorusparts[randomnum];
             }
             for(int i = 0; i < rockchorus.length; i++)
             {
@@ -318,18 +315,18 @@ public class SongBuilder {
         }
         if(randomchorus == 2)
         {
-//            String[] chorusparts2 = chorusbunch2.split("\n");
-//            int minchourus = 0;
-//            int maxchourus = chorusparts2.length-1;
-//            for (int j = 0; j < rockchorus.length; j++)
-//            {
-//                int randomnum = (int) (Math.random() * (maxchourus - minchourus + 1) + minchourus);
-//                rockchorus[j] = chorusparts2[randomnum].concat(".");
-//            }
-//            for(int i = 0; i < rockchorus.length; i++)
-//            {
-//                rockchorus[i] = rockchorus[i].concat("...");
-//            }
+            String[] chorusparts2 = chorusbunch2.split("\n");
+            int minchourus = 0;
+            int maxchourus = chorusparts2.length-1;
+            for (int j = 0; j < rockchorus.length; j++)
+            {
+                int randomnum = (int) (Math.random() * (maxchourus - minchourus + 1) + minchourus);
+                rockchorus[j] = chorusparts2[randomnum];
+            }
+            for(int i = 0; i < rockchorus.length; i++)
+            {
+                rockchorus[i] = rockchorus[i].concat("...");
+            }
         }
         String[] bridgeparts = bridgebunch.split("\n");
         int min2 = 0;
@@ -416,42 +413,342 @@ public class SongBuilder {
     }
     public void CreatingRandBVerse1()
     {
+        int randomchorus = (int) (Math.random() * 2) + 1;
+        randbverse = new String[7];
+        randbverse2 = new String[7];
+        randbbridge = new String[3];
+        randbchorus = new String[5];
 
+        String versebunch = "He said, you do as your heart spins\n" +
+                "You gotta love as you live, ya gotta love as you go\n" +
+                "Still counting down the days\n" +
+                "That you fall in love\n" +
+                "This love has left me stranded on the edge of thrills\n" +
+                "And this love has left me stuck here in the end\n" +
+                "I want a perfect love\n" +
+                "Because all I ever needed\n" +
+                "Love and fear have filled up my head\n" +
+                "Never let me see you walk away\n" +
+                "Because your love says I am yours\n" +
+                "Without your love I am lost\n" +
+                "You gotta go and find it\n" +
+                "Toast up the girls in the party\n" +
+                "You gotta go and find it\n" +
+                "Toast up the girls in the party\n" +
+                "You know today I just called to say\n" +
+                "Im going away to a certain party\n" +
+                "What if I am is all that I want?\n" +
+                "What if I is all that you are?\n" +
+                "You want to have some fun\n" +
+                "Burning your candle slow\n" +
+                "So pour me another shot\n" +
+                "If you want some fun, some fun, some fun\n" +
+                "Cause when it comes to the women\n" +
+                "You know better that you do\n" +
+                "All I can do is be the better man\n" +
+                "And I do it with a feeling that is growing more every day";
+
+        String chorusbunch = "I need a love to share\n" +
+                "I need a love of life\n" +
+                "I need a love to share\n" +
+                "I need a love of life\n" +
+                "Move our love from town to town\n" +
+                "From hotel to motel\n" +
+                "I need you like lost puppy love\n" +
+                "Lost puppy love\n" +
+                "Have fun, my baby have fun\n" +
+                "If you ever had somebody in your life that made you feel\n" +
+                "That love was more than just little fun play\n" +
+                "Feel it better, feel it better than the rest\n" +
+                "Feel it better, ahh you better\n" +
+                "Feel it better, feel it better\n" +
+                "Baby if you want to leave me just leave me alone\n" +
+                "Well you better go now, go somewhere, whatcha gonna do?\n" +
+                "You better come now, come on, come up here, whatcha gonna do?\n" +
+                "Why are you throwing, throwing, throwing, throwing away our love?\n" +
+                "You should be taking, making, giving, taking better\n" +
+                "I think we should do this right\n" +
+                "Girl you better do this right\n" +
+                "If you leave baby you better do this right\n" +
+                "If you left baby you better do this right";
+
+        String chorusbunch2 = "Rise to the top, get on the couch, crash the party\n" +
+                "Rise to the top, get on the couch, crash the party\n" +
+                "I got this party plan for sexy tonight\n" +
+                "I got this party planned for you\n" +
+                "Sneak in the dark\n" +
+                "Dance in the dark\n" +
+                "Dance in the dark\n" +
+                "Show them you know how\n" +
+                "The way you danced, the way you danced\n" +
+                "I try to dance to your rhythm\n" +
+                "Just the way to make me dance\n" +
+                "Please show me how to move my feet\n" +
+                "Mountains fall in place, I better run\n" +
+                "Mountains fall and break, I belong\n" +
+                "Mountains fall and break, I better run\n" +
+                "Sun comes and sets, I better run\n" +
+                "Makes me feel so much better\n" +
+                "So much better, so much better\n" +
+                "No better love, just let it be\n" +
+                "Comes into my room, all of the time";
+
+        String bridgebunch = "To love you, no trying\n" +
+                "To love you, no trying\n" +
+                "He said, you do as your heart spins\n" +
+                "You gotta love as you live, ya gotta love as you go\n" +
+                "In this life I give my soul to see you live\n" +
+                "All that I am, let your love fill up my heart\n" +
+                "When we love comes calling\n" +
+                "There are no hours, no time\n" +
+                "All I know is your body belongs to me\n" +
+                "Dance with you forever\n" +
+                "But I know your heart is hurting\n" +
+                "You deserve to know that you did better\n" +
+                "I know that you want a better life\n" +
+                "But maybe you should be at your best\n" +
+                "Open up your eyes and see my face\n" +
+                "Baby you better believe me";
+        if(randomchorus == 1);
+        {
+            String[] chorusparts = chorusbunch.split("\n");
+            int min3 = 0;
+            int max3 = chorusparts.length - 1;
+            for (int j = 0; j < randbchorus.length; j++)
+            {
+                int randomnum = (int) (Math.random() * (max3 - min3 + 1) + min3);
+                randbchorus[j] = chorusparts[randomnum];
+            }
+            for(int i = 0; i < randbchorus.length; i++)
+            {
+                randbchorus[i] = randbchorus[i].concat("...");
+            }
+        }
+        if(randomchorus == 2)
+        {
+            String[] chorusparts2 = chorusbunch2.split("\n");
+            int minchourus = 0;
+            int maxchourus = chorusparts2.length-1;
+            for (int j = 0; j < randbchorus.length; j++)
+            {
+                int randomnum = (int) (Math.random() * (maxchourus - minchourus + 1) + minchourus);
+                randbchorus[j] = chorusparts2[randomnum];
+            }
+            for(int i = 0; i < randbchorus.length; i++)
+            {
+                randbchorus[i] = randbchorus[i].concat("...");
+            }
+        }
+        String[] bridgeparts = bridgebunch.split("\n");
+        int min2 = 0;
+        int max2 = bridgeparts.length - 1;
+
+        for (int j = 0; j < randbbridge.length; j++) {
+            int randomnum = (int) (Math.random() * (max2 - min2 + 1) + min2);
+            randbbridge[j] = bridgeparts[randomnum];
+        }
+        for(int i = 0; i < randbbridge.length; i++)
+        {
+            randbbridge[i] = randbbridge[i].concat("...");
+        }
+
+        String[] verseparts = versebunch.split("\n");
+        int min = 0;
+        int max = verseparts.length - 1;
+
+        for (int j = 0; j < randbverse.length; j++)
+        {
+            int randomnum = (int) (Math.random() * (max - min + 1) + min);
+            int randomnum2 = (int) (Math.random() * (max - min + 1) + min);
+
+            randbverse[j] = verseparts[randomnum];
+            randbverse2[j] = verseparts[randomnum2];
+        }
+        for(int i = 0; i < randbverse.length; i++)
+        {
+            randbverse[i] = randbverse[i].concat("...");
+            randbverse2[i] = randbverse2[i].concat("...");
+        }
     }
     public String ReturningRandBDisplay()
     {
         String display = "";
+        for (int i = 0; i < randbverse.length; i++) {
+            display += randbverse[i].substring(0, randbverse[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
 
+        for (int i = 0; i < randbchorus.length; i++) {
+            display += randbchorus[i].substring(0, randbchorus[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
 
+        for (int i = 0; i < randbverse2.length; i++) {
+            display += randbverse2[i].substring(0, randbverse2[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
 
+        for (int i = 0; i < randbchorus.length; i++) {
+            display += randbchorus[i].substring(0, randbchorus[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
+
+        for (int i = 0; i < randbbridge.length; i++) {
+            display += randbbridge[i].substring(0, randbbridge[i].length() - 3);
+            display += ". ";
+        }
         return display;
     }
     public String ReturningRandB()
     {
-
-
-
+        for (int i = 0; i < randbverse.length; i++) {
+            randbsong += randbverse[i];
+        }
+        for (int e = 0; e < randbchorus.length; e++) {
+            randbsong += randbchorus[e];
+        }
+        for (int j = 0; j < randbverse2.length; j++) {
+            randbsong += randbverse2[j];
+        }
+        for (int t = 0; t < randbchorus.length; t++) {
+            randbsong += randbchorus[t];
+        }
+        for (int k = 0; k < randbbridge.length; k++) {
+            randbsong += randbbridge[k];
+        }
         return randbsong;
     }
     public void CreatingCountryVerse1()
     {
+        int randomchorus = (int) (Math.random() * 2) + 1;
+        countryverse = new String[7];
+        countryverse2 = new String[7];
+        countrybridge = new String[3];
+        countrychorus = new String[5];
 
+        String versebunch = "";
+
+        String chorusbunch = "";
+
+        String chorusbunch2 = "";
+
+        String bridgebunch = "";
+
+        if(randomchorus == 1);
+        {
+            String[] chorusparts = chorusbunch.split("\n");
+            int min3 = 0;
+            int max3 = chorusparts.length - 1;
+            for (int j = 0; j < countrychorus.length; j++)
+            {
+                int randomnum = (int) (Math.random() * (max3 - min3 + 1) + min3);
+                countrychorus[j] = chorusparts[randomnum].concat(".");
+            }
+            for(int i = 0; i < countrychorus.length; i++)
+            {
+                countrychorus[i] = countrychorus[i].concat("...");
+            }
+        }
+        if(randomchorus == 2)
+        {
+            String[] chorusparts2 = chorusbunch2.split("\n");
+            int minchourus = 0;
+            int maxchourus = chorusparts2.length-1;
+            for (int j = 0; j < countrychorus.length; j++)
+            {
+                int randomnum = (int) (Math.random() * (maxchourus - minchourus + 1) + minchourus);
+                countrychorus[j] = chorusparts2[randomnum].concat(".");
+            }
+            for(int i = 0; i < countrychorus.length; i++)
+            {
+                countrychorus[i] = countrychorus[i].concat("...");
+            }
+        }
+        String[] bridgeparts = bridgebunch.split("\n");
+        int min2 = 0;
+        int max2 = bridgeparts.length - 1;
+
+        for (int j = 0; j < countrybridge.length; j++) {
+            int randomnum = (int) (Math.random() * (max2 - min2 + 1) + min2);
+            countrybridge[j] = bridgeparts[randomnum];
+        }
+        for(int i = 0; i < countrybridge.length; i++)
+        {
+            countrybridge[i] = countrybridge[i].concat("...");
+        }
+
+        String[] verseparts = versebunch.split("\n");
+        int min = 0;
+        int max = verseparts.length - 1;
+
+        for (int j = 0; j < countryverse.length; j++)
+        {
+            int randomnum = (int) (Math.random() * (max - min + 1) + min);
+            int randomnum2 = (int) (Math.random() * (max - min + 1) + min);
+
+            countryverse[j] = verseparts[randomnum];
+            countryverse2[j] = verseparts[randomnum2];
+        }
+        for(int i = 0; i < countryverse.length; i++)
+        {
+            countryverse[i] = countryverse[i].concat("...");
+            countryverse2[i] = countryverse2[i].concat("...");
+        }
     }
     public String ReturningCountryDisplay()
     {
         String display = "";
+        for (int i = 0; i < countryverse.length; i++) {
+            display += countryverse[i].substring(0, countryverse[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
 
+        for (int i = 0; i < countrychorus.length; i++) {
+            display += countrychorus[i].substring(0, countrychorus[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
 
+        for (int i = 0; i < countryverse2.length; i++) {
+            display += countryverse2[i].substring(0, countryverse2[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
 
+        for (int i = 0; i < countrychorus.length; i++) {
+            display += countrychorus[i].substring(0, countrychorus[i].length() - 3);
+            display += ". ";
+        }
+        display += "\n\n";
 
+        for (int i = 0; i < countrybridge.length; i++) {
+            display += countrybridge[i].substring(0, countrybridge[i].length() - 3);
+            display += ". ";
+        }
         return display;
     }
     public String ReturningCountry()
     {
-
-
-
-
+        for (int i = 0; i < countryverse.length; i++) {
+            countrysong += countryverse[i];
+        }
+        for (int e = 0; e < countrychorus.length; e++) {
+            countrysong += countrychorus[e];
+        }
+        for (int j = 0; j < countryverse2.length; j++) {
+            countrysong += countryverse2[j];
+        }
+        for (int t = 0; t < countrychorus.length; t++) {
+            countrysong += countrychorus[t];
+        }
+        for (int k = 0; k < countrybridge.length; k++) {
+            countrysong += countrybridge[k];
+        }
         return countrysong;
     }
 }
