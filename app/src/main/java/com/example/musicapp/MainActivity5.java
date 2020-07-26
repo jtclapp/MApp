@@ -1,15 +1,12 @@
 package com.example.musicapp;
 
 import android.Manifest;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.os.SystemClock;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -30,10 +27,6 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
@@ -104,7 +97,6 @@ public class MainActivity5 extends AppCompatActivity {
         setbutton = findViewById(R.id.button3);
         editText = findViewById(R.id.editTextTextMultiLine);
         et_name = findViewById(R.id.editTextTextPersonName);
-        final LoadingHelper loadingHelper = new LoadingHelper(MainActivity5.this);
         chronometer = findViewById(R.id.chronometer);
         buffersizeinbytes = 0;
         Intent idintent = getIntent();
@@ -127,7 +119,7 @@ public class MainActivity5 extends AppCompatActivity {
                     chronometer.start();
                     custombutton.setActivated(true);
                     play.setVisibility(View.INVISIBLE);
-                    setbutton.setEnabled(false);
+                    setbutton.setActivated(false);
 
                     new Thread(new Runnable() {
                         @Override
@@ -145,7 +137,7 @@ public class MainActivity5 extends AppCompatActivity {
                     chronometer.stop();
                     stopOffset = 0;
                     custombutton.setActivated(false);
-                    setbutton.setEnabled(true);
+                    setbutton.setActivated(true);
                     play.setVisibility(View.VISIBLE);
                     stoprecording();
                     if (path != null) {
@@ -187,10 +179,23 @@ public class MainActivity5 extends AppCompatActivity {
                 }
             }
         });
+        setbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(setbutton.isActivated())
+                {
+                    SetRecord(view);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Create/Upload a Recording First",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayOfStrings);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spFrequency.setAdapter(adapter);
-        setbutton.setEnabled(false);
+        setbutton.setActivated(false);
     }
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permission, @NonNull int[] grantResults) {
         if (requestCode == 111 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -364,7 +369,7 @@ public class MainActivity5 extends AppCompatActivity {
                 path = data.getStringExtra("name");
                 file = new File(path);
                 play.setVisibility(View.VISIBLE);
-                setbutton.setEnabled(true);
+                setbutton.setActivated(true);
             }
         }
     }
@@ -414,7 +419,7 @@ public class MainActivity5 extends AppCompatActivity {
     }
 
     public void stoprecording() {
-        setbutton.setEnabled(true);
+        setbutton.setActivated(true);
         recording = false;
     }
 

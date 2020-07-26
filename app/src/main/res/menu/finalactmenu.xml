@@ -5,8 +5,4 @@
         android:icon="@drawable/ic_home_icon"
         android:title="Exit To Home"
         app:showAsAction = "ifRoom"/>
-    <item android:id="@+id/settings3"
-        android:icon="@drawable/ic_settings_icon"
-        app:showAsAction="ifRoom"
-        android:title="Exit to Settings" />
 </menu>

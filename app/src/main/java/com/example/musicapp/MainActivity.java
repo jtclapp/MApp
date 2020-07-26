@@ -1,9 +1,12 @@
 package com.example.musicapp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -13,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button3;
     private Button button4;
     private Button storagebutton;
+    private Button settingsbutton;
     private AdView mAdView;
 
     @Override
@@ -59,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
                 openNav();
             }
         });
+        settingsbutton = findViewById(R.id.settingsbutton);
+        settingsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSettings();
+            }
+        });
     }
     public void openBeatpage1() {
         Intent intent = new Intent(this, BeatPage1.class);
@@ -82,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
     public void openNav()
     {
         Intent intent = new Intent(this,Navigator.class);
+        startActivity(intent);
+    }
+    public void openSettings()
+    {
+        Intent intent = new Intent(this,SettingsPage.class);
         startActivity(intent);
     }
 }

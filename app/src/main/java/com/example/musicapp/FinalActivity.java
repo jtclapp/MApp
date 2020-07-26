@@ -1,5 +1,7 @@
 package com.example.musicapp;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.AudioTrack;
@@ -23,8 +25,10 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
@@ -34,6 +38,7 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+
 import static android.Manifest.permission;
 
 public class FinalActivity extends AppCompatActivity {
@@ -54,11 +59,16 @@ public class FinalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
-        ScrollView scrollView = findViewById(R.id.final_layout);
-        AnimationDrawable animationDrawable = (AnimationDrawable) scrollView.getBackground();
-        animationDrawable.setEnterFadeDuration(2000);
-        animationDrawable.setExitFadeDuration(4000);
-        animationDrawable.start();
+
+        final SharedPreferences sharedPreferences = getSharedPreferences("isChecked", 0);
+        boolean value = sharedPreferences.getBoolean("isChecked",true);
+        if(value == true) {
+            ScrollView scrollView = findViewById(R.id.final_layout);
+            AnimationDrawable animationDrawable = (AnimationDrawable) scrollView.getBackground();
+            animationDrawable.setEnterFadeDuration(2000);
+            animationDrawable.setExitFadeDuration(4000);
+            animationDrawable.start();
+        }
 
         mAdView = findViewById(R.id.adView12);
         AdRequest adRequest = new AdRequest.Builder().build();

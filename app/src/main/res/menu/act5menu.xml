@@ -6,10 +6,6 @@
         android:icon="@drawable/ic_home_icon"
         android:title="Item_Home"
         app:showAsAction = "ifRoom"/>
-    <item android:id="@+id/settings1"
-        android:icon="@drawable/ic_settings_icon"
-        app:showAsAction="ifRoom"
-        android:title="Exit to Settings" />
     <item
         android:title="Save Lyrics"
         android:id="@+id/DL"></item>

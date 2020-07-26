@@ -1,13 +1,12 @@
 package com.example.musicapp;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
-
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -191,7 +190,12 @@ public class Beatpage3 extends AppCompatActivity {
                     startActivity(intentdownload);
                 }
             });
-            builder.setNegativeButton("Cancel", null);
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    radioGroup.clearCheck();
+                }
+            });
             builder.show();
         }
         if(path.exists() == true)

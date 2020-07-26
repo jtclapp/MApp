@@ -89,8 +89,8 @@
         android:textOn="" />
     <ToggleButton
         android:id="@+id/playrec"
-        android:layout_width="81dp"
-        android:layout_height="75dp"
+        android:layout_width="75dp"
+        android:layout_height="69dp"
         android:layout_gravity="center"
         android:background="@drawable/custom_button2"
         android:textOff=""
@@ -102,8 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:backgroundTint="#E6DADA"
-        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:onClick="SetRecord" />
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"/>
 
 </LinearLayout>
 </ScrollView>

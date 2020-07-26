@@ -1,6 +1,5 @@
 package com.example.musicapp;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,6 +22,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -59,6 +62,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Rap Beat 1.mp3";
                 path = "HipHop_Beat#1.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB2.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +71,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Rap Beat 2.mp3";
                 path = "HipHop_Beat#2.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB3.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +80,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Rap_Beat_3.mp3";
                 path = "HipHop_Beat#3.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB4.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +89,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Rock Beat 1.mp3";
                 path = "Rock_Beat#1.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB5.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +98,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "R&B Beat_1.mp3";
                 path = "R&B_Beat#1.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB6.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +107,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "R&B Beat 2.mp3";
                 path = "R&B_Beat#2.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB7.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +116,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "R&B Beat 3.mp3";
                 path = "R&B_Beat#3.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB8.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +125,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View v) {
                 child = "R&B beat 4.mp3";
                 path = "R&B_Beat#4.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB9.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +134,8 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Country beat 1.mp3";
                 path = "Country_Beat#1.mp3";
+                B1.setActivated(true);
+
             }
         });
         RB10.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +143,7 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Rap Beat 4.mp3";
                 path = "HipHop_Beat#4.mp3";
+                B1.setActivated(true);
             }
         });
         RB11.setOnClickListener(new View.OnClickListener() {
@@ -129,12 +151,19 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View view) {
                 child = "Rap Beat 5.mp3";
                 path = "HipHop_Beat#5.mp3";
+                B1.setActivated(true);
             }
         });
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Download();
+                if (B1.isActivated()) {
+                    Download();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Select a beat first",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
