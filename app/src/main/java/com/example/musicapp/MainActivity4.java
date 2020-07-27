@@ -324,7 +324,6 @@ public class MainActivity4 extends AppCompatActivity {
         Intent i = new Intent(this, Selector.class);
         startActivityForResult(i, 1);
     }
-
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
@@ -347,7 +346,6 @@ public class MainActivity4 extends AppCompatActivity {
             }
         }
     }
-
     @Override
     protected void onDestroy() {
         if (textToSpeech != null) {
