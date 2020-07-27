@@ -188,7 +188,7 @@ public class MainActivity5 extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(),"Create/Upload a Recording First",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Create/Upload a Recording to Continue",Toast.LENGTH_SHORT).show();
                 }
             }
         });

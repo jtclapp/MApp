@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AlertDialog;
@@ -98,30 +99,37 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                if (FinalPlay.isChecked()) {
-                    FinalPlay.setActivated(true);
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            DownloadDialog();
-                            play();
-                        }
-                    }).start();
+                    if (FinalPlay.isChecked()) {
+                        FinalPlay.setActivated(true);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                DownloadDialog();
+                                play();
+                            }
+                        }).start();
+                    }
+                    if (FinalPlay.isChecked() == false) {
+                        FinalPlay.setActivated(false);
+                        stopPlayer();
+                    }
                 }
-                if (FinalPlay.isChecked() == false) {
-                    FinalPlay.setActivated(false);
-                    stopPlayer();
-                }
-            }
         });
         next = findViewById(R.id.nextpage1);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DownloadDialog();
-                openMainAct5();
+                if(next.isActivated())
+                {
+                    openMainAct5();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Select a Beat to Continue",Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        next.setActivated(false);
         volumeadj = findViewById(R.id.Volume);
     }
     public void openMainAct5() {
@@ -188,7 +196,7 @@ public class BeatPage1 extends AppCompatActivity {
     public void DownloadDialog()
     {
         if(path.exists() != true) {
-            next.setEnabled(false);
+            next.setActivated(false);
             FinalPlay.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage1.this);
             builder.setMessage("Please Download This Beat To Play It.");
@@ -210,7 +218,7 @@ public class BeatPage1 extends AppCompatActivity {
         }
         if(path.exists() == true)
         {
-            next.setEnabled(true);
+            next.setActivated(true);
             FinalPlay.setEnabled(true);
         }
     }

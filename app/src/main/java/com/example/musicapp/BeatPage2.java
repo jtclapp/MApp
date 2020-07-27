@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AlertDialog;
@@ -104,9 +105,17 @@ public class BeatPage2 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openMainAct5();
+                if(next.isActivated())
+                {
+                    openMainAct5();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Select a Beat to Continue",Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        next.setActivated(false);
         volumeadj = findViewById(R.id.Volume2);
     }
     public void openMainAct5() {
@@ -167,7 +176,7 @@ public class BeatPage2 extends AppCompatActivity {
     public void DownloadDialog()
     {
         if(path.exists() != true) {
-            next.setEnabled(false);
+            next.setActivated(false);
             FinalPlay.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage2.this);
             builder.setMessage("Please Download This Beat To Play It.");
@@ -189,7 +198,7 @@ public class BeatPage2 extends AppCompatActivity {
         }
         if(path.exists() == true)
         {
-            next.setEnabled(true);
+            next.setActivated(true);
             FinalPlay.setEnabled(true);
         }
     }

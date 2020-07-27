@@ -56,6 +56,13 @@
             android:layout_margin="5dp"
             android:text=" Chill Beat #4  (2:40)"
             android:textColor="#E6DADA" />
+        <RadioButton
+            android:id="@+id/RB_checkbox5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text=" Chill Beat #5  (3:06)"
+            android:textColor="#E6DADA" />
     </RadioGroup>
 
     <TextView
@@ -101,8 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_margin="5dp"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:enabled="false"/>
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"/>
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"

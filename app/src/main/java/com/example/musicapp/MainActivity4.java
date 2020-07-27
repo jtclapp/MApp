@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -35,6 +36,7 @@ public class MainActivity4 extends AppCompatActivity {
     private SeekBar seekBarspeed;
     EditText editText, et_name;
     Spinner spinner;
+    Button sendbutton;
     Voice selectedvoice;
     String song;
     int idvalue;
@@ -54,7 +56,6 @@ public class MainActivity4 extends AppCompatActivity {
 
             @Override
             public void onInit(int status) {
-                Log Log = null;
                 if (status == TextToSpeech.SUCCESS) {
                     // Setting speech language
                     // System.out.println(Locale.getAvailableLocales());
@@ -159,12 +160,26 @@ public class MainActivity4 extends AppCompatActivity {
                         break;
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+        sendbutton = findViewById(R.id.button2);
+        sendbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(sendbutton.isActivated())
+                {
+                    SendVoice(v);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Create/Upload Lyrics to Continue",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        sendbutton.setActivated(false);
         editText = findViewById(R.id.editTextTextMultiLine2);
         seekBarpitch = findViewById(R.id.seekBarPitch);
         seekBarspeed = findViewById(R.id.seekBarSpeed);
@@ -201,7 +216,6 @@ public class MainActivity4 extends AppCompatActivity {
         song = songBuilder.ReturningRap();
         String display = songBuilder.ReturningRapDisplay();
         editText.setText(display);
-        editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 2)
         {
@@ -209,7 +223,6 @@ public class MainActivity4 extends AppCompatActivity {
             song = songBuilder.ReturningRock();
             String display2 = songBuilder.ReturningRockDisplay();
             editText.setText(display2);
-            editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 3)
         {
@@ -217,7 +230,6 @@ public class MainActivity4 extends AppCompatActivity {
             song = songBuilder.ReturningRandB();
             String display3 = songBuilder.ReturningRandBDisplay();
             editText.setText(display3);
-            editText.setMovementMethod(new ScrollingMovementMethod());
         }
         if(idvalue == 4)
         {
@@ -225,8 +237,9 @@ public class MainActivity4 extends AppCompatActivity {
             song = songBuilder.ReturningCountry();
             String display4 = songBuilder.ReturningCountryDisplay();
             editText.setText(display4);
-            editText.setMovementMethod(new ScrollingMovementMethod());
         }
+        editText.setMovementMethod(new ScrollingMovementMethod());
+        sendbutton.setActivated(true);
     }
 
     @Override
@@ -297,9 +310,6 @@ public class MainActivity4 extends AppCompatActivity {
         i.putExtra("editTextData", editTextData);
         i.putExtra("song",song);
 
-        String print = "Press Load AI First";
-        Toast.makeText(getApplicationContext(), print, Toast.LENGTH_LONG).show();
-
         Intent myintent2 = getIntent();
         int svalue = myintent2.getIntExtra("svalue", 0);
         Intent myintent3 = getIntent();
@@ -333,6 +343,7 @@ public class MainActivity4 extends AppCompatActivity {
                 {
                     song += parts[i];
                 }
+                sendbutton.setActivated(true);
             }
         }
     }

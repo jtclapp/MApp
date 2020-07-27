@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,8 @@ public class DownloadedBeats extends AppCompatActivity {
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     StorageReference ref;
-    RadioButton RB1,RB2,RB3,RB4,RB5,RB6,RB7,RB8,RB9,RB10,RB11;
+    RadioGroup radioGroup;
+    RadioButton RB1,RB2,RB3,RB4,RB5,RB6,RB7,RB8,RB9,RB10,RB11,RB12;
     ImageButton B1;
     String child;
     String path;
@@ -45,6 +47,7 @@ public class DownloadedBeats extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         B1 = findViewById(R.id.DownloadButton);
+        radioGroup = findViewById(R.id.RadioGroup_downloads);
         RB1 = findViewById(R.id.radioButton1);
         RB2 = findViewById(R.id.radioButton2);
         RB3 = findViewById(R.id.radioButton3);
@@ -56,6 +59,7 @@ public class DownloadedBeats extends AppCompatActivity {
         RB9 = findViewById(R.id.radioButton9);
         RB10 = findViewById(R.id.radioButton24);
         RB11 = findViewById(R.id.radioButton25);
+        RB12 = findViewById(R.id.radioButton35);
 
         RB1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +158,14 @@ public class DownloadedBeats extends AppCompatActivity {
                 B1.setActivated(true);
             }
         });
+        RB12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "R&B beat 5.mp3";
+                path = "R&B_Beat#5.mp3";
+                B1.setActivated(true);
+            }
+        });
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,10 +206,24 @@ public class DownloadedBeats extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         boolean success = standin.delete();
-                        Toast.makeText(getApplicationContext(),"Deleted = " + success,Toast.LENGTH_SHORT).show();
+                        if(success == true) {
+                            Toast.makeText(getApplicationContext(), "Beat Successfully Deleted", Toast.LENGTH_SHORT).show();
+                        }
+                        if(success == false)
+                        {
+                            Toast.makeText(getApplicationContext(), "Error Occurred", Toast.LENGTH_SHORT).show();
+                        }
+                        radioGroup.clearCheck();
+                        B1.setActivated(false);
                     }
                 });
-                builder.setNegativeButton("Cancel", null);
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        radioGroup.clearCheck();
+                        B1.setActivated(false);
+                    }
+                });
                 builder.show();
             }
         else if(dir.exists() == false)
@@ -213,6 +239,8 @@ public class DownloadedBeats extends AppCompatActivity {
                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                         loadingHelper.dismissDialog();
                         Toast.makeText(getApplicationContext(),"This Beat Has Successfully Downloaded",Toast.LENGTH_SHORT).show();
+                        radioGroup.clearCheck();
+                        B1.setActivated(false);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

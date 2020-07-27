@@ -108,6 +108,7 @@ public class FinalActivity extends AppCompatActivity {
             button.setVisibility(View.INVISIBLE);
         }
         if (recordedvoice == null) {
+            Toast.makeText(getApplicationContext(), "Select Load AI First", Toast.LENGTH_LONG).show();
             finalplay.setEnabled(false);
         }
         finalplay.setOnClickListener(new View.OnClickListener() {
@@ -212,11 +213,11 @@ public class FinalActivity extends AppCompatActivity {
         if (intvalue == 3) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
         }
-        if(intvalue == 24)
+        if(intvalue == 24) // Complete
         {
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#4.mp3");
         }
-        if(intvalue == 25)
+        if(intvalue == 25) // Complete
         {
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
         }
@@ -244,6 +245,10 @@ public class FinalActivity extends AppCompatActivity {
         if(intvalue == 11) // Complete
         {
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#4.mp3");
+        }
+        if(intvalue == 35) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#5.mp3");
         }
         if (intvalue == 13) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AlertDialog;
@@ -28,7 +29,7 @@ public class Beatpage3 extends AppCompatActivity {
     SeekBar volumeadj;
     float setVolume;
     RadioGroup radioGroup;
-    RadioButton R1,R2,R3,R4;
+    RadioButton R1,R2,R3,R4,R5;
     ToggleButton FinalPlay;
     Button next;
     private AdView mAdView;
@@ -89,6 +90,18 @@ public class Beatpage3 extends AppCompatActivity {
                 }
             }
         });
+        R5 = findViewById(R.id.RB_checkbox5);
+        R5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(R5.isChecked())
+                {
+                    check = 35;
+                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#5.mp3");
+                    DownloadDialog();
+                }
+            }
+        });
         FinalPlay = findViewById(R.id.Beat3Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +126,14 @@ public class Beatpage3 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openMainAct5();
+                if(next.isActivated())
+                {
+                    openMainAct5();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Select a Beat to Continue",Toast.LENGTH_SHORT).show();
+                }
             }
         });
         volumeadj = findViewById(R.id.Volume3);
@@ -134,6 +154,10 @@ public class Beatpage3 extends AppCompatActivity {
         if(check == 11)
         {
             intent.putExtra("check",11);
+        }
+        if(check == 35)
+        {
+            intent.putExtra("check",35);
         }
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}
@@ -178,7 +202,7 @@ public class Beatpage3 extends AppCompatActivity {
     public void DownloadDialog()
     {
         if(path.exists() != true) {
-            next.setEnabled(false);
+            next.setActivated(false);
             FinalPlay.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(Beatpage3.this);
             builder.setMessage("Please Download This Beat To Play It.");
@@ -200,7 +224,7 @@ public class Beatpage3 extends AppCompatActivity {
         }
         if(path.exists() == true)
         {
-            next.setEnabled(true);
+            next.setActivated(true);
             FinalPlay.setEnabled(true);
         }
     }
