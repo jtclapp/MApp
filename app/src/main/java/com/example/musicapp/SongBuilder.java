@@ -26,7 +26,7 @@ public class SongBuilder {
         int randomchorus = (int) (Math.random() * 2) + 1;
         rapverse = new String[7];
         rapverse2 = new String[7];
-        rapbridge = new String[4];
+        rapbridge = new String[3];
         rapchorus = new String[4];
         String bridgebunch = "The sun is shinin' today\n" +
                 "The sun is shinin' today\n" +
@@ -276,7 +276,7 @@ public class SongBuilder {
         int randomchorus = (int) (Math.random() * 2) + 1;
         rockverse = new String[7];
         rockverse2 = new String[7];
-        rockbridge = new String[4];
+        rockbridge = new String[3];
         rockchorus = new String[4];
         String versebunch = "The world is hard, so many are lost\n" +
                 "How hard it is just to believe\n" +
@@ -300,7 +300,23 @@ public class SongBuilder {
                 "And this is my experience\n" +
                 "Of love in a distant, lonely world\n" +
                 "I see loyalty, when I see you\n" +
-                "I see hope when I see you";
+                "I see hope when I see you\n" +
+                "Everybody knows our love is strong\n" +
+                "Nobody needs the truth\n" +
+                "With lust in his heart, she took your heart and ate it whole\n" +
+                "For love is like money and you know money loves pain\n" +
+                "Give one day, given one day\n" +
+                "To find your love, you give it all\n" +
+                "I love you for the things that nobody else could know\n" +
+                "For what I do when I am far from everybody else\n" +
+                "And most of my friends are from the schools of hollywood\n" +
+                "But they run the show and run when the party is over\n" +
+                "I see you at every party\n" +
+                "I see you with cream on your hair\n" +
+                "Stick around to see how it ends\n" +
+                "Make the party go strange\n" +
+                "Walking down the paths of a dark soul\n" +
+                "Painting words with a venom so true";
 
         String chorusbunch = "I made my way by sitting on the cold hard ground\n" +
                 "I used to scream like a baby, now I just scream into the night\n" +
@@ -318,11 +334,55 @@ public class SongBuilder {
                 "That was long time ago\n" +
                 "I cry, I cry, no one else can help me please\n" +
                 "Lord, I wanna fall, I wanna fall, in love\n" +
-                "Peace and love, would you let me know";
+                "Peace and love, would you let me know\n" +
+                "In this habit, that I love so much\n" +
+                "I wish you could build me up, maybe you could break me down\n" +
+                "Oh yeah, boy you know that I love you\n" +
+                "Oh yeah, boy you know that I love you\n" +
+                "For love is not a palace\n" +
+                "For love is grey\n" +
+                "Oh this one said she likes me boys and I like them too\n" +
+                "And every time we make sweet love\n" +
+                "You got the eyes to ask me not to love you\n" +
+                "But you want to hold my hand and eye away\n" +
+                "Go to memory, go to memory, go to memory\n" +
+                "Is there still a love in your heart\n" +
+                "Give us lot love oh give us fun\n" +
+                "Give up love and you could save a life\n" +
+                "So long mom, so long, so long, so long\n" +
+                "My first love I knew";
+
         String chorusbunch2 = "I just came to have a ball\n" +
                 "And party with all my friends\n" +
                 "A rich man must have a party\n" +
-                "Party that lasts a year";
+                "Party that lasts a year\n" +
+                "We got a party\n" +
+                "We got a party\n" +
+                "Do we need a party anyway?\n" +
+                "The kind I fear will come\n" +
+                "We walk into a party\n" +
+                "You find me late at night\n" +
+                "Yes, the party that you want\n" +
+                "Is the party of a lifetime\n" +
+                "I look at this little party strip\n" +
+                "And search this heart and see what lies there\n" +
+                "There was a party, at the bottom of the river\n" +
+                "There was a party when it all went down\n" +
+                "I went to a party, just the usual\n" +
+                "To have it loud, to have it proud\n" +
+                "Of this farewell party\n" +
+                "Not to let you in\n" +
+                "Leave the party at one\n" +
+                "Crawl into my room and then move right over here\n" +
+                "In a fancy mansion party at the back door\n" +
+                "Chic and lazy made a getaway\n" +
+                "Had a nice party on the bay\n" +
+                "I was happy wasted the day\n" +
+                "I came to party, not to party, not to party\n" +
+                "I have to go to the party\n" +
+                "I have to go to the party\n" +
+                "While there is no more song to be sung\n" +
+                "Another party goes up in flames";
 
         String bridgebunch = "Where did all your fun go\n" +
                 "Round and around rolling round\n" +
@@ -331,7 +391,23 @@ public class SongBuilder {
                 "A place in the past for love\n" +
                 "Fly so high, stay so free\n" +
                 "Keep that in mind, before we lose this\n" +
-                "And I may never get the chance again to";
+                "And I may never get the chance again to\n" +
+                "Yes, the party that you want\n" +
+                "Is the party of a lifetime\n" +
+                "They went to a rave together\n" +
+                "They went to a party together\n" +
+                "So the party goes\n" +
+                "Smile on every face, still trying to play it safe\n" +
+                "We really wanna know you\n" +
+                "We love to know you\n" +
+                "Do you know when love begins\n" +
+                "Or does it all just happen\n" +
+                "In this habit, that I love so much\n" +
+                "I wish you could build me up, maybe you could break me down\n" +
+                "Hear our song on stereo\n" +
+                "Send our love into radio\n" +
+                "Every thing I fear I fear you\n" +
+                "Your love so naughty";
         if(randomchorus == 1);
         {
             String[] chorusparts = chorusbunch.split("\n");
@@ -447,7 +523,7 @@ public class SongBuilder {
         int randomchorus = (int) (Math.random() * 2) + 1;
         randbverse = new String[7];
         randbverse2 = new String[7];
-        randbbridge = new String[4];
+        randbbridge = new String[3];
         randbchorus = new String[4];
 
         String versebunch = "He said, you do as your heart spins\n" +
@@ -655,7 +731,7 @@ public class SongBuilder {
         int randomchorus = (int) (Math.random() * 2) + 1;
         countryverse = new String[7];
         countryverse2 = new String[7];
-        countrybridge = new String[4];
+        countrybridge = new String[3];
         countrychorus = new String[4];
 
         String versebunch = "Gonna too much lookin love\n" +

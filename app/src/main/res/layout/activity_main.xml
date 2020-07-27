@@ -97,8 +97,8 @@
 
         <Button
             android:id="@+id/settingsbutton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@drawable/ic_settings_icon" />
     </LinearLayout>

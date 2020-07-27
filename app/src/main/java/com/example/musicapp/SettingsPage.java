@@ -53,7 +53,7 @@ public class SettingsPage extends AppCompatActivity {
                 if(b){
                     sharedPreferences.edit().putBoolean("isChecked", true).apply();
                 }else {
-                    sharedPreferences.edit().putBoolean("isChecked", false).apply();;
+                    sharedPreferences.edit().putBoolean("isChecked", false).apply();
                 }
             }
         });

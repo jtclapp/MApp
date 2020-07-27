@@ -28,10 +28,14 @@
         <activity
             android:name=".Beatpage3"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".RecordingLibrary" />
-        <activity android:name=".RecSelector" />
-        <activity android:name=".Selector" />
-        <activity android:name=".LyricsLibrary" />
+        <activity android:name=".RecordingLibrary"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".RecSelector"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Selector"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".LyricsLibrary"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".DownloadedBeats" />
         <activity
             android:name=".MainActivity5"
