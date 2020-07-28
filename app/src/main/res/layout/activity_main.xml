@@ -33,7 +33,7 @@
         android:background="@drawable/rounded_button"
         android:backgroundTint="#E6DADA"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:text="HipHop/Rap"
+        android:text="Hip Hop/Rap"
         android:textColor="#414345"
         android:textSize="35dp" />
 

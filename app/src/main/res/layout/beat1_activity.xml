@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Hip/Hop Beat #1  (2:27)"
+            android:text=" Call Me Now  (2:27)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Hip/Hop Beat #2  (3:07)"
+            android:text=" Blame Me  (3:07)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Hip/Hop Beat #3  (2:46)"
+            android:text=" Uppercut  (2:46)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Hip/Hop Beat #4  (3:29)"
+            android:text=" Only At Night  (3:29)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Hip/Hop Beat #5  (2:49)"
+            android:text=" Too Hot For You  (2:49)"
             android:textColor="#E6DADA" />
 </RadioGroup>
 
@@ -105,13 +105,15 @@
         android:textOff=""
         android:textOn="" />
 
-    <Button
-        android:id="@+id/nextpage1"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity= "end"
-        android:layout_margin="5dp"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24" />
+        <Button
+            android:id="@+id/nextpage1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="5dp"
+            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:text="Next "
+            android:textSize="16sp"/>
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"

@@ -29,7 +29,7 @@ public class Beatpage4 extends AppCompatActivity {
     int check;
     SeekBar volumeadj;
     float setVolume;
-    RadioButton R1;
+    RadioButton R1,R2,R3,R4,R5;
     RadioGroup radioGroup;
     ToggleButton FinalPlay;
     Button next;
@@ -55,6 +55,11 @@ public class Beatpage4 extends AppCompatActivity {
                 }
             }
         });
+        R2 = findViewById(R.id.country_box2);
+        R3 = findViewById(R.id.country_box3);
+        R4 = findViewById(R.id.country_box4);
+        R5 = findViewById(R.id.country_box5);
+
         FinalPlay = findViewById(R.id.Beat4Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
             @Override

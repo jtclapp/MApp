@@ -152,9 +152,9 @@ public class MainActivity5 extends AppCompatActivity {
                         }
                         DataBaseHelper dataBaseHelper2 = new DataBaseHelper(MainActivity5.this);
                         dataBaseHelper2.addOneRecording(recordingModel);
-                        Toast.makeText(getApplicationContext(), "Recording Successfully Saved!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Recording Successfully Saved", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "No Recording to save", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "No Recording To Save", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -399,11 +399,11 @@ public class MainActivity5 extends AppCompatActivity {
                 boolean success = dataBaseHelper.addOne(lyricsModel);
                 if(success)
                 {
-                    Toast.makeText(getApplicationContext(), "Lyrics were successfully saved.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Lyrics were successfully saved", Toast.LENGTH_LONG).show();
                 }
                 if(!success)
                 {
-                    Toast.makeText(getApplicationContext(),"Error occurred when trying to save lyrics.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Error occurred when trying to save lyrics", Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.UL:

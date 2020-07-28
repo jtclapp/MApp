@@ -169,6 +169,14 @@ public class MainActivity4 extends AppCompatActivity {
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(editText.getText().toString().trim().length() > 0)
+                {
+                    sendbutton.setActivated(true);
+                }
+                if(editText.getText().toString().trim().length() == 0)
+                {
+                    sendbutton.setActivated(false);
+                }
                 if(sendbutton.isActivated())
                 {
                     SendVoice(v);
@@ -241,7 +249,6 @@ public class MainActivity4 extends AppCompatActivity {
         editText.setMovementMethod(new ScrollingMovementMethod());
         sendbutton.setActivated(true);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.act4menu, menu);
@@ -258,12 +265,19 @@ public class MainActivity4 extends AppCompatActivity {
                 try {
                     lyricsModel = new LyricsModel(-1, et_name.getText().toString(), editText.getText().toString());
                 } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Error Creating Customer!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error Saving Lyrics", Toast.LENGTH_SHORT).show();
                     lyricsModel = new LyricsModel(-1, "error", "No Lyrics");
                 }
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity4.this);
                 boolean success = dataBaseHelper.addOne(lyricsModel);
-                Toast.makeText(getApplicationContext(), "Entry Added = " + success, Toast.LENGTH_SHORT).show();
+                if(success)
+                {
+                    Toast.makeText(getApplicationContext(), "Lyrics were successfully saved", Toast.LENGTH_SHORT).show();
+                }
+                if(success == false)
+                {
+                    Toast.makeText(getApplicationContext(), "Lyrics did not successfully save", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.UL:
                 startSelectAct();

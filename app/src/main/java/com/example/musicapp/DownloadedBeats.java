@@ -32,7 +32,8 @@ public class DownloadedBeats extends AppCompatActivity {
     StorageReference storageReference;
     StorageReference ref;
     RadioGroup radioGroup;
-    RadioButton RB1,RB2,RB3,RB4,RB5,RB6,RB7,RB8,RB9,RB10,RB11,RB12;
+    RadioButton RB1,RB2,RB3,RB4,RB5,RB6,RB7,RB8,RB9,RB10,RB11,RB12,RB13,RB14,RB15;
+    RadioButton RB16,RB17,RB18,RB19,RB20;
     ImageButton B1;
     String child;
     String path;
@@ -60,6 +61,14 @@ public class DownloadedBeats extends AppCompatActivity {
         RB10 = findViewById(R.id.radioButton24);
         RB11 = findViewById(R.id.radioButton25);
         RB12 = findViewById(R.id.radioButton35);
+        RB13 = findViewById(R.id.radioButton26);
+        RB14 = findViewById(R.id.radioButton27);
+        RB15 = findViewById(R.id.radioButton28);
+        RB16 = findViewById(R.id.radioButton29);
+        RB17 = findViewById(R.id.radioButton10);
+        RB18 = findViewById(R.id.radioButton11);
+        RB19 = findViewById(R.id.radioButton12);
+        RB20 = findViewById(R.id.radioButton13);
 
         RB1.setOnClickListener(new View.OnClickListener() {
             @Override

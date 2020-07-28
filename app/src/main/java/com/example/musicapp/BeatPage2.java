@@ -29,7 +29,7 @@ public class BeatPage2 extends AppCompatActivity {
     float setVolume;
     int check;
     RadioGroup radioGroup;
-    RadioButton R1,R2,R3,R4;
+    RadioButton R1,R2,R3,R4,R5;
     ToggleButton FinalPlay;
     Button next;
     private AdView mAdView;
@@ -81,6 +81,8 @@ public class BeatPage2 extends AppCompatActivity {
                 }
             }
         });
+        R5 = findViewById(R.id.checkBox8);
+
         FinalPlay = findViewById(R.id.Beat2Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
             @Override

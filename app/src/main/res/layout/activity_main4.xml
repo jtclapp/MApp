@@ -109,10 +109,12 @@
             android:text="Test Voice" />
     <Button
         android:id="@+id/button2"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24" />
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="Next "
+        android:textSize="16sp"/>
 </LinearLayout>
 </ScrollView>
