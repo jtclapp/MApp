@@ -7,6 +7,8 @@
     android:id="@+id/final_layout"
     android:background="@drawable/gradient_list"
     android:paddingTop="?attr/actionBarSize"
+    android:paddingLeft="?attr/actionBarSize"
+    android:paddingRight="?attr/actionBarSize"
     android:keepScreenOn="true"
     tools:context=".FinalActivity">
 
@@ -22,13 +24,13 @@
         android:textColor="#080808"
         android:layout_margin="5dp"
         android:background="@null"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
     <TextView
         android:id="@+id/textView4"
         android:layout_width="308dp"
         android:layout_height="349dp"
         android:layout_gravity="center"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:layout_margin="5dp"
         android:textColor="#E6DADA" />
 
@@ -51,19 +53,5 @@
         android:drawableBottom="@drawable/ic_baseline_refresh_24"
         android:onClick="LoadAI"
         android:text="Load AI" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView12"
-        android:layout_width="406dp"
-        android:layout_height="63dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
 </LinearLayout>
 </ScrollView>

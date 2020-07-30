@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
+
     android:background="@drawable/gradient_background"
     tools:context=".RecordingLibrary">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <TextView
         android:id="@+id/textView8"
@@ -17,13 +17,14 @@
         android:layout_height="wrap_content"
         android:text="Recordings Library:"
         android:textColor="#E6DADA"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <ListView
         android:id="@+id/recording_list"
         android:layout_width="376dp"
         android:layout_height="469dp"
-        android:textSize="16dp" />
+        android:layout_margin="5dp"
+        android:textSize="16sp" />
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -51,10 +52,11 @@
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView9"
         android:layout_width="wrap_content"
-        android:layout_height="63dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
 
 </LinearLayout>
 </ScrollView>

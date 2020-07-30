@@ -51,16 +51,16 @@ public class SongBuilder {
                 "What you do, and I want you";
 
         String chorusbunch = "But not the kinda love that will be in vain\n" +
-                "I wanna love, love you foreverGirl of my dreams, I wanna hold her\n" +
+                "I wanna love, love you forever, girl of my dreams, I wanna hold her\n" +
                 "Share my life and love you, do everything\n" +
                 "You got to make sure you can love somebody\n" +
                 "And no woman that I know loves me this wayLove is love God is God\n" +
                 "It always comes as no surprise\n" +
-                "Love never lets you goSometimes you make me think. I love you\n" +
+                "Love never lets you go Sometimes you make me think. I love you\n" +
                 "Sometimes you make me sing\n" +
-                "Love makes the world go around, make a world go around\nCause I love dem\n" +
+                "Love makes the world go around, make a world go around\n" +
                 "But I love dem\n" +
-                "Where is the love? Where is love?And no woman that I know loves me this way\n" +
+                "Where is the love? Where is love? And no woman that I know loves me this way\n" +
                 "But I know some people that they really love me\n" +
                 "I love everybody with their arm around them\n" +
                 "Would you, love me if I lost everything\n" +
@@ -93,7 +93,6 @@ public class SongBuilder {
                 "Both my stick fingers right up she know I grind daily\n" +
                 "In the hood on the grind, nothing aint goin so good\n" +
                 "Yeah, pump the breaks and make the party rock\n" +
-                "Yeah, pump the breaks and make the party rock\n" +
                 "We came to party, poppin bottles\n" +
                 "We came to party, popping models\n" +
                 "We came to party, dancing\n" +
@@ -111,58 +110,8 @@ public class SongBuilder {
                 "We gonna party hard, party gang, party gang\n" +
                 "You still beating on your chest";
 
-        String versebunch = "Straight out the pointy dungeons of rap\n" +
-                "The angel drops deep as does my money\n" +
-                "I never smile, 'cause to smile is the son of blini\n" +
-                "Beyond the walls of arms, life is defined\n" +
-                "I think of muppets when I'm in a Prague state of mind\n" +
-                "Hope the trick got some stick\n" +
-                "My sic don't like no dirty dick\n" +
-                "Run up to the tick and get the kick\n" +
-                "In a Prague state of mind\n" +
-                "What more could you ask for? The moist angel\n" +
-                "You complain about famine\n" +
-                "I gotta love it though - somebody still speaks for the black archangel\n" +
-                "I'm rappin' to the cat\n" +
-                "And I'm gonna move your a\n" +
-                "Chewy, great, rancid, like a joystick\n" +
-                "Boy, I tell you, I thought you were a sic\n" +
-                "I can't take the famine, can't take the apple\n" +
-                "I woulda tried to sleep I guess I got no dapple\n" +
-                "I'm rappin' to the streets\n" +
-                "And I'm gonna move your cat\n" +
-                "Yea, yaz, in a Prague state of mind\n" +
-                "When I was young my son had a honey\n" +
-                "I waz kicked out without no blini\n" +
-                "I never thought I'd see that sunny\n" +
-                "Ain't a soul alive that could take my son's gunny\n" +
-                "A little banana is quite the americana\n" +
-                "Thinking of muppets. Yaz, thinking of muppets\n" +
-                "The snail drops deep as does my heart\n" +
-                "I never tickle, 'cause to tickle is the husband of start\n" +
-                "Beyond the walls of shoes, life is defined\n" +
-                "I think of cheese when I'm in a Washington state of mind\n" +
-                "Hope the art got some start\n" +
-                "My smart don't like no dirty part\n" +
-                "Run up to the counterpart and get the chart\n" +
-                "In a Washington state of mind\n" +
-                "What more could you ask for? The pointless snail\n" +
-                "You complain about chickens\n" +
-                "I gotta love it though - somebody still speaks for the trail\n" +
-                "I'm rappin' to the head\n" +
-                "And I'm gonna move your lead\n" +
-                "Wild, mild, crazy, like a shoe\n" +
-                "Boy, I tell you, I thought you were an eschew\n" +
-                "I can't take the chickens, can't take the flamingo\n" +
-                "I woulda tried to sing I guess I got no dingo\n" +
-                "I'm rappin' to the lead\n" +
-                "And I'm gonna move your head\n" +
-                "Yea, yaz, in a Washington state of mind\n" +
-                "When I was young my husband had an entail\n" +
-                "I waz kicked out without no scale\n" +
-                "I never thought I'd see that rail\n" +
-                "Ain't a soul alive that could take my husband's hail\n" +
-                "A smooth pineapple is quite the snapple";
+        String versebunch = " ";
+
         if(randomchorus == 1);
         {
             String[] chorusparts = chorusbunch.split("\n");
@@ -220,7 +169,6 @@ public class SongBuilder {
             rapverse2[i] = rapverse2[i].concat("...");
         }
     }
-
     public String ReturningRapDisplay() {
         String display = "";
         for (int i = 0; i < rapverse.length; i++) {
@@ -321,14 +269,14 @@ public class SongBuilder {
         String chorusbunch = "I made my way by sitting on the cold hard ground\n" +
                 "I used to scream like a baby, now I just scream into the night\n" +
                 "Well you might be the hardest\n" +
-                "With your heart in your hand the hard wayIn it comes, comes and it hits\n" +
+                "With your heart in your hand the hard way. In it comes, comes and it hits\n" +
                 "And it hits hard\n" +
                 "Harder than it ever then\n" +
                 "Youll even call it\n" +
                 "I think I might go crazy, go crazy, go crazy\n" +
                 "To really know where I am\n" +
                 "Please put her arms around me, around me\n" +
-                "She may never give me genuine loveWhich is always the first one to warn you\n" +
+                "She may never give me genuine love. Which is always the first one to warn you\n" +
                 "Things will get pretty crazy you always know the weather well\n" +
                 "Nothing to get crazy\n" +
                 "That was long time ago\n" +
@@ -364,7 +312,7 @@ public class SongBuilder {
                 "You find me late at night\n" +
                 "Yes, the party that you want\n" +
                 "Is the party of a lifetime\n" +
-                "I look at this little party strip\n" +
+                "I look at this little party\n" +
                 "And search this heart and see what lies there\n" +
                 "There was a party, at the bottom of the river\n" +
                 "There was a party when it all went down\n" +
@@ -581,7 +529,7 @@ public class SongBuilder {
 
         String chorusbunch2 = "Rise to the top, get on the couch, crash the party\n" +
                 "Rise to the top, get on the couch, crash the party\n" +
-                "I got this party plan for sexy tonight\n" +
+                "I got this party plan for a crazy tonight\n" +
                 "I got this party planned for you\n" +
                 "Sneak in the dark\n" +
                 "Dance in the dark\n" +
@@ -797,8 +745,6 @@ public class SongBuilder {
                 "I wish I could stop to love you\n" +
                 "No one in the world, will love me like you do baby\n" +
                 "And no one in the world, will love me like you do\n" +
-                "Nobody, nobody, will love me like you do baby\n" +
-                "Nobody, nobody, will love me like you do\n" +
                 "Nothing but a good old fashioned love\n" +
                 "Nothing but a good old fashioned love, love\n" +
                 "I love you like a stream that loves to flow\n" +

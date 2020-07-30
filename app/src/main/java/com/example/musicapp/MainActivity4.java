@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,15 +18,12 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-
 import static android.Manifest.permission;
 
 public class MainActivity4 extends AppCompatActivity {
@@ -50,6 +47,8 @@ public class MainActivity4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         ActivityCompat.requestPermissions(this, new String[]{permission.RECORD_AUDIO, permission.WRITE_EXTERNAL_STORAGE, permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -274,7 +273,7 @@ public class MainActivity4 extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(), "Lyrics were successfully saved", Toast.LENGTH_SHORT).show();
                 }
-                if(success == false)
+                if(!success)
                 {
                     Toast.makeText(getApplicationContext(), "Lyrics did not successfully save", Toast.LENGTH_SHORT).show();
                 }
@@ -294,8 +293,8 @@ public class MainActivity4 extends AppCompatActivity {
             textToSpeech.stop();
         }
         String voicename = " ";
-        String voicecountry = " ";
-        String voicelang = " ";
+        String voicecountry;
+        String voicelang;
         String songtitle = et_name.getText().toString();
         speed = (float) seekBarspeed.getProgress() / 50;
         if (speed < 0.1) {

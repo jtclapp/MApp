@@ -18,6 +18,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -59,6 +60,8 @@ public class MainActivity5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         TextView textView = findViewById(R.id.textView5);
         String textViewtext = "Click HERE to create an AI Voice for your song.";
@@ -243,7 +246,7 @@ public class MainActivity5 extends AppCompatActivity {
                 loadingHelper.startLoadingDialog();
             }
         });
-        int i = 0;
+        int i;
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
         buffersizeinbytes = (int) (file.length() / shortSizeInBytes);
         short[] audioData = new short[buffersizeinbytes];

@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.musicapp">
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_icon_foreground"
+        android:icon="@mipmap/ic_launcher_faceicon_foreground"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_icon_round"
+        android:roundIcon="@mipmap/ic_launcher_faceicon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SettingsPage"></activity>
+        <activity android:name=".SettingsPage"/>
         <activity
             android:name=".Navigator"
             android:label="Saved Content"
@@ -36,7 +34,8 @@
             android:theme="@style/AppTheme"/>
         <activity android:name=".LyricsLibrary"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".DownloadedBeats" />
+        <activity android:name=".DownloadedBeats"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".MainActivity5"
             android:configChanges="orientation|screenSize"

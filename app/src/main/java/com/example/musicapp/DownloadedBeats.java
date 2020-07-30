@@ -3,10 +3,13 @@ package com.example.musicapp;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -191,13 +194,13 @@ public class DownloadedBeats extends AppCompatActivity {
     public void Download()
     {
             connected = isConnected();
-            if(connected == false)
+            if(!connected)
             {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(DownloadedBeats.this);
                 builder.setMessage("Please connect to internet to download a beat!");
                 builder.show();
             }
-            if(connected == true)
+            if(connected)
             {
             final LoadingHelper loadingHelper = new LoadingHelper(DownloadedBeats.this);
             firebaseStorage = FirebaseStorage.getInstance();
@@ -205,7 +208,7 @@ public class DownloadedBeats extends AppCompatActivity {
             ref = storageReference.child(child);
             File dir = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + path);
 
-        if (dir.exists() == true)
+        if (dir.exists())
             {
                 String newfilepath = dir.getAbsolutePath();
                 final File standin = new File(newfilepath);
@@ -215,10 +218,10 @@ public class DownloadedBeats extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         boolean success = standin.delete();
-                        if(success == true) {
+                        if(success) {
                             Toast.makeText(getApplicationContext(), "Beat Successfully Deleted", Toast.LENGTH_SHORT).show();
                         }
-                        if(success == false)
+                        if(!success)
                         {
                             Toast.makeText(getApplicationContext(), "Error Occurred", Toast.LENGTH_SHORT).show();
                         }
@@ -235,7 +238,7 @@ public class DownloadedBeats extends AppCompatActivity {
                 });
                 builder.show();
             }
-        else if(dir.exists() == false)
+        else if(!dir.exists())
             {
                 loadingHelper.startLoadingDialog();
                 try {
@@ -262,9 +265,32 @@ public class DownloadedBeats extends AppCompatActivity {
     public boolean isConnected()
     {
         boolean result;
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        result = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+            result = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
+
+        }
+        catch (Exception e)
+        {
+            result = false;
+        }
         return result;
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finalactmenu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case  R.id.homeitem3:
+                Intent home = new Intent(this, MainActivity.class);
+                startActivity(home);
+        }
+        return true;
     }
 }

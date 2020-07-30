@@ -1,12 +1,16 @@
 package com.example.musicapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +27,7 @@ public class LyricsLibrary extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics_library);
+
         mAdView = findViewById(R.id.adView8);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -51,7 +56,23 @@ public class LyricsLibrary extends AppCompatActivity {
     }
 
     private void ShowLyrics() {
-        lyricArrayAdapter = new ArrayAdapter<LyricsModel>(LyricsLibrary.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone());
+        lyricArrayAdapter = new ArrayAdapter<>(LyricsLibrary.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone());
         lv_customerList.setAdapter(lyricArrayAdapter);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finalactmenu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case  R.id.homeitem3:
+                Intent home = new Intent(this, MainActivity.class);
+                startActivity(home);
+        }
+        return true;
     }
 }

@@ -52,7 +52,6 @@ public class FinalActivity extends AppCompatActivity {
     public Set<String> a;
     String recordedvoice;
     AudioTrack audioTrack;
-    private AdView mAdView;
     LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
     @Override
@@ -62,18 +61,13 @@ public class FinalActivity extends AppCompatActivity {
 
         final SharedPreferences sharedPreferences = getSharedPreferences("isChecked", 0);
         boolean value = sharedPreferences.getBoolean("isChecked",true);
-        if(value == true) {
+        if(value) {
             ScrollView scrollView = findViewById(R.id.final_layout);
             AnimationDrawable animationDrawable = (AnimationDrawable) scrollView.getBackground();
             animationDrawable.setEnterFadeDuration(2000);
             animationDrawable.setExitFadeDuration(4000);
             animationDrawable.start();
         }
-
-        mAdView = findViewById(R.id.adView12);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
         ActivityCompat.requestPermissions(this, new String[]{permission.RECORD_AUDIO, permission.WRITE_EXTERNAL_STORAGE, permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -135,7 +129,7 @@ public class FinalActivity extends AppCompatActivity {
         });
         songbuilder();
     }
-    public void LoadAI(View view) throws IOException {
+    public void LoadAI(View view) {
         stopPlayer();
         Intent myintent2 = getIntent();
         Intent myintent3 = getIntent();
@@ -184,9 +178,8 @@ public class FinalActivity extends AppCompatActivity {
         Intent AI_intent = getIntent();
         String song_title = title_intent.getStringExtra("songtitle");
         String edittext = edit_intent.getStringExtra("editTextData");
-        String AI_song = AI_intent.getStringExtra("song");
 
-        song = AI_song;
+        song = AI_intent.getStringExtra("song");
         v1.setText(edittext);
         songtitle.setText(song_title);
         v1.setMovementMethod(new ScrollingMovementMethod());
