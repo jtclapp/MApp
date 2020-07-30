@@ -78,11 +78,23 @@ public class BeatPage2 extends AppCompatActivity {
             public void onClick(View v) {
                 if (R4.isChecked()) {
                     check = 7;
+                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#4.mp3");
+                    DownloadDialog();
                 }
             }
         });
         R5 = findViewById(R.id.checkBox8);
-
+        R5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(R5.isChecked())
+                {
+                    check = 29;
+                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#5.mp3");
+                    DownloadDialog();
+                }
+            }
+        });
         FinalPlay = findViewById(R.id.Beat2Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,6 +146,10 @@ public class BeatPage2 extends AppCompatActivity {
         }
         if (check == 7) {
             intent.putExtra("check", 7);
+        }
+        if(check == 29)
+        {
+            intent.putExtra("check",29);
         }
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}

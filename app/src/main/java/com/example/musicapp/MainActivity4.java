@@ -18,12 +18,15 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+
 import static android.Manifest.permission;
 
 public class MainActivity4 extends AppCompatActivity {

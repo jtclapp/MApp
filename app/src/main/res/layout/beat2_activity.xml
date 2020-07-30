@@ -53,14 +53,15 @@
             android:id="@+id/checkBox7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Rock Beat #4"
+            android:text=" Rock Beat #4  (3:25)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
+
         <RadioButton
             android:id="@+id/checkBox8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Rock Beat #5"
+            android:text=" Rock Beat #5  (3:14)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
     </RadioGroup>

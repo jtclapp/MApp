@@ -109,6 +109,22 @@ public class DownloadedBeats extends AppCompatActivity {
 
             }
         });
+        RB15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "rock beat 4.mp3";
+                path = "Rock_Beat#4.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "Rock beat 5.mp3";
+                path = "Rock_Beat#5.mp3";
+                B1.setActivated(true);
+            }
+        });
         RB5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
