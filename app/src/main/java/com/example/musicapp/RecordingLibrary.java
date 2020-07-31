@@ -56,9 +56,18 @@ public class RecordingLibrary extends AppCompatActivity {
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
-                        RecordingModel clickedRecording = (RecordingModel) adapterView.getItemAtPosition(i);
-                        dataBaseHelper.DeleteOneRecording(clickedRecording);
-                        ShowRecording();
+                        final AlertDialog.Builder builder1 = new AlertDialog.Builder(RecordingLibrary.this);
+                        builder1.setMessage("Are you sure you want to delete?");
+                        builder1.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                RecordingModel clickedRecording = (RecordingModel) adapterView.getItemAtPosition(i);
+                                dataBaseHelper.DeleteOneRecording(clickedRecording);
+                                ShowRecording();
+                            }
+                        });
+                        builder1.setNegativeButton("No",null);
+                        builder1.show();
                     }
                 });
                 builder.setNegativeButton("Edit", new DialogInterface.OnClickListener() {
