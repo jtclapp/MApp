@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button3"
         android:layout_gravity="center"
+        android:layout_margin="5dp"
         android:textOff=""
         android:textOn="" />
 
@@ -52,6 +53,7 @@
         android:backgroundTint="#E6DADA"
         android:layout_gravity="center"
         android:drawableBottom="@drawable/ic_baseline_refresh_24"
+        android:layout_margin="5dp"
         android:onClick="LoadAI"
         android:text="Load AI" />
 </LinearLayout>

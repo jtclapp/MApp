@@ -49,7 +49,6 @@
         <activity
             android:name=".FinalActivity"
             android:configChanges="orientation|screenSize"
-            android:label="Created Song"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".BeatPage2"

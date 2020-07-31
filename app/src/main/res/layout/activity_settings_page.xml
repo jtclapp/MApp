@@ -56,18 +56,6 @@
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"/>
 
     <Button
-        android:id="@+id/about_button"
-        android:layout_width="262dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:text="About"
-        android:textSize="18sp"
-        android:layout_margin="5dp"
-        android:backgroundTint="#E6DADA"
-        android:background="@drawable/rounded_button"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"/>
-
-    <Button
         android:id="@+id/pp_button"
         android:layout_width="262dp"
         android:layout_height="50dp"
@@ -78,5 +66,17 @@
         android:backgroundTint="#E6DADA"
         android:background="@drawable/rounded_button"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+    <Button
+        android:id="@+id/about_button"
+        android:layout_width="262dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="About"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:backgroundTint="#E6DADA"
+        android:background="@drawable/rounded_button"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"/>
 
 </LinearLayout>

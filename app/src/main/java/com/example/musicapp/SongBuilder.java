@@ -24,6 +24,7 @@ public class SongBuilder {
 
     public void CreatingRapVerse1() {
         int randomchorus = (int) (Math.random() * 2) + 1;
+        rapsong = null;
         rapverse = new String[7];
         rapverse2 = new String[7];
         rapbridge = new String[3];
@@ -48,7 +49,11 @@ public class SongBuilder {
                 "Pimp hard, party hard, body right, thing\n" +
                 "Yeah, girl, know I got a girl\n" +
                 "What you do, and I love you\n" +
-                "What you do, and I want you";
+                "What you do, and I want you\n" +
+                "Know I got a check, be inside the party\n" +
+                "They ask me how fly is your boy\n" +
+                "Enough to make a man about a party\n" +
+                "You could find me in the front row, dancing";
 
         String chorusbunch = "But not the kinda love that will be in vain\n" +
                 "I wanna love, love you forever, girl of my dreams, I wanna hold her\n" +
@@ -110,7 +115,49 @@ public class SongBuilder {
                 "We gonna party hard, party gang, party gang\n" +
                 "You still beating on your chest";
 
-        String versebunch = " ";
+        String versebunch = "She looked so clean and good\n" +
+                "She could take anybody\n" +
+                "Put on a party for free\n" +
+                "Take me with you, lets go\n" +
+                "I went to your house, you led a whole party out\n" +
+                "You my worldwide hustler, yeah, baby girl, no shame\n" +
+                "I want a girl to invite me to her party\n" +
+                "Whoa, show her the grill\n" +
+                "Like we confuse love\n" +
+                "It sounds like sirens\n" +
+                "But love won the fight\n" +
+                "Into the room, big shot\n" +
+                "Do you need just a little love\n" +
+                "Or should I take some of your time\n" +
+                "Up to the sky, up to the cloud and sea, baby\n" +
+                "One love, our love, one love\n" +
+                "Cause it feeds the power in your heart\n" +
+                "You better fight to keep your love alive\n" +
+                "You better fight to keep your love alive\n" +
+                "Where my love is in love\n" +
+                "You never quit the fight\n" +
+                "Cause it was never really worth\n" +
+                "Tryin, tryin, tryin for love\n" +
+                "She never tells me she got a man at home\n" +
+                "And she never tells me that our love will never end\n" +
+                "But she never makes it known which way the love goes\n" +
+                "And sometimes when I wanna leave she says they gotta let me go\n" +
+                "You look like an angel with them green eyes\n" +
+                "And you dance around like the k arms\n" +
+                "Just dance roll tilThe break of dawn\n" +
+                "And I need to know girl\n" +
+                "Baby would you dance with me\n" +
+                "One more chance. Just one more\n" +
+                "Ahhh. I wanna be. I just wanna be\n" +
+                "Ahhh. I just wanna be happy\n" +
+                "You should be happy you always succeed\n" +
+                "Sometimes I feel lucky, happy inside\n" +
+                "Sometimes I just wish I had a heart\n" +
+                "Sometimes I just need to try\n" +
+                "My own people came before you\n" +
+                "Rest of the world changing before me\n" +
+                "You and I you know that we starting now\n" +
+                "You and I you and I aint no rest for the weary";
 
         if(randomchorus == 1);
         {
@@ -222,6 +269,7 @@ public class SongBuilder {
     public void CreatingRockVerse1()
     {
         int randomchorus = (int) (Math.random() * 2) + 1;
+        rocksong = null;
         rockverse = new String[7];
         rockverse2 = new String[7];
         rockbridge = new String[3];
@@ -260,7 +308,6 @@ public class SongBuilder {
                 "And most of my friends are from the schools of hollywood\n" +
                 "But they run the show and run when the party is over\n" +
                 "I see you at every party\n" +
-                "I see you with cream on your hair\n" +
                 "Stick around to see how it ends\n" +
                 "Make the party go strange\n" +
                 "Walking down the paths of a dark soul\n" +
@@ -356,6 +403,7 @@ public class SongBuilder {
                 "Send our love into radio\n" +
                 "Every thing I fear I fear you\n" +
                 "Your love so naughty";
+
         if(randomchorus == 1);
         {
             String[] chorusparts = chorusbunch.split("\n");
@@ -469,6 +517,7 @@ public class SongBuilder {
     public void CreatingRandBVerse1()
     {
         int randomchorus = (int) (Math.random() * 2) + 1;
+        randbsong = null;
         randbverse = new String[7];
         randbverse2 = new String[7];
         randbbridge = new String[3];
@@ -501,7 +550,18 @@ public class SongBuilder {
                 "Cause when it comes to the women\n" +
                 "You know better that you do\n" +
                 "All I can do is be the better man\n" +
-                "And I do it with a feeling that is growing more every day";
+                "And I do it with a feeling that is growing more every day\n" +
+                "For my birthday you stole my new car\n" +
+                "And for Christmas I bought you a ring\n" +
+                "The love we once had is now gone\n" +
+                "The love we once shared is now gone\n" +
+                "What makes you happy, baby? I gotta know\n" +
+                "What makes you happy, baby?\n" +
+                "All I long for right now is a happy ending\n" +
+                "This feeling I got is a feeling that im feeling\n" +
+                "Im just so happy inside\n" +
+                "That you got right over me\n" +
+                "And it kept me standing there";
 
         String chorusbunch = "I need a love to share\n" +
                 "I need a love of life\n" +
@@ -525,7 +585,19 @@ public class SongBuilder {
                 "I think we should do this right\n" +
                 "Girl you better do this right\n" +
                 "If you leave baby you better do this right\n" +
-                "If you left baby you better do this right";
+                "If you left baby you better do this right\n" +
+                "Love will keep you chained and look for release\n" +
+                "Love will be your banner\n" +
+                "Well, the very heart that lets me love you\n" +
+                "In spite of everything that I know was always by your side\n" +
+                "I need your love to shine through me\n" +
+                "I need your love to shine through me\n" +
+                "How many times did I, again, tell you, you know\n" +
+                "I always love to, love to, gotta love to\n" +
+                "Love stand still, love stand strong\n" +
+                "Love stand though the nations rise\n" +
+                "Love stand still, love stand strong\n" +
+                "Still all over the world just trying to find your love before you go";
 
         String chorusbunch2 = "Rise to the top, get on the couch, crash the party\n" +
                 "Rise to the top, get on the couch, crash the party\n" +
@@ -546,7 +618,15 @@ public class SongBuilder {
                 "Makes me feel so much better\n" +
                 "So much better, so much better\n" +
                 "No better love, just let it be\n" +
-                "Comes into my room, all of the time";
+                "Comes into my room, all of the time\n" +
+                "What a night to dance\n" +
+                "What a night to dance\n" +
+                "Oh, I wanna dance, I wanna dance\n" +
+                "Oh, dance the night away\n" +
+                "Dance till the morning girl\n" +
+                "Its a party in this crazy town\n" +
+                "Gotta party in this crazy town";
+;
 
         String bridgebunch = "To love you, no trying\n" +
                 "To love you, no trying\n" +
@@ -563,7 +643,11 @@ public class SongBuilder {
                 "I know that you want a better life\n" +
                 "But maybe you should be at your best\n" +
                 "Open up your eyes and see my face\n" +
-                "Baby you better believe me";
+                "Baby you better believe me\n" +
+                "I am loving you\n" +
+                "I am forgetting your love\n" +
+                "Its a love crisis and I want you to know\n" +
+                "My love is still alive";
         if(randomchorus == 1);
         {
             String[] chorusparts = chorusbunch.split("\n");
@@ -677,6 +761,7 @@ public class SongBuilder {
     public void CreatingCountryVerse1()
     {
         int randomchorus = (int) (Math.random() * 2) + 1;
+        countrysong = null;
         countryverse = new String[7];
         countryverse2 = new String[7];
         countrybridge = new String[3];

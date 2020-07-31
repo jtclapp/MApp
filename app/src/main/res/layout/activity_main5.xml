@@ -14,14 +14,19 @@
     android:layout_gravity="center">
 
     <TextView
+        android:id="@+id/textView_space"
+        android:layout_width="106dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center" />
+
+    <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="39dp"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
         android:text="Click HERE to create an AI Voice for your song."
         android:textColor="#E6DADA"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"

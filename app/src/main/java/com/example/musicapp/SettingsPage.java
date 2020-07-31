@@ -41,11 +41,9 @@ public class SettingsPage extends AppCompatActivity {
         B2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final AlertDialog.Builder builder2 = new AlertDialog.Builder(SettingsPage.this);
-                builder2.setTitle("Privacy Policy Of Song Creator");
-                builder2.setMessage(" ");
-                builder2.setNegativeButton("Cancel",null);
-                builder2.show();
+                Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
+                openURL.setData(Uri.parse("https://sites.google.com/view/songcreatorprivacypolicy"));
+                startActivity(openURL);
             }
         });
         B3 = findViewById(R.id.tutorial_button);
