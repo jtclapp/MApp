@@ -12,6 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <Button
+            android:id="@+id/ViewCreatedSongs"
+            android:layout_width="318dp"
+            android:layout_height="83dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#E6DADA"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:text="Created Songs Library"
+            android:textColor="#414345"
+            android:textSize="30dp" />
+
     <Button
         android:id="@+id/ViewLyrics"
         android:layout_width="318dp"

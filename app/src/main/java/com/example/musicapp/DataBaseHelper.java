@@ -20,9 +20,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String RECORDING_TABLE = "RECORDING_TABLE";
     public static final String COLUMN_RECORDING_NAME = "RECORDING_NAME";
     public static final String COLUMN_ID2 = "ID";
+    private static final String SONG_TABLE = "SONG_TABLE";
+    private static final String COLUMN_ID3 = "ID";
+    private static final String COLUMN_SONG_NAME = "SONG_NAME";
+    private static final String COLUMN_LYRICS2 = "LYRICS";
+    private static final String COLUMN_RECORDING_NAME2 = "RECORDING_NAME";
+    private static final String COLUMN_BEAT_NUMBER = "Beat_Number";
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "storage.db", null, 1);
+        super(context, "SongCreatorDB.db", null, 1);
     }
 
     // this is called the first time the database is called
@@ -30,6 +36,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String createTableStatement = "CREATE TABLE " + LYRICS_TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_LYRICS_NAME + " TEXT, " + COLUMN_LYRICS + " TEXT)";
         String createTableStatement2 = "CREATE TABLE " + RECORDING_TABLE + " (" + COLUMN_ID2 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_RECORDING_NAME + " TEXT)";
+        String createTableStatement3 = "CREATE TABLE " + SONG_TABLE + " (" + COLUMN_ID3 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_SONG_NAME + " TEXT, " +
+                                        COLUMN_LYRICS2 + " TEXT, " + COLUMN_RECORDING_NAME2 + " TEXT, " + COLUMN_BEAT_NUMBER + " INTEGER)";
+        db.execSQL(createTableStatement3);
         db.execSQL(createTableStatement2);
         db.execSQL(createTableStatement);
     }
@@ -122,7 +131,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         return cursor.moveToFirst();
     }
-
     public List<RecordingModel> getEveryone2() {
         List<RecordingModel> returnlist = new ArrayList<>();
         String queryString = "SELECT * FROM " + RECORDING_TABLE;
@@ -147,10 +155,65 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return returnlist;
     }
 
+    public boolean addOneSong(CreatedSongModel createdSongModel) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_SONG_NAME, createdSongModel.getSongname());
+        cv.put(COLUMN_LYRICS2, createdSongModel.getLyricsname());
+        cv.put(COLUMN_RECORDING_NAME2, createdSongModel.getRecordingname());
+        cv.put(COLUMN_BEAT_NUMBER, createdSongModel.getBeatnum());
+
+        long insert = db.insert(SONG_TABLE, null, cv);
+        return insert != -1;
+    }
+//    public boolean updateOneSong(CreatedSongModel createdSongModel, String name) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues cv = new ContentValues();
+//        File filefrom = new File(createdSongModel.getSongname());
+//        File fileto = new File(name);
+//        filefrom.renameTo(fileto);
+//        cv.put(COLUMN_SONG_NAME, name);
+//        db.update(SONG_TABLE, cv, COLUMN_ID3 + " = ?", new String[]{String.valueOf(createdSongModel.getId())});
+//        return true;
+//    }
+    public boolean DeleteOneSong(CreatedSongModel createdSongModel) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE FROM " + SONG_TABLE + " WHERE " + COLUMN_ID3 + " = " + createdSongModel.getId();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        return cursor.moveToFirst();
+    }
+    public List<CreatedSongModel> getEveryone3() {
+        List<CreatedSongModel> returnlist = new ArrayList<>();
+        String queryString = "SELECT * FROM " + SONG_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()) {
+            // Loop through the results and create new objects
+            do {
+                int SongID = cursor.getInt(0);
+                String Songname = cursor.getString(1);
+                String Recordingname = cursor.getString(2);
+                String Lyricsname = cursor.getString(3);
+                int BeatNumber = cursor.getInt(4);
+
+                CreatedSongModel createdSongModel = new CreatedSongModel(SongID,Songname,Recordingname,Lyricsname,BeatNumber);
+                returnlist.add(createdSongModel);
+
+            } while (cursor.moveToNext());
+        } else {
+
+        }
+        cursor.close();
+        db.close();
+        return returnlist;
+    }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP IF TABLE EXISTS " + LYRICS_TABLE);
-        onCreate(sqLiteDatabase);
+
     }
 }
 

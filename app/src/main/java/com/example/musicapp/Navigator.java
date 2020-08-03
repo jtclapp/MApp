@@ -15,6 +15,7 @@ public class Navigator extends AppCompatActivity {
     private Button button;
     private Button button2;
     private Button button3;
+    private Button button4;
     private AdView mAdView;
 
     @Override
@@ -47,6 +48,13 @@ public class Navigator extends AppCompatActivity {
                 openDownloadedBeats();
             }
         });
+        button4 = findViewById(R.id.ViewCreatedSongs);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCreatedSongs();
+            }
+        });
     }
     public void openLibrary() {
         Intent intent = new Intent(this, LyricsLibrary.class);
@@ -61,6 +69,11 @@ public class Navigator extends AppCompatActivity {
     public void openDownloadedBeats()
     {
         Intent intent = new Intent(this,DownloadedBeats.class);
+        startActivity(intent);
+    }
+    public void openCreatedSongs()
+    {
+        Intent intent = new Intent(this,CreatedSongsLibrary.class);
         startActivity(intent);
     }
 }

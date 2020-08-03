@@ -18,7 +18,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 public class LyricsLibrary extends AppCompatActivity {
-    ListView lv_customerList;
+    ListView lv_lyricsList;
     ArrayAdapter lyricArrayAdapter;
     DataBaseHelper dataBaseHelper;
     private AdView mAdView;
@@ -32,11 +32,11 @@ public class LyricsLibrary extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        lv_customerList = findViewById(R.id.lyrics_list);
+        lv_lyricsList = findViewById(R.id.lyrics_list);
         dataBaseHelper = new DataBaseHelper(LyricsLibrary.this);
         ShowLyrics();
 
-        lv_customerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv_lyricsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(LyricsLibrary.this);
@@ -57,7 +57,7 @@ public class LyricsLibrary extends AppCompatActivity {
 
     private void ShowLyrics() {
         lyricArrayAdapter = new ArrayAdapter<>(LyricsLibrary.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone());
-        lv_customerList.setAdapter(lyricArrayAdapter);
+        lv_lyricsList.setAdapter(lyricArrayAdapter);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

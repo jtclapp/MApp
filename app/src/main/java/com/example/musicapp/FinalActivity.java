@@ -49,6 +49,7 @@ public class FinalActivity extends AppCompatActivity {
     public Set<String> a;
     String recordedvoice;
     AudioTrack audioTrack;
+    int intvalue;
     LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
     @Override
@@ -92,7 +93,10 @@ public class FinalActivity extends AppCompatActivity {
         finalplay = findViewById(R.id.finalplay);
         v1 = findViewById(R.id.textView4);
         songtitle = findViewById(R.id.songtitle);
+        song = "";
 
+        Intent myintent2 = getIntent();
+        intvalue = myintent2.getIntExtra("svalue", 0);
         Intent myintent = getIntent();
         recordedvoice = myintent.getStringExtra("path");
         if (recordedvoice != null) {
@@ -190,9 +194,7 @@ public class FinalActivity extends AppCompatActivity {
         super.onDestroy();
     }
     public void play() {
-        Intent myintent2 = getIntent();
         Intent myintent = getIntent();
-        int intvalue = myintent2.getIntExtra("svalue", 0);
         float final_volume = myintent.getFloatExtra("volume",0);
         if (intvalue == 1) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
@@ -336,7 +338,7 @@ public class FinalActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.finalactmenu, menu);
+        getMenuInflater().inflate(R.menu.createdsongdownloadmenu, menu);
         return true;
     }
     @Override
@@ -347,6 +349,31 @@ public class FinalActivity extends AppCompatActivity {
             case  R.id.homeitem3:
                 Intent home = new Intent(this, MainActivity.class);
                 startActivity(home);
+                break;
+
+            case R.id.downloadcreatedsong:
+                if(recordedvoice != null) {
+                    CreatedSongModel createdSongModel;
+                    try {
+                        createdSongModel = new CreatedSongModel(-1, songtitle.getText().toString(),v1.getText().toString(),recordedvoice,intvalue);
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "Error Saving Song!", Toast.LENGTH_SHORT).show();
+                        createdSongModel = new CreatedSongModel(-1, "Error", "Error", "Error", 0);
+                    }
+                    DataBaseHelper dataBaseHelper = new DataBaseHelper(FinalActivity.this);
+                    boolean success = dataBaseHelper.addOneSong(createdSongModel);
+                    if (success) {
+                        Toast.makeText(getApplicationContext(), "Song was successfully saved", Toast.LENGTH_SHORT).show();
+                    }
+                    if (!success) {
+                        Toast.makeText(getApplicationContext(), "Error occurred when trying to save", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Can't Save AI Songs",Toast.LENGTH_SHORT).show();
+                }
+               break;
         }
         return true;
     }

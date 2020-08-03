@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/downloadcreatedsong"
+        android:icon="@drawable/ic_baseline_createdsong_download"
+        android:title="Download Created Song"
+        app:showAsAction = "ifRoom"/>
+    <item android:id="@+id/homeitem3"
+        android:icon="@drawable/ic_home_icon"
+        android:title="Exit To Home"
+        app:showAsAction = "ifRoom"/>
+</menu>
