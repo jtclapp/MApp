@@ -1,6 +1,8 @@
 package com.example.musicapp;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,12 +21,20 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
 
+
         EasySplashScreen config = new EasySplashScreen(SplashScreenActivity.this)
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(2300)
-                .withBackgroundColor(Color.parseColor("#FFFFFF"))
-                .withLogo(R.drawable.universal_logo2);
+                .withBackgroundColor(Color.parseColor("#FFFFFF"));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+            config.withLogo(R.mipmap.ic_launcher_icon3_foreground);
+        }
+        else
+        {
+            config.withLogo(R.drawable.universal_logo2);
+        }
 
         View easySplashScreen = config.create();
         setContentView(easySplashScreen);

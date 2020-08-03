@@ -80,6 +80,7 @@ public class MainActivity4 extends AppCompatActivity {
         a = new HashSet<>();
         String[] names = {"Voice1", "Voice2", "Voice3", "Voice4", "Voice5", "Voice6", "Voice7", "Voice8"};
 
+        song = "";
         spinner = findViewById(R.id.spinner);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, names);
         spinner.setAdapter(adapter);
