@@ -9,6 +9,7 @@ import android.speech.tts.Voice;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -197,6 +198,22 @@ public class MainActivity4 extends AppCompatActivity {
         et_name = findViewById(R.id.editTextTextPersonName2);
         Intent idintent = getIntent();
         idvalue = idintent.getIntExtra("idvalue",0);
+
+        editText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (v.getId() == R.id.editTextTextMultiLine2) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
     }
     public void TestAI(View view) {
         String song = "Hello, do you like the sound of my voice? Select me if you do!";

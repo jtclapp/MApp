@@ -15,6 +15,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -197,6 +198,21 @@ public class MainActivity5 extends AppCompatActivity {
                 }
             }
         });
+        editText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (v.getId() == R.id.editTextTextMultiLine) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayOfStrings);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spFrequency.setAdapter(adapter);
@@ -207,7 +223,6 @@ public class MainActivity5 extends AppCompatActivity {
             custombutton.setEnabled(true);
         }
     }
-
     private void startRecord() throws IOException {
             path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + "Recording_" + System.currentTimeMillis() + ".pcm";
             file = new File(path);
