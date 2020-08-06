@@ -109,6 +109,22 @@ public class DownloadedBeats extends AppCompatActivity {
 
             }
         });
+        RB13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "Rock Beat 2.mp3";
+                path = "Rock_Beat#2.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "Rock Beat 3.mp3";
+                path = "Rock_Beat#3.mp3";
+                B1.setActivated(true);
+            }
+        });
         RB15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,6 +207,38 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View v) {
                 child = "R&B beat 5.mp3";
                 path = "R&B_Beat#5.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "country beat 2.mp3";
+                path = "Country_Beat#2.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "country beat 3.mp3";
+                path = "Country_Beat#3.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "country-beat-4.mp3";
+                path = "Country_Beat#4.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                child = "country beat 5.mp3";
+                path = "Country_Beat#5.mp3";
                 B1.setActivated(true);
             }
         });

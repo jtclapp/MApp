@@ -216,11 +216,11 @@ public class FinalActivity extends AppCompatActivity {
         if (intvalue == 4) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
         }
-        if (intvalue == 5) {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
+        if (intvalue == 5) { // Complete
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#2.mp3");
         }
-        if (intvalue == 6) {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
+        if (intvalue == 6) { // Complete
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#3.mp3");
         }
         if (intvalue == 7) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#4.mp3");
@@ -248,6 +248,22 @@ public class FinalActivity extends AppCompatActivity {
         }
         if (intvalue == 13) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
+        }
+        if(intvalue == 14) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#2.mp3");
+        }
+        if(intvalue == 15) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#3.mp3");
+        }
+        if(intvalue == 16) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#4.mp3");
+        }
+        if(intvalue == 17) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#5.mp3");
         }
             if (player3 != null) {
                 stopPlayer();
@@ -299,21 +315,29 @@ public class FinalActivity extends AppCompatActivity {
             j++;
         }
         dataInputStream.close();
-
-        audioTrack = new AudioTrack(3, SampleHZ, 2, 2, bs, 1);
+        if(bs > 0) {
+            audioTrack = new AudioTrack(3, SampleHZ, 2, 2, bs, 1);
+        }
         play();
-        audioTrack.play();
+        if(audioTrack != null) {
+            audioTrack.play();
+        }
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 loadingHelper.dismissDialog();
             }
         });
-        audioTrack.write(audioData, 0, bs);
+        if(audioTrack != null) {
+            audioTrack.write(audioData, 0, bs);
+        }
     }
     private void stopPlayer() {
         if (player3 != null && recordedvoice != null) {
-            audioTrack.release();
+            if(audioTrack != null)
+            {
+                audioTrack.release();
+            }
             player3.release();
             player3 = null;
         }

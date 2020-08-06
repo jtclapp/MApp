@@ -249,7 +249,6 @@ public class MainActivity4 extends AppCompatActivity {
             String display4 = songBuilder.ReturningCountryDisplay();
             editText.setText(display4);
         }
-        editText.setMovementMethod(new ScrollingMovementMethod());
         sendbutton.setActivated(true);
     }
     @Override

@@ -209,36 +209,39 @@ public class MainActivity5 extends AppCompatActivity {
     }
 
     private void startRecord() throws IOException {
-        path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + "Recording_" + System.currentTimeMillis() + ".pcm";
-        file = new File(path);
-        file.createNewFile();
+            path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + "Recording_" + System.currentTimeMillis() + ".pcm";
+            file = new File(path);
+            file.createNewFile();
 
-        OutputStream outputStream = new FileOutputStream(file);
+            OutputStream outputStream = new FileOutputStream(file);
 
-        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 
-        DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
+            DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
 
-        int minBufferSize = AudioRecord.getMinBufferSize(11025, 2, 2);
+            int minBufferSize = AudioRecord.getMinBufferSize(11025, 2, 2);
 
-        short[] audioData = new short[minBufferSize];
+            short[] audioData = new short[minBufferSize];
 
-        AudioRecord audioRecord = new AudioRecord(1, 11025, 2, 2, minBufferSize);
+            AudioRecord audioRecord = new AudioRecord(0, 11025, 2, 2, minBufferSize);
+            try {
+                audioRecord.startRecording();
+            } catch (Exception e) {
+                return;
+            }
 
-        audioRecord.startRecording();
+            while (recording) {
+                int numberOfShort = audioRecord.read(audioData, 0, minBufferSize);
 
-        while (recording) {
-            int numberOfShort = audioRecord.read(audioData, 0, minBufferSize);
-
-            for (int i = 0; i < numberOfShort; i++) {
-                dataOutputStream.writeShort(audioData[i]);
+                for (int i = 0; i < numberOfShort; i++) {
+                    dataOutputStream.writeShort(audioData[i]);
+                }
+            }
+            if (!recording.booleanValue()) {
+                audioRecord.stop();
+                dataOutputStream.close();
             }
         }
-        if (!recording.booleanValue()) {
-            audioRecord.stop();
-            dataOutputStream.close();
-        }
-    }
     private void playRecord() throws IOException {
         runOnUiThread(new Runnable() {
             @Override
@@ -271,7 +274,13 @@ public class MainActivity5 extends AppCompatActivity {
             });
             audioTrack.write(audioData, 0, buffersizeinbytes);
         }
-        play.setActivated(false);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                play.setChecked(false);
+                play.setActivated(false);
+            }
+        });
     }
     public void pauseRecord() {
         if (audioTrack != null) {
@@ -347,7 +356,6 @@ public class MainActivity5 extends AppCompatActivity {
             String display4 = songBuilder.ReturningCountryDisplay();
             editText.setText(display4);
         }
-        editText.setMovementMethod(new ScrollingMovementMethod());
     }
     public void startSelectAct() {
         Intent i = new Intent(this, Selector.class);

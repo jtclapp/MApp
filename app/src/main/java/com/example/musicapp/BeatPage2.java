@@ -60,6 +60,8 @@ public class BeatPage2 extends AppCompatActivity {
             public void onClick(View v) {
                 if (R2.isChecked()) {
                     check = 5;
+                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#2.mp3");
+                    DownloadDialog();
                 }
             }
         });
@@ -69,6 +71,8 @@ public class BeatPage2 extends AppCompatActivity {
             public void onClick(View v) {
                 if (R3.isChecked()) {
                     check = 6;
+                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#3.mp3");
+                    DownloadDialog();
                 }
             }
         });

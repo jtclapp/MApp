@@ -36,28 +36,28 @@
             android:id="@+id/country_box2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Country Beat #2"
+            android:text=" Country Beat #2  (3:19)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
         <RadioButton
             android:id="@+id/country_box3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Country Beat #3"
+            android:text=" Country Beat #3  (4:00)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
         <RadioButton
             android:id="@+id/country_box4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Country Beat #4"
+            android:text=" Country Beat #4  (3:10)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
         <RadioButton
             android:id="@+id/country_box5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Country Beat #5"
+            android:text=" Country Beat #5  (3:36)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
     </RadioGroup>

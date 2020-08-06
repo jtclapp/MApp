@@ -53,9 +53,44 @@ public class Beatpage4 extends AppCompatActivity {
             }
         });
         R2 = findViewById(R.id.country_box2);
+        R2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(R2.isChecked())
+                {
+                    check = 14;
+                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#2.mp3");
+                    DownloadDialog();
+                }
+            }
+        });
         R3 = findViewById(R.id.country_box3);
+        R3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                check = 15;
+                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#3.mp3");
+                DownloadDialog();
+            }
+        });
         R4 = findViewById(R.id.country_box4);
+        R4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                check = 16;
+                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#4.mp3");
+                DownloadDialog();
+            }
+        });
         R5 = findViewById(R.id.country_box5);
+        R5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                check = 17;
+                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#5.mp3");
+                DownloadDialog();
+            }
+        });
 
         FinalPlay = findViewById(R.id.Beat4Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +133,22 @@ public class Beatpage4 extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity5.class);
         if (check == 13) {
             intent.putExtra("check", 13);
+        }
+        if(check == 14)
+        {
+            intent.putExtra("check", 14);
+        }
+        if(check == 15)
+        {
+            intent.putExtra("check", 15);
+        }
+        if(check == 16)
+        {
+            intent.putExtra("check", 16);
+        }
+        if(check == 17)
+        {
+            intent.putExtra("check", 17);
         }
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}
