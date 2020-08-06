@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #1  (2:47)"
+            android:text=" Late Night  (2:47)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #2  (2:52)"
+            android:text=" Scary Night  (2:52)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #3  (2:30)"
+            android:text=" On My Grind  (2:30)"
             android:textColor="#E6DADA" />
 
         <RadioButton
@@ -54,14 +54,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #4  (2:40)"
+            android:text=" On My Mind  (2:40)"
             android:textColor="#E6DADA" />
         <RadioButton
             android:id="@+id/RB_checkbox5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text=" Chill Beat #5  (3:06)"
+            android:text=" Out Like A Light  (3:06)"
             android:textColor="#E6DADA" />
     </RadioGroup>
 

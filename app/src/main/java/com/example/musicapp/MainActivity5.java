@@ -178,7 +178,7 @@ public class MainActivity5 extends AppCompatActivity {
                         }
                     }).start();
                 }
-                if (play.isChecked() == false || play.isActivated() == false) {
+                if (play.isChecked() == false) {
                     play.setActivated(false);
                     pauseRecord();
                 }
@@ -252,7 +252,7 @@ public class MainActivity5 extends AppCompatActivity {
         int i;
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
         buffersizeinbytes = (int) (file.length() / shortSizeInBytes);
-        short[] audioData = new short[buffersizeinbytes];
+        final short[] audioData = new short[buffersizeinbytes];
         InputStream inputStream = new FileInputStream(file);
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
         DataInputStream dataInputStream = new DataInputStream(bufferedInputStream);
@@ -278,7 +278,10 @@ public class MainActivity5 extends AppCompatActivity {
             @Override
             public void run() {
                 play.setChecked(false);
-                play.setActivated(false);
+                if (play.isChecked() == false) {
+                    play.setActivated(false);
+                    pauseRecord();
+                }
             }
         });
     }

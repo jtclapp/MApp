@@ -94,31 +94,31 @@
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rock Beat #1"
+            android:text=" Where Did You Go"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rock Beat #2"
+            android:text=" Just By Myself"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton27"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rock Beat #3"
+            android:text=" Champion Of The Fight"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton28"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rock Beat #4"
+            android:text=" Unbeatable"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton29"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rock Beat #5"
+            android:text=" Dad And I"
             android:textColor="#E6DADA"/>
         <TextView
             android:id="@+id/textView13"
@@ -139,31 +139,31 @@
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chill Beat #1"
+            android:text=" Late Night"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chill Beat #2"
+            android:text=" Scary Night"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chill Beat #3"
+            android:text=" On My Grind"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chill Beat #4"
+            android:text=" On My Mind"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton35"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chill Beat #5"
+            android:text=" Out Like A Light"
             android:textColor="#E6DADA"/>
         <TextView
             android:id="@+id/textView14"
@@ -184,33 +184,33 @@
             android:id="@+id/radioButton9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Country Beat #1"
+            android:text=" She's With Someone Else"
             android:textColor="#E6DADA"/>
 
         <RadioButton
             android:id="@+id/radioButton10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Country Beat #2"
+            android:text=" Party Time"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Country Beat #3"
+            android:text=" Her Loss"
             android:layout_margin="3dp"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Country Beat #4"
+            android:text=" This Is My Town"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Country Beat #5"
+            android:text=" What I Love The Most"
             android:textColor="#E6DADA"/>
     </RadioGroup>
 

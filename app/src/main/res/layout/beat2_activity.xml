@@ -29,7 +29,7 @@
             android:id="@+id/checkBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Rock Beat #1  (2:51)"
+            android:text=" Where Did You Go  (2:51)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
 
@@ -37,7 +37,7 @@
             android:id="@+id/checkBox5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Rock Beat #2  (3:44)"
+            android:text=" Just By Myself  (3:44)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/checkBox6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Rock Beat #3  (3:54)"
+            android:text=" Champion Of The Fight  (3:54)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
 
@@ -53,7 +53,7 @@
             android:id="@+id/checkBox7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Rock Beat #4  (3:25)"
+            android:text=" Unbeatable  (3:25)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
 
@@ -61,7 +61,7 @@
             android:id="@+id/checkBox8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Rock Beat #5  (3:14)"
+            android:text=" Dad And I  (3:14)"
             android:layout_margin="5dp"
             android:textColor="#E6DADA" />
     </RadioGroup>
