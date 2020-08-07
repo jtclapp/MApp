@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/gradient_background"
+    android:keepScreenOn="true"
+    tools:context=".MainActivity5">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/textView_space"
+        android:layout_width="106dp"
+        android:layout_height="97dp"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_gravity="center"
+        android:text="Click HERE to create an AI Voice for your song."
+        android:textColor="#E6DADA"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Song Title:"
+        android:background="@null"
+        android:inputType="textPersonName" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="216dp"
+            android:layout_height="265dp"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:gravity="top"
+            android:hint="Input Lyircs/Generate Lyrics:"
+            android:inputType="textMultiLine"
+            android:textColor="#E6DADA"
+            android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/generatelyrics1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:onClick="LyricBuilder"
+        android:layout_gravity="bottom"
+        app:srcCompat="@drawable/ic_baseline_refresh_24"
+        android:tint="#000000"
+        tools:ignore="VectorDrawableCompat" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/Voice_spinner"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp" />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:textSize="20sp"
+        android:textColor="#E6DADA"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/CustomButton"
+        android:layout_width="81dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button"
+        android:textOff=""
+        android:textOn="" />
+    <ToggleButton
+        android:id="@+id/playrec"
+        android:layout_width="73dp"
+        android:layout_height="67dp"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button2"
+        android:textOff=""
+        android:textOn="" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:backgroundTint="#E6DADA"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="Next "
+        android:textSize="16sp"/>
+
+</LinearLayout>
+</ScrollView>

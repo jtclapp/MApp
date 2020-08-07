@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.musicapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_songicon"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_songicon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".CreatedSongPlay"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".CreatedSongsLibrary"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".SettingsPage" />
+        <activity
+            android:name=".Navigator"
+            android:label="Saved Content"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Beatpage4"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".Beatpage3"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".RecordingLibrary"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".RecSelector"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Selector"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".LyricsLibrary"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".DownloadedBeats"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainActivity5"
+            android:configChanges="orientation|screenSize"
+            android:label="Record Audio"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainActivity4"
+            android:configChanges="orientation|screenSize"
+            android:label="Create AI Voice"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".FinalActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".BeatPage2"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".BeatPage1"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+    </application>
+
+</manifest>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".DownloadedBeats">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:adSize="SMART_BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+
+        <TextView
+            android:id="@+id/BeatTextView"
+            android:layout_width="371dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Select a beat to download or delete: "
+            android:textColor="#E6DADA"
+            android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroup_downloads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textViewHipHop"
+            android:layout_width="match_parent"
+            android:layout_margin="1dp"
+            android:layout_height="wrap_content"
+            android:textColor="#3d3d3d"
+            android:text="Hip Hop/Rap" />
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Call Me Now"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Blame Me"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Uppercut"
+            android:textColor="#E6DADA"/>
+
+        <RadioButton
+            android:id="@+id/radioButton24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Only At Night"
+            android:textColor="#E6DADA"/>
+
+        <RadioButton
+            android:id="@+id/radioButton25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Too Hot For You"
+            android:textColor="#E6DADA"/>
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_margin="1dp"
+            android:layout_height="wrap_content"
+            android:text="____________________" />
+
+        <TextView
+            android:id="@+id/textViewRock"
+            android:layout_width="match_parent"
+            android:layout_margin="1dp"
+            android:layout_height="wrap_content"
+            android:textColor="#3d3d3d"
+            android:text="Rock" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Where Did You Go"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Just By Myself"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Champion Of The Fight"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton28"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Unbeatable"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Dad And I"
+            android:textColor="#E6DADA"/>
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_margin="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="____________________" />
+
+        <TextView
+            android:id="@+id/textViewRB"
+            android:layout_width="match_parent"
+            android:layout_margin="1dp"
+            android:layout_height="wrap_content"
+            android:textColor="#3d3d3d"
+            android:text="@string/RandB" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Late Night"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Scary Night"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" On My Grind"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" On My Mind"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Out Like A Light"
+            android:textColor="#E6DADA"/>
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_margin="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="____________________" />
+
+        <TextView
+            android:id="@+id/textViewCountry"
+            android:layout_width="match_parent"
+            android:layout_margin="1dp"
+            android:layout_height="wrap_content"
+            android:textColor="#3d3d3d"
+            android:text="Country" />
+
+        <RadioButton
+            android:id="@+id/radioButton9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" She's With Someone Else"
+            android:textColor="#E6DADA"/>
+
+        <RadioButton
+            android:id="@+id/radioButton10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Party Time"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Her Loss"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" This Is My Town"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" What I Love The Most"
+            android:textColor="#E6DADA"/>
+    </RadioGroup>
+
+    <ImageButton
+        android:id="@+id/DownloadButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#303030"
+        app:srcCompat="@android:drawable/stat_sys_download_done" />
+
+</LinearLayout>
+</ScrollView>

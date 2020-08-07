@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="?attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".Navigator">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/ViewCreatedSongs"
+            android:layout_width="318dp"
+            android:layout_height="83dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#E6DADA"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:text="Created Songs Library"
+            android:textColor="#414345"
+            android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/ViewLyrics"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#E6DADA"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="Lyrics Library"
+        android:textColor="#414345"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/ViewRecordings"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="5dp"
+        android:backgroundTint="#E6DADA"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="Recordings Library"
+        android:textColor="#414345"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/ViewDownloadedBeats"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="5dp"
+        android:backgroundTint="#E6DADA"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="Beats Library"
+        android:textColor="#414345"
+        android:textSize="30dp" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="184dp"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:textColor="#E6DADA"
+            android:textSize="25dp" />
+
+        <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
+
+    </LinearLayout>
+</ScrollView>

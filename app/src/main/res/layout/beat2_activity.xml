@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context="com.example.musicapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT A BEAT FOR YOUR SONG: "
+        android:textColor="#E6DADA"
+        android:layout_margin="5dp"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/Group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/checkBox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Where Did You Go  (2:51)"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA" />
+
+        <RadioButton
+            android:id="@+id/checkBox5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Just By Myself  (3:44)"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA" />
+
+        <RadioButton
+            android:id="@+id/checkBox6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Champion Of The Fight  (3:54)"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA" />
+
+        <RadioButton
+            android:id="@+id/checkBox7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Unbeatable  (3:25)"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA" />
+
+        <RadioButton
+            android:id="@+id/checkBox8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Dad And I  (3:14)"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Beat2TextView"
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+    <LinearLayout
+        android:id="@+id/progress_horizontal7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/adjuster2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Beat Volume:"
+            android:textColor="#E6DADA" />
+
+        <SeekBar
+            android:id="@+id/Volume2"
+            android:layout_width="152dp"
+            android:layout_margin="6dp"
+            android:thumb="@drawable/custom_thumb"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ToggleButton
+        android:id="@+id/Beat2Play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:enabled="false"
+        android:background="@drawable/custom_button3"
+        android:textOff=""
+        android:textOn="" />
+
+    <Button
+        android:id="@+id/nextpage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:layout_margin="5dp"
+        android:text="Next "
+        android:textSize="16sp"/>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
+    </LinearLayout>
+</ScrollView>
