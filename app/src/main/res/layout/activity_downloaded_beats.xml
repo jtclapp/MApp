@@ -20,14 +20,14 @@
             app:adSize="SMART_BANNER"
             app:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
 
-    <TextView
-        android:id="@+id/BeatTextView"
-        android:layout_width="347dp"
-        android:layout_height="wrap_content"
-        android:text="Select a beat to download: "
-        android:textColor="#E6DADA"
-        android:layout_margin="5dp"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/BeatTextView"
+            android:layout_width="371dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Select a beat to download or delete: "
+            android:textColor="#E6DADA"
+            android:textSize="20sp" />
 
     <RadioGroup
         android:id="@+id/RadioGroup_downloads"
@@ -198,7 +198,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" Her Loss"
-            android:layout_margin="3dp"
             android:textColor="#E6DADA"/>
         <RadioButton
             android:id="@+id/radioButton12"

@@ -224,6 +224,10 @@ public class MainActivity5 extends AppCompatActivity {
         }
     }
     private void startRecord() throws IOException {
+        if(audioTrack != null)
+        {
+            audioTrack.release();
+        }
             path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + "Recording_" + System.currentTimeMillis() + ".pcm";
             file = new File(path);
             file.createNewFile();
@@ -280,7 +284,22 @@ public class MainActivity5 extends AppCompatActivity {
         i = GetHZ();
         if (buffersizeinbytes != 0) {
             audioTrack = new AudioTrack(3, i, 2, 2, buffersizeinbytes, 1);
-            audioTrack.play();
+            try{
+                audioTrack.play();
+            }catch (Exception e)
+            {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        play.setChecked(false);
+                        if (play.isChecked() == false) {
+                            play.setActivated(false);
+                        }
+                    }
+                });
+                loadingHelper.dismissDialog();
+                return;
+            }
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -295,14 +314,13 @@ public class MainActivity5 extends AppCompatActivity {
                 play.setChecked(false);
                 if (play.isChecked() == false) {
                     play.setActivated(false);
-                    pauseRecord();
                 }
             }
         });
     }
     public void pauseRecord() {
         if (audioTrack != null) {
-            audioTrack.pause();
+            audioTrack.release();
         }
     }
     public int GetHZ() {

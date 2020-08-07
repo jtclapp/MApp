@@ -167,16 +167,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         long insert = db.insert(SONG_TABLE, null, cv);
         return insert != -1;
     }
-//    public boolean updateOneSong(CreatedSongModel createdSongModel, String name) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//        File filefrom = new File(createdSongModel.getSongname());
-//        File fileto = new File(name);
-//        filefrom.renameTo(fileto);
-//        cv.put(COLUMN_SONG_NAME, name);
-//        db.update(SONG_TABLE, cv, COLUMN_ID3 + " = ?", new String[]{String.valueOf(createdSongModel.getId())});
-//        return true;
-//    }
+    public boolean updateOneSong(CreatedSongModel createdSongModel, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_RECORDING_NAME2, name);
+        db.update(SONG_TABLE, cv, COLUMN_ID3 + " = ?", new String[]{String.valueOf(createdSongModel.getId())});
+        return true;
+    }
     public boolean DeleteOneSong(CreatedSongModel createdSongModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         String queryString = "DELETE FROM " + SONG_TABLE + " WHERE " + COLUMN_ID3 + " = " + createdSongModel.getId();

@@ -22,6 +22,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.io.File;
+import java.util.List;
 
 public class RecordingLibrary extends AppCompatActivity {
     ListView lv_recordinglist;
@@ -84,6 +85,14 @@ public class RecordingLibrary extends AppCompatActivity {
                     public void onClick(View v) {
                         RecordingModel clickedRecording = (RecordingModel) adapterView.getItemAtPosition(i);
                         String newname = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + recordingname.getText().toString();
+                        List<CreatedSongModel> createdSongModelList = dataBaseHelper.getEveryone3();
+                        for(int i = 0; i < createdSongModelList.size(); i++)
+                        {
+                           if(clickedRecording.getName().equals(createdSongModelList.get(i).getRecordingname()))
+                           {
+                               boolean update2 = dataBaseHelper.updateOneSong(createdSongModelList.get(i),newname);
+                           }
+                        }
                         boolean update = dataBaseHelper.updateOneRecording(clickedRecording, newname);
                         if(update)
                         {
@@ -96,6 +105,7 @@ public class RecordingLibrary extends AppCompatActivity {
                         ShowRecording();
                         recordingname.setVisibility(View.INVISIBLE);
                         update2.setVisibility(View.INVISIBLE);
+                        recordingname.getText().clear();
                     }
 
                 });

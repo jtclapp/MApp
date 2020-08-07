@@ -46,9 +46,9 @@ public class DownloadedBeats extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_downloaded_beats);
-        mAdView = findViewById(R.id.adView7);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        mAdView = findViewById(R.id.adView7);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
         B1 = findViewById(R.id.DownloadButton);
         radioGroup = findViewById(R.id.RadioGroup_downloads);

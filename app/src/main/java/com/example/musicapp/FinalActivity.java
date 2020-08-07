@@ -304,7 +304,16 @@ public class FinalActivity extends AppCompatActivity {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
-                        finalplay.setActivated(false);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                finalplay.setChecked(false);
+                                if (finalplay.isChecked() == false) {
+                                    finalplay.setActivated(false);
+                                    stopPlayer();
+                                }
+                            }
+                        });
                 }
             });
 }
@@ -335,8 +344,22 @@ public class FinalActivity extends AppCompatActivity {
             audioTrack = new AudioTrack(3, SampleHZ, 2, 2, bs, 1);
         }
         play();
-        if(audioTrack != null) {
+        try{
             audioTrack.play();
+        }catch (Exception e)
+        {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    finalplay.setChecked(false);
+                    if (finalplay.isChecked() == false) {
+                        finalplay.setActivated(false);
+                        stopPlayer();
+                    }
+                }
+            });
+            loadingHelper.dismissDialog();
+            return;
         }
         runOnUiThread(new Runnable() {
             @Override

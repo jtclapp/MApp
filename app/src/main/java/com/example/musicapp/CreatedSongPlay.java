@@ -1,5 +1,6 @@
 package com.example.musicapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,10 @@ import android.media.AudioTrack;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.method.ScrollingMovementMethod;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ScrollView;
@@ -69,6 +74,22 @@ public class CreatedSongPlay extends AppCompatActivity {
         spFrequency.setAdapter(adapter);
         spFrequency.setSelection(3,true);
         v1 = findViewById(R.id.CStextview);
+        v1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (v.getId() == R.id.CStextview) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
+        v1.setMovementMethod(new ScrollingMovementMethod());
         songtitle = findViewById(R.id.CSsongtitle);
         volumeadj = findViewById(R.id.CreatedSongVolume);
         finalplay = findViewById(R.id.CSfinalplay);
@@ -128,11 +149,11 @@ public class CreatedSongPlay extends AppCompatActivity {
         if (intvalue == 4) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
         }
-        if (intvalue == 5) {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
+        if (intvalue == 5) { // Complete
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#2.mp3");
         }
-        if (intvalue == 6) {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
+        if (intvalue == 6) { // Complete
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#3.mp3");
         }
         if (intvalue == 7) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#4.mp3");
@@ -160,6 +181,22 @@ public class CreatedSongPlay extends AppCompatActivity {
         }
         if (intvalue == 13) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
+        }
+        if(intvalue == 14) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#2.mp3");
+        }
+        if(intvalue == 15) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#3.mp3");
+        }
+        if(intvalue == 16) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#4.mp3");
+        }
+        if(intvalue == 17) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#5.mp3");
         }
         if (player3 != null) {
             stopPlayer();
@@ -262,6 +299,22 @@ public class CreatedSongPlay extends AppCompatActivity {
             i = 24200;
         }
         return i;
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finalactmenu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case  R.id.homeitem3:
+                Intent home = new Intent(this, MainActivity.class);
+                startActivity(home);
+        }
+        return true;
     }
     public void FinalPlay(View view) throws IOException {
             RecordPlay();

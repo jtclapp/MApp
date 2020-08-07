@@ -28,11 +28,12 @@ public class SettingsPage extends AppCompatActivity {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsPage.this);
                 builder.setTitle("About Song Creator");
                 builder.setMessage("With Song Creator you can use many different features to create your own personal song. " +
-                                    "We offer 20 personalized beats to create your song with. Song Creator comes with recording features with over 8 different voice changing effects. " +
-                                    "You can also create your own personalized AI voice that will sing your created song for you. " +
-                                    "Song Creator also makes writing your own lyrics a thing of the past with Song Creators lyric generator. " +
-                                    "We also offers saved content libraries so that you can save all your created lyrics and voice recordings. " +
-                                    "With all the amazing features offered by Song Creator, the user is allowed to create a personalized song within minutes.");
+                        "We offer 20 personalized beats to create your song with. Song Creator comes with recording features and over 8 different voice changing effects. " +
+                        "You can also create your own personalized AI voice that will sing your created song for you. " +
+                        "Song Creator also makes writing your own lyrics a thing of the past with Song Creators lyric generator. " +
+                        "We also offer saved content libraries so that you can save all your created lyrics and voice recordings. " +
+                        "With all the amazing features offered by Song Creator, the user is allowed to create a personalized song within minutes.\n\n" +
+                        "If you have any questions or concerns, please contact us at songcreatorservices@gmail.com.");
                 builder.setNegativeButton("Cancel",null);
                 builder.show();
             }
@@ -51,7 +52,7 @@ public class SettingsPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://youtu.be/6hlI_qL6eXM"));
+                intent.setData(Uri.parse("https://youtu.be/5HD69ZlYPBI"));
                 intent.setPackage("com.google.android.youtube");
                 startActivity(intent);
             }

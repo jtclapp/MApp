@@ -11,12 +11,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_faceicon_foreground"
+        android:icon="@mipmap/ic_launcher_songicon"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_faceicon_round"
+        android:roundIcon="@mipmap/ic_launcher_songicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".CreatedSongPlay"></activity>
+        <activity
+            android:name=".CreatedSongPlay"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".CreatedSongsLibrary"
             android:theme="@style/AppTheme" />

@@ -241,28 +241,24 @@ public class MainActivity4 extends AppCompatActivity {
         if(idvalue == 1)
         {
             songBuilder.CreatingRapVerse1();
-        song = songBuilder.ReturningRap();
-        String display = songBuilder.ReturningRapDisplay();
-        editText.setText(display);
+            String display = songBuilder.ReturningRapDisplay();
+            editText.setText(display);
         }
         if(idvalue == 2)
         {
             songBuilder.CreatingRockVerse1();
-            song = songBuilder.ReturningRock();
             String display2 = songBuilder.ReturningRockDisplay();
             editText.setText(display2);
         }
         if(idvalue == 3)
         {
             songBuilder.CreatingRandBVerse1();
-            song = songBuilder.ReturningRandB();
             String display3 = songBuilder.ReturningRandBDisplay();
             editText.setText(display3);
         }
         if(idvalue == 4)
         {
             songBuilder.CreatingCountryVerse1();
-            song = songBuilder.ReturningCountry();
             String display4 = songBuilder.ReturningCountryDisplay();
             editText.setText(display4);
         }
@@ -311,6 +307,16 @@ public class MainActivity4 extends AppCompatActivity {
         if(textToSpeech.isSpeaking())
         {
             textToSpeech.stop();
+        }
+        String place = editText.getText().toString();
+        String[] parts = place.split("\n");
+        for(int j = 0; j < parts.length; j++)
+        {
+            parts[j] = parts[j].concat("...");
+        }
+        for(int i = 0; i < parts.length; i++)
+        {
+            song += parts[i];
         }
         String voicename = " ";
         String voicecountry;
@@ -365,16 +371,6 @@ public class MainActivity4 extends AppCompatActivity {
                 String strLyrics = data.getStringExtra("lyrics");
                 et_name.setText(strName);
                 editText.setText(strLyrics);
-                String place = editText.getText().toString();
-                String[] parts = place.split("\n");
-                for(int j = 0; j < parts.length; j++)
-                {
-                    parts[j] = parts[j].concat("...");
-                }
-                for(int i = 0; i < parts.length; i++)
-                {
-                    song += parts[i];
-                }
                 sendbutton.setActivated(true);
             }
         }

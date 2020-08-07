@@ -99,7 +99,6 @@ public class SongBuilder {
                 "In the hood on the grind, nothing aint goin so good\n" +
                 "Yeah, pump the breaks and make the party rock\n" +
                 "We came to party, poppin bottles\n" +
-                "We came to party, popping models\n" +
                 "We came to party, dancing\n" +
                 "We came to party, poppin bottles\n" +
                 "Girls giving brain and lovers making plans away\n" +
@@ -144,7 +143,7 @@ public class SongBuilder {
                 "And sometimes when I wanna leave she says they gotta let me go\n" +
                 "You look like an angel with them green eyes\n" +
                 "And you dance around like the k arms\n" +
-                "Just dance roll tilThe break of dawn\n" +
+                "Just dance roll til The break of dawn\n" +
                 "And I need to know girl\n" +
                 "Baby would you dance with me\n" +
                 "One more chance. Just one more\n" +
@@ -248,24 +247,6 @@ public class SongBuilder {
         }
         return display;
     }
-    public String ReturningRap() {
-        for (int i = 0; i < rapverse.length; i++) {
-            rapsong += rapverse[i];
-        }
-        for (int e = 0; e < rapchorus.length; e++) {
-            rapsong += rapchorus[e];
-        }
-        for (int j = 0; j < rapverse2.length; j++) {
-            rapsong += rapverse2[j];
-        }
-        for (int t = 0; t < rapchorus.length; t++) {
-            rapsong += rapchorus[t];
-        }
-        for (int k = 0; k < rapbridge.length; k++) {
-            rapsong += rapbridge[k];
-        }
-        return rapsong;
-    }
     public void CreatingRockVerse1()
     {
         int randomchorus = (int) (Math.random() * 2) + 1;
@@ -319,7 +300,7 @@ public class SongBuilder {
                 "With your heart in your hand the hard way. In it comes, comes and it hits\n" +
                 "And it hits hard\n" +
                 "Harder than it ever then\n" +
-                "Youll even call it\n" +
+                "You'll even call it\n" +
                 "I think I might go crazy, go crazy, go crazy\n" +
                 "To really know where I am\n" +
                 "Please put her arms around me, around me\n" +
@@ -495,25 +476,6 @@ public class SongBuilder {
         }
         return display;
     }
-    public String ReturningRock()
-    {
-        for (int i = 0; i < rockverse.length; i++) {
-            rocksong += rockverse[i];
-        }
-        for (int e = 0; e < rockchorus.length; e++) {
-            rocksong += rockchorus[e];
-        }
-        for (int j = 0; j < rockverse2.length; j++) {
-            rocksong += rockverse2[j];
-        }
-        for (int t = 0; t < rockchorus.length; t++) {
-            rocksong += rockchorus[t];
-        }
-        for (int k = 0; k < rockbridge.length; k++) {
-            rocksong += rockbridge[k];
-        }
-        return rocksong;
-    }
     public void CreatingRandBVerse1()
     {
         int randomchorus = (int) (Math.random() * 2) + 1;
@@ -556,7 +518,7 @@ public class SongBuilder {
                 "The love we once had is now gone\n" +
                 "The love we once shared is now gone\n" +
                 "What makes you happy, baby? I gotta know\n" +
-                "What makes you happy, baby?\n" +
+                "What makes you happy, baby\n" +
                 "All I long for right now is a happy ending\n" +
                 "This feeling I got is a feeling that im feeling\n" +
                 "Im just so happy inside\n" +
@@ -738,25 +700,6 @@ public class SongBuilder {
             display += ". ";
         }
         return display;
-    }
-    public String ReturningRandB()
-    {
-        for (int i = 0; i < randbverse.length; i++) {
-            randbsong += randbverse[i];
-        }
-        for (int e = 0; e < randbchorus.length; e++) {
-            randbsong += randbchorus[e];
-        }
-        for (int j = 0; j < randbverse2.length; j++) {
-            randbsong += randbverse2[j];
-        }
-        for (int t = 0; t < randbchorus.length; t++) {
-            randbsong += randbchorus[t];
-        }
-        for (int k = 0; k < randbbridge.length; k++) {
-            randbsong += randbbridge[k];
-        }
-        return randbsong;
     }
     public void CreatingCountryVerse1()
     {
@@ -982,24 +925,5 @@ public class SongBuilder {
             display += ". ";
         }
         return display;
-    }
-    public String ReturningCountry()
-    {
-        for (int i = 0; i < countryverse.length; i++) {
-            countrysong += countryverse[i];
-        }
-        for (int e = 0; e < countrychorus.length; e++) {
-            countrysong += countrychorus[e];
-        }
-        for (int j = 0; j < countryverse2.length; j++) {
-            countrysong += countryverse2[j];
-        }
-        for (int t = 0; t < countrychorus.length; t++) {
-            countrysong += countrychorus[t];
-        }
-        for (int k = 0; k < countrybridge.length; k++) {
-            countrysong += countrybridge[k];
-        }
-        return countrysong;
     }
 }
