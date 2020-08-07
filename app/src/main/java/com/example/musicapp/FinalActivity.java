@@ -351,6 +351,7 @@ public class FinalActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    Toast.makeText(getApplicationContext(), "Error Occurred While Trying to Play Recorded Audio",Toast.LENGTH_SHORT).show();
                     finalplay.setChecked(false);
                     if (finalplay.isChecked() == false) {
                         finalplay.setActivated(false);

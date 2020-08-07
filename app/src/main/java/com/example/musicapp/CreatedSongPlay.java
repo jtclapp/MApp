@@ -20,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.io.BufferedInputStream;
@@ -265,6 +266,7 @@ public class CreatedSongPlay extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    Toast.makeText(getApplicationContext(), "Error Occurred While Trying to Play Recorded Audio",Toast.LENGTH_SHORT).show();
                     finalplay.setChecked(false);
                     if (finalplay.isChecked() == false) {
                         finalplay.setActivated(false);

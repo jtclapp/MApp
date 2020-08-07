@@ -291,6 +291,7 @@ public class MainActivity5 extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        Toast.makeText(getApplicationContext(), "Error Occurred While Trying to Play Recorded Audio",Toast.LENGTH_SHORT).show();
                         play.setChecked(false);
                         if (play.isChecked() == false) {
                             play.setActivated(false);
