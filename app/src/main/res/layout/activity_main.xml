@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context="com.example.musicapp.MainActivity">
+    tools:context="com.music.songcreator.MainActivity">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        ads:adUnitId="ca-app-pub-3852614797851381/8861743598">
     </com.google.android.gms.ads.AdView>
 </LinearLayout>
 </ScrollView>
