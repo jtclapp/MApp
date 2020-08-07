@@ -220,7 +220,16 @@ public class CreatedSongPlay extends AppCompatActivity {
         player3.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
-                finalplay.setActivated(false);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        finalplay.setChecked(false);
+                        if (finalplay.isChecked() == false) {
+                            finalplay.setActivated(false);
+                            stopPlayer();
+                        }
+                    }
+                });
             }
         });
     }
@@ -249,7 +258,23 @@ public class CreatedSongPlay extends AppCompatActivity {
         i = GetHZ();
         audioTrack = new AudioTrack(3, i, 2, 2, bs, 1);
         play();
-        audioTrack.play();
+        try{
+            audioTrack.play();
+        }catch (Exception e)
+        {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    finalplay.setChecked(false);
+                    if (finalplay.isChecked() == false) {
+                        finalplay.setActivated(false);
+                        stopPlayer();
+                    }
+                }
+            });
+            loadingHelper.dismissDialog();
+            return;
+        }
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -321,7 +346,10 @@ public class CreatedSongPlay extends AppCompatActivity {
     }
     private void stopPlayer() {
         if (player3 != null) {
-            audioTrack.release();
+            if(audioTrack != null)
+            {
+                audioTrack.release();
+            }
             player3.release();
             player3 = null;
         }
