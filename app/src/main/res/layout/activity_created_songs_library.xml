@@ -40,7 +40,7 @@
             android:layout_marginBottom="5dp"
             android:layout_margin="5dp"
             ads:adSize="SMART_BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+            ads:adUnitId="ca-app-pub-3852614797851381/8411602283"/>
     </LinearLayout>
 
 </ScrollView>

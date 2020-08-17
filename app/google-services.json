@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:896496465636:android:cc16b20e4c612761ac9ef1",
         "android_client_info": {
-          "package_name": "com.example.musicapp"
+          "package_name": "com.music.songcreator"
         }
       },
       "oauth_client": [
