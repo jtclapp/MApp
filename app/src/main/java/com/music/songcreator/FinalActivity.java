@@ -52,6 +52,7 @@ public class FinalActivity extends AppCompatActivity {
     String recordedvoice;
     AudioTrack audioTrack;
     int intvalue;
+    BeatFileSelector beatFileSelector;
     LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
     @Override
@@ -97,6 +98,7 @@ public class FinalActivity extends AppCompatActivity {
         v1 = findViewById(R.id.textView4);
         songtitle = findViewById(R.id.songtitle);
         song = "";
+        beatFileSelector = new BeatFileSelector();
 
         Intent myintent2 = getIntent();
         intvalue = myintent2.getIntExtra("svalue", 0);
@@ -214,87 +216,8 @@ public class FinalActivity extends AppCompatActivity {
     public void play() {
         Intent myintent = getIntent();
         float final_volume = myintent.getFloatExtra("volume",0);
-        if (intvalue == 1) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
-        }
-        if (intvalue == 2) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#2.mp3");
-        }
-        if (intvalue == 3) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
-        }
-        if(intvalue == 24) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#4.mp3");
-        }
-        if(intvalue == 25) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
-        }
-        if(intvalue == 26) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#6.mp3");
-        }
-        if(intvalue == 27) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#7.mp3");
-        }
-        if (intvalue == 4) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
-        }
-        if (intvalue == 5) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#2.mp3");
-        }
-        if (intvalue == 6) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#3.mp3");
-        }
-        if (intvalue == 7) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#4.mp3");
-        }
-        if(intvalue == 29) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#5.mp3");
-        }
-        if (intvalue == 8) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#1.mp3");
-        }
-        if (intvalue == 9) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#2.mp3");
-        }
-        if(intvalue == 10) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#3.mp3");
-        }
-        if(intvalue == 11) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#4.mp3");
-        }
-        if(intvalue == 35) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#5.mp3");
-        }
-        if(intvalue == 36) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#6.mp3");
-        }
-        if (intvalue == 13) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
-        }
-        if(intvalue == 14) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#2.mp3");
-        }
-        if(intvalue == 15) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#3.mp3");
-        }
-        if(intvalue == 16) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#4.mp3");
-        }
-        if(intvalue == 17) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#5.mp3");
-        }
+        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(intvalue));
+
             if (player3 != null) {
                 stopPlayer();
             }

@@ -31,6 +31,7 @@ public class Beatpage4 extends AppCompatActivity {
     ToggleButton FinalPlay;
     Button next;
     private AdView mAdView;
+    BeatFileSelector beatFileSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,28 +41,22 @@ public class Beatpage4 extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        beatFileSelector = new BeatFileSelector();
         radioGroup = findViewById(R.id.Group4);
         R1 = findViewById(R.id.country_box1);
         R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (R1.isChecked()) {
                     check = 13;
-                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
                     DownloadDialog();
-                }
             }
         });
         R2 = findViewById(R.id.country_box2);
         R2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(R2.isChecked())
-                {
                     check = 14;
-                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#2.mp3");
                     DownloadDialog();
-                }
             }
         });
         R3 = findViewById(R.id.country_box3);
@@ -69,7 +64,6 @@ public class Beatpage4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 check = 15;
-                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#3.mp3");
                 DownloadDialog();
             }
         });
@@ -78,7 +72,6 @@ public class Beatpage4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 check = 16;
-                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#4.mp3");
                 DownloadDialog();
             }
         });
@@ -87,7 +80,6 @@ public class Beatpage4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 check = 17;
-                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#5.mp3");
                 DownloadDialog();
             }
         });
@@ -131,25 +123,8 @@ public class Beatpage4 extends AppCompatActivity {
     public void openMainAct5() {
         int id = 4;
         Intent intent = new Intent(this, MainActivity5.class);
-        if (check == 13) {
-            intent.putExtra("check", 13);
-        }
-        if(check == 14)
-        {
-            intent.putExtra("check", 14);
-        }
-        if(check == 15)
-        {
-            intent.putExtra("check", 15);
-        }
-        if(check == 16)
-        {
-            intent.putExtra("check", 16);
-        }
-        if(check == 17)
-        {
-            intent.putExtra("check", 17);
-        }
+        intent.putExtra("check", check);
+
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}
         intent.putExtra("setVolume",setVolume);
@@ -195,6 +170,8 @@ public class Beatpage4 extends AppCompatActivity {
     }
     public void DownloadDialog()
     {
+        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(check));
+
         if(path.exists() != true) {
             next.setActivated(false);
             FinalPlay.setEnabled(false);

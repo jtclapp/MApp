@@ -33,6 +33,7 @@ public class BeatPage1 extends AppCompatActivity {
     SeekBar volumeadj;
     float setVolume;
     private AdView mAdView;
+    BeatFileSelector beatFileSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,38 +43,30 @@ public class BeatPage1 extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        beatFileSelector = new BeatFileSelector();
         radioGroup = findViewById(R.id.Group1);
         R1 = findViewById(R.id.checkBox);
         R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (R1.isChecked()) {
                     check = 1;
-                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
                     DownloadDialog();
-                }
             }
         });
         R2 = findViewById(R.id.checkBox2);
         R2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (R2.isChecked()) {
                     check = 2;
-                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#2.mp3");
                     DownloadDialog();
-                }
             }
         });
         R3 = findViewById(R.id.checkBox4);
         R3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (R3.isChecked()) {
                     check = 3;
-                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
                     DownloadDialog();
-                }
             }
         });
         R4 = findViewById(R.id.checkBox5);
@@ -81,7 +74,6 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 24;
-                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#4.mp3");
                 DownloadDialog();
             }
         });
@@ -90,7 +82,6 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 25;
-                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
                 DownloadDialog();
             }
         });
@@ -99,7 +90,6 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 26;
-                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#6.mp3");
                 DownloadDialog();
             }
         });
@@ -108,7 +98,6 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 27;
-                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#7.mp3");
                 DownloadDialog();
             }
         });
@@ -153,31 +142,8 @@ public class BeatPage1 extends AppCompatActivity {
     public void openMainAct5() {
         int id = 1;
         Intent intent = new Intent(this, MainActivity5.class);
-        if (check == 1) {
-            intent.putExtra("check", 1);
-        }
-        if (check == 2) {
-            intent.putExtra("check", 2);
-        }
-        if (check == 3) {
-            intent.putExtra("check", 3);
-        }
-        if(check == 24)
-        {
-            intent.putExtra("check",24);
-        }
-        if(check == 25)
-        {
-            intent.putExtra("check",25);
-        }
-        if(check == 26)
-        {
-            intent.putExtra("check",26);
-        }
-        if(check == 27)
-        {
-            intent.putExtra("check",27);
-        }
+        intent.putExtra("check", check);
+
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}
         intent.putExtra("setVolume",setVolume);
@@ -221,6 +187,8 @@ public class BeatPage1 extends AppCompatActivity {
     }
     public void DownloadDialog()
     {
+        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(check));
+
         if(path.exists() != true) {
             next.setActivated(false);
             FinalPlay.setEnabled(false);
