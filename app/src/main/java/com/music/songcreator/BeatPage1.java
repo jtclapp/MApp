@@ -26,7 +26,7 @@ public class BeatPage1 extends AppCompatActivity {
     MediaPlayer player;
     File path;
     RadioGroup radioGroup;
-    RadioButton R1,R2,R3,R4,R5;
+    RadioButton R1,R2,R3,R4,R5,R6,R7;
     ToggleButton FinalPlay;
     Button next;
     int check;
@@ -94,6 +94,24 @@ public class BeatPage1 extends AppCompatActivity {
                 DownloadDialog();
             }
         });
+        R6 = findViewById(R.id.checkBox7);
+        R6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check = 26;
+                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#6.mp3");
+                DownloadDialog();
+            }
+        });
+        R7 = findViewById(R.id.checkBox8);
+        R7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check = 27;
+                path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#7.mp3");
+                DownloadDialog();
+            }
+        });
         FinalPlay = findViewById(R.id.Beat1Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +169,14 @@ public class BeatPage1 extends AppCompatActivity {
         if(check == 25)
         {
             intent.putExtra("check",25);
+        }
+        if(check == 26)
+        {
+            intent.putExtra("check",26);
+        }
+        if(check == 27)
+        {
+            intent.putExtra("check",27);
         }
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}

@@ -29,7 +29,7 @@ public class Beatpage3 extends AppCompatActivity {
     SeekBar volumeadj;
     float setVolume;
     RadioGroup radioGroup;
-    RadioButton R1,R2,R3,R4,R5;
+    RadioButton R1,R2,R3,R4,R5,R6;
     ToggleButton FinalPlay;
     Button next;
     private AdView mAdView;
@@ -102,6 +102,18 @@ public class Beatpage3 extends AppCompatActivity {
                 }
             }
         });
+        R6 = findViewById(R.id.RB_checkbox6);
+        R6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(R6.isChecked())
+                {
+                    check = 36;
+                    path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#6.mp3");
+                    DownloadDialog();
+                }
+            }
+        });
         FinalPlay = findViewById(R.id.Beat3Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +170,10 @@ public class Beatpage3 extends AppCompatActivity {
         if(check == 35)
         {
             intent.putExtra("check",35);
+        }
+        if(check == 36)
+        {
+            intent.putExtra("check",36);
         }
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}

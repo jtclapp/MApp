@@ -75,6 +75,20 @@
             android:text=" Too Hot For You"
             android:textColor="#E6DADA"/>
 
+        <RadioButton
+            android:id="@+id/radioButton126"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Just Go"
+            android:textColor="#E6DADA"/>
+
+        <RadioButton
+            android:id="@+id/radioButton127"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Let Me In"
+            android:textColor="#E6DADA"/>
+
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
@@ -164,6 +178,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" Out Like A Light"
+            android:textColor="#E6DADA"/>
+        <RadioButton
+            android:id="@+id/radioButton36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" No Sleep For The Damned"
             android:textColor="#E6DADA"/>
         <TextView
             android:id="@+id/textView14"

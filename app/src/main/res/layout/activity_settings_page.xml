@@ -37,7 +37,6 @@
         android:layout_margin="5dp"
         android:textColor="#E6DADA"
         android:text="Background Animations Activated" />
-
     <TextView
         android:id="@+id/textView17"
         android:layout_width="match_parent"
