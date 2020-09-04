@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
@@ -48,6 +49,7 @@ public class CreatedSongPlay extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_created_song_play);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         final SharedPreferences sharedPreferences = getSharedPreferences("isChecked", 0);
         boolean value = sharedPreferences.getBoolean("isChecked",true);

@@ -36,7 +36,7 @@ public class DownloadedBeats extends AppCompatActivity {
     StorageReference ref;
     RadioGroup radioGroup;
     RadioButton RB1,RB2,RB3,RB4,RB5,RB6,RB7,RB8,RB9,RB10,RB11,RB12,RB13,RB14,RB15;
-    RadioButton RB16,RB17,RB18,RB19,RB20;
+    RadioButton RB16,RB17,RB18,RB19,RB20,RB21,RB22,RB23;
     ImageButton B1;
     String child;
     String path;
@@ -72,7 +72,9 @@ public class DownloadedBeats extends AppCompatActivity {
         RB18 = findViewById(R.id.radioButton11);
         RB19 = findViewById(R.id.radioButton12);
         RB20 = findViewById(R.id.radioButton13);
-
+        RB21 = findViewById(R.id.radioButton126);
+        RB22 = findViewById(R.id.radioButton127);
+        RB23 = findViewById(R.id.radioButton36);
         RB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -239,6 +241,30 @@ public class DownloadedBeats extends AppCompatActivity {
             public void onClick(View v) {
                 child = "country beat 5.mp3";
                 path = "Country_Beat#5.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                child = "Rap Beat 6.mp3";
+                path = "HipHop_Beat#6.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                child = "Rap Beat 7.mp3";
+                path = "HipHop_Beat#7.mp3";
+                B1.setActivated(true);
+            }
+        });
+        RB23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                child = "R&B Beat 6.mp3";
+                path = "R&B_Beat#6.mp3";
                 B1.setActivated(true);
             }
         });

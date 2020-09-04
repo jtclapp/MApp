@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -57,6 +58,7 @@ public class FinalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         final SharedPreferences sharedPreferences = getSharedPreferences("isChecked", 0);
         boolean value = sharedPreferences.getBoolean("isChecked",true);
@@ -229,6 +231,14 @@ public class FinalActivity extends AppCompatActivity {
         {
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
         }
+        if(intvalue == 26) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#6.mp3");
+        }
+        if(intvalue == 27) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#7.mp3");
+        }
         if (intvalue == 4) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
         }
@@ -261,6 +271,10 @@ public class FinalActivity extends AppCompatActivity {
         if(intvalue == 35) // Complete
         {
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#5.mp3");
+        }
+        if(intvalue == 36) // Complete
+        {
+            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#6.mp3");
         }
         if (intvalue == 13) { // Complete
             path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");

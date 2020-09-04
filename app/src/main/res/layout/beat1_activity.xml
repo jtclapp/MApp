@@ -66,6 +66,20 @@
             android:layout_margin="5dp"
             android:text=" Too Hot For You  (2:49)"
             android:textColor="#E6DADA" />
+        <RadioButton
+            android:id="@+id/checkBox7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text=" Just Go  (2:58)"
+            android:textColor="#E6DADA" />
+        <RadioButton
+            android:id="@+id/checkBox8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text=" Let Me In  (3:11)"
+            android:textColor="#E6DADA" />
 </RadioGroup>
 
     <TextView
