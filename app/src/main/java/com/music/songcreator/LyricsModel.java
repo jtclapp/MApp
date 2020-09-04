@@ -37,7 +37,7 @@ public class LyricsModel {
 
     @Override
     public String toString() {
-        return "SONG TITLE: " + name + "\n\n" + lyrics + "\n";
+        return "TITLE: " + name + "\n\n" + lyrics + "\n";
     }
 }
 

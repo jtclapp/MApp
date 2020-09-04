@@ -99,7 +99,6 @@ public class DownloadedBeats extends AppCompatActivity {
                 child = "Rap_Beat_3.mp3";
                 path = "HipHop_Beat#3.mp3";
                 B1.setActivated(true);
-
             }
         });
         RB4.setOnClickListener(new View.OnClickListener() {
