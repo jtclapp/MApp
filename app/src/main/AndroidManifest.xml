@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name="com.music.songcreator.CreatedSongPlay"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize"/>
         <activity
             android:name="com.music.songcreator.CreatedSongsLibrary"
             android:theme="@style/AppTheme" />

@@ -49,7 +49,6 @@ public class CreatedSongPlay extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_created_song_play);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         final SharedPreferences sharedPreferences = getSharedPreferences("isChecked", 0);
         boolean value = sharedPreferences.getBoolean("isChecked",true);
