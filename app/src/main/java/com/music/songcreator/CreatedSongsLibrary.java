@@ -26,6 +26,7 @@ public class CreatedSongsLibrary extends AppCompatActivity
     ArrayAdapter createdsongArrayAdapter;
     DataBaseHelper dataBaseHelper;
     private AdView mAdView;
+    BeatFileSelector beatFileSelector;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -38,6 +39,7 @@ public class CreatedSongsLibrary extends AppCompatActivity
 
         lv_songlist = findViewById(R.id.CreatedSongs_list);
         dataBaseHelper = new DataBaseHelper(CreatedSongsLibrary.this);
+        beatFileSelector = new BeatFileSelector();
         ShowSong();
 
         lv_songlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -117,96 +119,99 @@ public class CreatedSongsLibrary extends AppCompatActivity
     {
         File path = null;
         String beatname = null;
-        if (intvalue == 1) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
+        if (intvalue == 1) // Complete
+        { // Complete
             beatname = "Call Me Now";
         }
-        if (intvalue == 2) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#2.mp3");
+        if (intvalue == 2) // Complete
+        { // Complete
             beatname = "Blame Me";
         }
-        if (intvalue == 3) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
+        if (intvalue == 3) // Complete
+        { // Complete
             beatname = "Uppercut";
         }
         if(intvalue == 24) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#4.mp3");
             beatname = "Only At Night";
         }
         if(intvalue == 25) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
             beatname = "Too Hot For You";
         }
-        if (intvalue == 4) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
+        if(intvalue == 26) // Complete
+        {
+            beatname = "Just Go";
+        }
+        if(intvalue == 27) // Complete
+        {
+            beatname = "Let Me In";
+        }
+        if (intvalue == 4) // Complete
+        { // Complete
             beatname = "Where Did You Go";
         }
-        if (intvalue == 5) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#2.mp3");
+        if (intvalue == 5) // Complete
+        { // Complete
             beatname = "Just By Myself";
         }
-        if (intvalue == 6) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#3.mp3");
+        if (intvalue == 6) // Complete
+        { // Complete
             beatname = "Champion Of The Fight";
         }
-        if (intvalue == 7) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#4.mp3");
+        if (intvalue == 7) // Complete
+        { // Complete
             beatname = "Unbeatable";
         }
         if(intvalue == 29) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#5.mp3");
             beatname = "Dad And I";
         }
-        if (intvalue == 8) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#1.mp3");
+        if (intvalue == 8) // Complete
+        { // Complete
             beatname = "Late Night";
         }
-        if (intvalue == 9) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#2.mp3");
+        if (intvalue == 9) // Complete
+        { // Complete
             beatname = "Scary Night";
         }
-        if(intvalue == 10) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#3.mp3");
+        if(intvalue == 10) // Complete
+        { // Complete
             beatname = "On My Grind";
         }
         if(intvalue == 11) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#4.mp3");
             beatname = "On My Mind";
         }
         if(intvalue == 35) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#5.mp3");
             beatname = "Out Like A Light";
         }
-        if (intvalue == 13) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
+        if(intvalue == 36) // Complete
+        {
+            beatname = "No Sleep For The Damned";
+        }
+        if (intvalue == 13) // Complete
+        { // Complete
             beatname = "She's With Someone Else";
         }
         if(intvalue == 14) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#2.mp3");
             beatname = "Party Time";
         }
         if(intvalue == 15) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#3.mp3");
             beatname = "Her Loss";
         }
         if(intvalue == 16) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#4.mp3");
             beatname = "This Is My Town";
         }
         if(intvalue == 17) // Complete
         {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#5.mp3");
             beatname = "What I Love The Most";
         }
-
+        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(intvalue));
         if(path.exists() != true) {
             final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(CreatedSongsLibrary.this);
             builder.setMessage("Please Download '" + beatname + "' To Be Able To Play This Song.");
