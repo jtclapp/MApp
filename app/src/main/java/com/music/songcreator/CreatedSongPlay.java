@@ -44,6 +44,7 @@ public class CreatedSongPlay extends AppCompatActivity {
     Spinner spFrequency;
     ArrayAdapter<String> adapter;
     LoadingHelper loadingHelper = new LoadingHelper(CreatedSongPlay.this);
+    BeatFileSelector beatFileSelector = new BeatFileSelector();
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -131,75 +132,7 @@ public class CreatedSongPlay extends AppCompatActivity {
     public void play() {
         setVolume = (float) volumeadj.getProgress() / 50;
         if (setVolume < 0.1) {setVolume = 0.1f;}
-        if (intvalue == 1) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#1.mp3");
-        }
-        if (intvalue == 2) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#2.mp3");
-        }
-        if (intvalue == 3) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#3.mp3");
-        }
-        if(intvalue == 24) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#4.mp3");
-        }
-        if(intvalue == 25) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "HipHop_Beat#5.mp3");
-        }
-        if (intvalue == 4) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#1.mp3");
-        }
-        if (intvalue == 5) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#2.mp3");
-        }
-        if (intvalue == 6) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#3.mp3");
-        }
-        if (intvalue == 7) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#4.mp3");
-        }
-        if(intvalue == 29) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Rock_Beat#5.mp3");
-        }
-        if (intvalue == 8) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#1.mp3");
-        }
-        if (intvalue == 9) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#2.mp3");
-        }
-        if(intvalue == 10) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#3.mp3");
-        }
-        if(intvalue == 11) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#4.mp3");
-        }
-        if(intvalue == 35) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "R&B_Beat#5.mp3");
-        }
-        if (intvalue == 13) { // Complete
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#1.mp3");
-        }
-        if(intvalue == 14) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#2.mp3");
-        }
-        if(intvalue == 15) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#3.mp3");
-        }
-        if(intvalue == 16) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#4.mp3");
-        }
-        if(intvalue == 17) // Complete
-        {
-            path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + "Country_Beat#5.mp3");
-        }
+        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(intvalue));
         if (player3 != null) {
             stopPlayer();
         }
