@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,94 +18,113 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.music.songcreator.java_operations.BeatFileSelector;
+import com.music.songcreator.R;
 
 import java.io.File;
 import java.io.IOException;
 
-public class BeatPage2 extends AppCompatActivity {
+public class BeatPage1 extends AppCompatActivity {
     MediaPlayer player;
     File path;
-    SeekBar volumeadj;
-    float setVolume;
-    int check;
     RadioGroup radioGroup;
-    RadioButton R1,R2,R3,R4,R5;
+    RadioButton R1,R2,R3,R4,R5,R6,R7;
     ToggleButton FinalPlay;
     Button next;
-    BeatFileSelector beatFileSelector;
+    int check;
+    SeekBar volumeadj;
+    float setVolume;
     private AdView mAdView;
+    BeatFileSelector beatFileSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.beat2_activity);
-        mAdView = findViewById(R.id.adView3);
+        setContentView(R.layout.beat1_activity);
+        mAdView = findViewById(R.id.adView2);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         beatFileSelector = new BeatFileSelector();
-        radioGroup = findViewById(R.id.Group2);
-        R1 = findViewById(R.id.checkBox3);
+        radioGroup = findViewById(R.id.Group1);
+        R1 = findViewById(R.id.checkBox);
         R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    check = 4;
+                    check = 1;
                     DownloadDialog();
             }
         });
-        R2 = findViewById(R.id.checkBox5);
+        R2 = findViewById(R.id.checkBox2);
         R2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    check = 5;
+                    check = 2;
                     DownloadDialog();
             }
         });
-        R3 = findViewById(R.id.checkBox6);
+        R3 = findViewById(R.id.checkBox4);
         R3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    check = 6;
+                    check = 3;
                     DownloadDialog();
             }
         });
-        R4 = findViewById(R.id.checkBox7);
+        R4 = findViewById(R.id.checkBox5);
         R4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                    check = 7;
-                    DownloadDialog();
+            public void onClick(View view) {
+                check = 24;
+                DownloadDialog();
             }
         });
-        R5 = findViewById(R.id.checkBox8);
+        R5 = findViewById(R.id.checkBox6);
         R5.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                    check = 29;
-                    DownloadDialog();
+            public void onClick(View view) {
+                check = 25;
+                DownloadDialog();
             }
         });
-        FinalPlay = findViewById(R.id.Beat2Play);
+        R6 = findViewById(R.id.checkBox7);
+        R6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check = 26;
+                DownloadDialog();
+            }
+        });
+        R7 = findViewById(R.id.checkBox8);
+        R7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check = 27;
+                DownloadDialog();
+            }
+        });
+        FinalPlay = findViewById(R.id.Beat1Play);
         FinalPlay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (FinalPlay.isChecked()) {
-                    FinalPlay.setActivated(true);
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            DownloadDialog();
-                            play();
-                        }
-                    }).start();
+            public void onClick(View view)
+            {
+                    if (FinalPlay.isChecked()) {
+                        FinalPlay.setActivated(true);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                DownloadDialog();
+                                play();
+                            }
+                        }).start();
+                    }
+                    if (FinalPlay.isChecked() == false) {
+                        FinalPlay.setActivated(false);
+                        stopPlayer();
+                    }
                 }
-                if (FinalPlay.isChecked() == false) {
-                    FinalPlay.setActivated(false);
-                    stopPlayer();
-                }
-            }
         });
-        next = findViewById(R.id.nextpage2);
+        next = findViewById(R.id.nextpage1);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,10 +139,10 @@ public class BeatPage2 extends AppCompatActivity {
             }
         });
         next.setActivated(false);
-        volumeadj = findViewById(R.id.Volume2);
+        volumeadj = findViewById(R.id.Volume);
     }
     public void openMainAct5() {
-        int id = 2;
+        int id = 1;
         Intent intent = new Intent(this, MainActivity5.class);
         intent.putExtra("check", check);
 
@@ -162,6 +181,7 @@ public class BeatPage2 extends AppCompatActivity {
             player = null;
         }
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -174,7 +194,7 @@ public class BeatPage2 extends AppCompatActivity {
         if(path.exists() != true) {
             next.setActivated(false);
             FinalPlay.setEnabled(false);
-            final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage2.this);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage1.this);
             builder.setMessage("Please Download This Beat To Play It.");
             builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
                 @Override

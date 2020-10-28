@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -20,6 +20,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.music.songcreator.R;
+import com.music.songcreator.SQLite.CreatedSongModel;
+import com.music.songcreator.SQLite.DataBaseHelper;
+import com.music.songcreator.SQLite.RecordingModel;
 
 import java.io.File;
 import java.util.List;

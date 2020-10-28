@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize"
     android:background="@drawable/gradient_background"
-    tools:context=".Beatpage4">
+    tools:context=".activities.Beatpage4">
 
     <LinearLayout
         android:layout_width="match_parent"

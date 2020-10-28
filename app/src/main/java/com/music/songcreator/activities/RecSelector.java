@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,41 +13,42 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.music.songcreator.R;
+import com.music.songcreator.SQLite.DataBaseHelper;
+import com.music.songcreator.SQLite.RecordingModel;
 
-public class Selector extends AppCompatActivity {
-    ListView lv_customerList;
-    ArrayAdapter lyricArrayAdapter;
+public class RecSelector extends AppCompatActivity {
+    ListView lv_recordinglist;
+    ArrayAdapter recordingArrayAdapter;
     DataBaseHelper dataBaseHelper;
     private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selector);
+        setContentView(R.layout.activity_rec_selector);
 
-        mAdView = findViewById(R.id.adView10);
+        mAdView = findViewById(R.id.adView11);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        lv_customerList = findViewById(R.id.lyrics_list2);
-        dataBaseHelper = new DataBaseHelper(Selector.this);
-        ShowLyrics();
+        lv_recordinglist = findViewById(R.id.recording_list2);
+        dataBaseHelper = new DataBaseHelper(RecSelector.this);
+        ShowRecording();
 
-        lv_customerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv_recordinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Selector.this);
-                builder.setMessage("Are you sure you want to select this song?");
+                AlertDialog.Builder builder = new AlertDialog.Builder(RecSelector.this);
+                builder.setMessage("Are you sure you want to select this?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
-                        LyricsModel clickedLyric = (LyricsModel) adapterView.getItemAtPosition(i);
-                        String name = clickedLyric.getName();
-                        String lyrics = clickedLyric.getLyrics();
+                        RecordingModel clickedRecording = (RecordingModel) adapterView.getItemAtPosition(i);
+                        String name = clickedRecording.getName();
 
                         Intent intent = new Intent();
                         intent.putExtra("name", name);
-                        intent.putExtra("lyrics", lyrics);
                         setResult(RESULT_OK, intent);
                         finish();
                     }
@@ -58,8 +59,8 @@ public class Selector extends AppCompatActivity {
         });
     }
 
-    private void ShowLyrics() {
-        lyricArrayAdapter = new ArrayAdapter<LyricsModel>(Selector.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone());
-        lv_customerList.setAdapter(lyricArrayAdapter);
+    private void ShowRecording() {
+        recordingArrayAdapter = new ArrayAdapter<RecordingModel>(RecSelector.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone2());
+        lv_recordinglist.setAdapter(recordingArrayAdapter);
     }
 }

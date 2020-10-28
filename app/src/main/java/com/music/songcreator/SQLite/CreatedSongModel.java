@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.SQLite;
 
 public class CreatedSongModel
 {

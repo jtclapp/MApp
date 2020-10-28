@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +27,12 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import com.music.songcreator.java_operations.BeatFileSelector;
+import com.music.songcreator.SQLite.CreatedSongModel;
+import com.music.songcreator.SQLite.DataBaseHelper;
+import com.music.songcreator.java_operations.LoadingHelper;
+import com.music.songcreator.R;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;

@@ -1,10 +1,8 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.AnimationDrawable;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Bundle;
@@ -23,7 +21,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +30,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.music.songcreator.SQLite.DataBaseHelper;
+import com.music.songcreator.java_operations.LoadingHelper;
+import com.music.songcreator.SQLite.LyricsModel;
+import com.music.songcreator.R;
+import com.music.songcreator.SQLite.RecordingModel;
+import com.music.songcreator.java_operations.SongBuilder;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;

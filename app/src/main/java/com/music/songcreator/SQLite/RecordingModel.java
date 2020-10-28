@@ -1,14 +1,12 @@
-package com.music.songcreator;
+package com.music.songcreator.SQLite;
 
-public class LyricsModel {
+public class RecordingModel {
     private int id;
     private String name;
-    private String lyrics;
 
-    public LyricsModel(int id, String name, String lyrics) {
+    public RecordingModel(int id, String name) {
         this.id = id;
         this.name = name;
-        this.lyrics = lyrics;
     }
 
     public String getName() {
@@ -17,14 +15,6 @@ public class LyricsModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLyrics() {
-        return lyrics;
-    }
-
-    public void setLyrics(String lyrics) {
-        this.lyrics = lyrics;
     }
 
     public int getId() {
@@ -37,7 +27,7 @@ public class LyricsModel {
 
     @Override
     public String toString() {
-        return "TITLE: " + name + "\n\n" + lyrics + "\n";
+        return "Recording Directory: " + name + "\n" + "id= " + id;
     }
 }
 

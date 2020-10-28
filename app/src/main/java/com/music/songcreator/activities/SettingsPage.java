@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.music.songcreator.R;
 
 public class SettingsPage extends AppCompatActivity {
     Button B1,B2,B3;

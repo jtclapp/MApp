@@ -1,6 +1,5 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -23,6 +22,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import com.music.songcreator.SQLite.DataBaseHelper;
+import com.music.songcreator.SQLite.LyricsModel;
+import com.music.songcreator.R;
+import com.music.songcreator.java_operations.SongBuilder;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -298,7 +302,7 @@ public class MainActivity4 extends AppCompatActivity {
                 startSelectAct();
                 break;
             case R.id.homeitem1:
-                Intent home = new Intent(this,MainActivity.class);
+                Intent home = new Intent(this, MainActivity.class);
                 startActivity(home);
         }
         return true;

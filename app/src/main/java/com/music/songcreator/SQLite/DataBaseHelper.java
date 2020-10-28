@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.SQLite;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.music.songcreator.SQLite.CreatedSongModel;
+import com.music.songcreator.SQLite.LyricsModel;
+import com.music.songcreator.SQLite.RecordingModel;
 
 import java.io.File;
 import java.util.ArrayList;

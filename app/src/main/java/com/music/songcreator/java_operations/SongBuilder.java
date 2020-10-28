@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.java_operations;
 
 public class SongBuilder {
     public String rapsong;

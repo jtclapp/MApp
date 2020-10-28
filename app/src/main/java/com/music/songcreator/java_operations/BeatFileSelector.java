@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.java_operations;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BeatFileSelector extends AppCompatActivity

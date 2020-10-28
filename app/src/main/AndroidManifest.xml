@@ -17,60 +17,60 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="com.music.songcreator.CreatedSongPlay"
+            android:name="com.music.songcreator.activities.CreatedSongPlay"
             android:theme="@style/AppTheme"
             android:configChanges="orientation|screenSize"/>
         <activity
-            android:name="com.music.songcreator.CreatedSongsLibrary"
+            android:name="com.music.songcreator.activities.CreatedSongsLibrary"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.music.songcreator.SettingsPage" />
+        <activity android:name="com.music.songcreator.activities.SettingsPage" />
         <activity
-            android:name="com.music.songcreator.Navigator"
+            android:name="com.music.songcreator.activities.Navigator"
             android:label="Saved Content"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.music.songcreator.MainActivity" />
+        <activity android:name="com.music.songcreator.activities.MainActivity" />
         <activity
-            android:name="com.music.songcreator.Beatpage4"
+            android:name="com.music.songcreator.activities.Beatpage4"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.music.songcreator.Beatpage3"
+            android:name="com.music.songcreator.activities.Beatpage3"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.music.songcreator.RecordingLibrary"
+            android:name="com.music.songcreator.activities.RecordingLibrary"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.RecSelector"
+            android:name="com.music.songcreator.activities.RecSelector"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.Selector"
+            android:name="com.music.songcreator.activities.Selector"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.LyricsLibrary"
+            android:name="com.music.songcreator.activities.LyricsLibrary"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.DownloadedBeats"
+            android:name="com.music.songcreator.activities.DownloadedBeats"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.MainActivity5"
+            android:name="com.music.songcreator.activities.MainActivity5"
             android:configChanges="orientation|screenSize"
             android:label="Record Audio"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.MainActivity4"
+            android:name="com.music.songcreator.activities.MainActivity4"
             android:configChanges="orientation|screenSize"
             android:label="Create AI Voice"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.FinalActivity"
+            android:name="com.music.songcreator.activities.FinalActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.BeatPage2"
+            android:name="com.music.songcreator.activities.BeatPage2"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.music.songcreator.BeatPage1"
+            android:name="com.music.songcreator.activities.BeatPage1"
             android:configChanges="orientation|screenSize" />
-        <activity android:name="com.music.songcreator.SplashScreenActivity">
+        <activity android:name="com.music.songcreator.activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,15 +1,17 @@
-package com.music.songcreator;
+package com.music.songcreator.java_operations;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
+
+import com.music.songcreator.R;
 
 public class LoadingHelper
 {
     Activity activity;
     AlertDialog dialog;
 
-    LoadingHelper(Activity myActivity)
+    public LoadingHelper(Activity myActivity)
     {
         this.activity = myActivity;
     }

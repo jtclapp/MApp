@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.music.songcreator.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
@@ -92,12 +93,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openNav()
     {
-        Intent intent = new Intent(this,Navigator.class);
+        Intent intent = new Intent(this, Navigator.class);
         startActivity(intent);
     }
     public void openSettings()
     {
-        Intent intent = new Intent(this,SettingsPage.class);
+        Intent intent = new Intent(this, SettingsPage.class);
         startActivity(intent);
     }
 }

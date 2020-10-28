@@ -1,4 +1,4 @@
-package com.music.songcreator;
+package com.music.songcreator.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.music.songcreator.R;
 
 public class Navigator extends AppCompatActivity {
 
@@ -68,12 +69,12 @@ public class Navigator extends AppCompatActivity {
 
     public void openDownloadedBeats()
     {
-        Intent intent = new Intent(this,DownloadedBeats.class);
+        Intent intent = new Intent(this, DownloadedBeats.class);
         startActivity(intent);
     }
     public void openCreatedSongs()
     {
-        Intent intent = new Intent(this,CreatedSongsLibrary.class);
+        Intent intent = new Intent(this, CreatedSongsLibrary.class);
         startActivity(intent);
     }
 }

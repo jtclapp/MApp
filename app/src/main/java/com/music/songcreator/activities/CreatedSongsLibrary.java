@@ -1,7 +1,4 @@
-package com.music.songcreator;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.music.songcreator.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,8 +12,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.music.songcreator.java_operations.BeatFileSelector;
+import com.music.songcreator.R;
+import com.music.songcreator.SQLite.CreatedSongModel;
+import com.music.songcreator.SQLite.DataBaseHelper;
 
 import java.io.File;
 
