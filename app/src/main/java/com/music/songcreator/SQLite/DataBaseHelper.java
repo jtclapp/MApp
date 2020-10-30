@@ -5,13 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import androidx.annotation.Nullable;
-
-import com.music.songcreator.SQLite.CreatedSongModel;
-import com.music.songcreator.SQLite.LyricsModel;
-import com.music.songcreator.SQLite.RecordingModel;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,8 +87,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 returnlist.add(newlyric);
 
             } while (cursor.moveToNext());
-        } else {
-
         }
         cursor.close();
         db.close();
@@ -151,8 +143,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 returnlist.add(clickedRecording);
 
             } while (cursor.moveToNext());
-        } else {
-
         }
         cursor.close();
         db.close();
@@ -205,9 +195,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 returnlist.add(createdSongModel);
 
             } while (cursor.moveToNext());
-        } else {
-
         }
+
         cursor.close();
         db.close();
         return returnlist;

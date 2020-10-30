@@ -56,31 +56,24 @@ public class MainActivity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
         ActivityCompat.requestPermissions(this, new String[]{permission.RECORD_AUDIO, permission.WRITE_EXTERNAL_STORAGE, permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
 
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
-                    // Setting speech language
-                    // System.out.println(Locale.getAvailableLocales());
                     int result = textToSpeech.setLanguage(Locale.US);
-                    // int result = tts.setLanguage(Locale.getDefault());
-                    // If your device doesn't support language you set above
+
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        // Cook simple toast message with message
                         Toast.makeText(getApplicationContext(), "Language not supported", Toast.LENGTH_SHORT).show();
                         android.util.Log.e("textToSpeech", "Language is not supported");
                     }
                     // TTS is not initialized properly
                 } else {
-                    Toast.makeText(getApplicationContext(), "TextToSpeech Initilization Failed", Toast.LENGTH_SHORT).show();
-                    android.util.Log.e("textToSpeech", "Initilization Failed");
+                    Toast.makeText(getApplicationContext(), "TextToSpeech Initialization Failed", Toast.LENGTH_SHORT).show();
                 }
             }
-        }, "com.google.android.tts");
+        });
 
         a = new HashSet<>();
         String[] names = {"Voice1", "Voice2", "Voice3", "Voice4", "Voice5", "Voice6", "Voice7", "Voice8"};
