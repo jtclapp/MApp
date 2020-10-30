@@ -23,6 +23,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.music.songcreator.SQLite.CreatedSongModel;
 import com.music.songcreator.java_operations.BeatFileSelector;
 import com.music.songcreator.java_operations.LoadingHelper;
 import com.music.songcreator.R;
@@ -36,18 +37,16 @@ import java.io.InputStream;
 
 public class CreatedSongPlay extends AppCompatActivity {
     MediaPlayer player3;
-    int intvalue;
+
     File path;
     TextView v1, songtitle;
     ToggleButton finalplay;
-    String recordedvoice;
+
     AudioTrack audioTrack;
-    SeekBar volumeadj;
-    float setVolume;
-    Spinner spFrequency;
-    ArrayAdapter<String> adapter;
     LoadingHelper loadingHelper = new LoadingHelper(CreatedSongPlay.this);
     BeatFileSelector beatFileSelector = new BeatFileSelector();
+    CreatedSongModel createdSongModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -63,22 +62,6 @@ public class CreatedSongPlay extends AppCompatActivity {
             animationDrawable.setExitFadeDuration(4000);
             animationDrawable.start();
         }
-        String[] arrayOfStrings = new String[9];
-        arrayOfStrings[0] = "Slow Motion";
-        arrayOfStrings[1] = "Bass";
-        arrayOfStrings[2] = "Alto";
-        arrayOfStrings[3] = "Normal";
-        arrayOfStrings[4] = "Tenor";
-        arrayOfStrings[5] = "Soprano";
-        arrayOfStrings[6] = "Coloratura Soprano";
-        arrayOfStrings[7] = "Helium";
-        arrayOfStrings[8] = "2x Speed";
-
-        spFrequency = findViewById(R.id.CSVoice_spinner);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayOfStrings);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spFrequency.setAdapter(adapter);
-        spFrequency.setSelection(3,true);
         v1 = findViewById(R.id.CStextview);
         v1.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -97,17 +80,12 @@ public class CreatedSongPlay extends AppCompatActivity {
         });
         v1.setMovementMethod(new ScrollingMovementMethod());
         songtitle = findViewById(R.id.CSsongtitle);
-        volumeadj = findViewById(R.id.CreatedSongVolume);
         finalplay = findViewById(R.id.CSfinalplay);
 
         Intent myintent = getIntent();
-        Intent myintent2 = getIntent();
-        Intent myintent3 = getIntent();
-        Intent myintent4 = getIntent();
-        songtitle.setText(myintent3.getStringExtra("Title"));
-        v1.setText(myintent2.getStringExtra("Lyrics"));
-        recordedvoice = myintent4.getStringExtra("RecordingName");
-        intvalue = myintent.getIntExtra("beatnum",0);
+        createdSongModel = (CreatedSongModel) myintent.getSerializableExtra("createdSongModel");
+        songtitle.setText(createdSongModel.getSongname());
+        v1.setText(createdSongModel.getLyricsname());
 
         finalplay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,9 +111,8 @@ public class CreatedSongPlay extends AppCompatActivity {
         });
     }
     public void play() {
-        setVolume = (float) volumeadj.getProgress() / 50;
-        if (setVolume < 0.1) {setVolume = 0.1f;}
-        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(intvalue));
+
+        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(createdSongModel.getBeatnum()));
         if (player3 != null) {
             stopPlayer();
         }
@@ -149,7 +126,7 @@ public class CreatedSongPlay extends AppCompatActivity {
                 }
             });
             player3.prepare();
-            player3.setVolume(setVolume,setVolume);
+            player3.setVolume(createdSongModel.getVolume(),createdSongModel.getVolume());
         }
         catch (IOException e)
         {
@@ -178,8 +155,7 @@ public class CreatedSongPlay extends AppCompatActivity {
                 loadingHelper.startLoadingDialog();
             }
         });
-        File file = new File(recordedvoice);
-        int i;
+        File file = new File(createdSongModel.getRecordingname());
         int shortSizeInBytes = Short.SIZE / Byte.SIZE;
         int bs = (int) (file.length() / shortSizeInBytes);
         short[] audioData = new short[bs];
@@ -193,8 +169,7 @@ public class CreatedSongPlay extends AppCompatActivity {
             j++;
         }
         dataInputStream.close();
-        i = GetHZ();
-        audioTrack = new AudioTrack(3, i, 2, 2, bs, 1);
+        audioTrack = new AudioTrack(3, createdSongModel.getHz(), 2, 2, bs, 1);
         play();
         try{
             audioTrack.play();
@@ -222,48 +197,7 @@ public class CreatedSongPlay extends AppCompatActivity {
         });
         audioTrack.write(audioData, 0, bs);
     }
-    public int GetHZ() {
-        //arrayOfStrings[0] = "Slow Motion";
-        //arrayOfStrings[1] = "Bass";
-        //arrayOfStrings[2] = "Alto";
-        //arrayOfStrings[3] = "Normal";
-        //arrayOfStrings[4] = "Tenor";
-        //arrayOfStrings[5] = "Soprano";
-        //arrayOfStrings[6] = "Coloratura Soprano";
-        //arrayOfStrings[7] = "Helium";
-        //arrayOfStrings[8] = "2x Speed";
-        int i = 0;
-        String str = (String) spFrequency.getSelectedItem();
-        if (str.equals("Slow Motion")) {
-            i = 6400;
-        }
-        if (str.equals("Bass")) {
-            i = 8450;
-        }
-        if (str.equals("Alto")) {
-            i = 9800;
-        }
-        if (str.equals("Normal")) {
-            i = 11025;
-        }
-        if(str.equals("Tenor"))
-        {
-            i = 12800;
-        }
-        if (str.equals("Soprano")) {
-            i = 14100;
-        }
-        if (str.equals("Coloratura Soprano")) {
-            i = 15000;
-        }
-        if (str.equals("Helium")) {
-            i = 20000;
-        }
-        if (str.equals("2x Speed")) {
-            i = 24200;
-        }
-        return i;
-    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.finalactmenu, menu);

@@ -122,100 +122,8 @@ public class CreatedSongsLibrary extends AppCompatActivity
     public void DownloadDialog(int intvalue,CreatedSongModel createdSongModel)
     {
         File path = null;
-        String beatname = null;
-        if (intvalue == 1) // Complete
-        { // Complete
-            beatname = "Call Me Now";
-        }
-        if (intvalue == 2) // Complete
-        { // Complete
-            beatname = "Blame Me";
-        }
-        if (intvalue == 3) // Complete
-        { // Complete
-            beatname = "Uppercut";
-        }
-        if(intvalue == 24) // Complete
-        {
-            beatname = "Only At Night";
-        }
-        if(intvalue == 25) // Complete
-        {
-            beatname = "Too Hot For You";
-        }
-        if(intvalue == 26) // Complete
-        {
-            beatname = "Just Go";
-        }
-        if(intvalue == 27) // Complete
-        {
-            beatname = "Let Me In";
-        }
-        if (intvalue == 4) // Complete
-        { // Complete
-            beatname = "Where Did You Go";
-        }
-        if (intvalue == 5) // Complete
-        { // Complete
-            beatname = "Just By Myself";
-        }
-        if (intvalue == 6) // Complete
-        { // Complete
-            beatname = "Champion Of The Fight";
-        }
-        if (intvalue == 7) // Complete
-        { // Complete
-            beatname = "Unbeatable";
-        }
-        if(intvalue == 29) // Complete
-        {
-            beatname = "Dad And I";
-        }
-        if (intvalue == 8) // Complete
-        { // Complete
-            beatname = "Late Night";
-        }
-        if (intvalue == 9) // Complete
-        { // Complete
-            beatname = "Scary Night";
-        }
-        if(intvalue == 10) // Complete
-        { // Complete
-            beatname = "On My Grind";
-        }
-        if(intvalue == 11) // Complete
-        {
-            beatname = "On My Mind";
-        }
-        if(intvalue == 35) // Complete
-        {
-            beatname = "Out Like A Light";
-        }
-        if(intvalue == 36) // Complete
-        {
-            beatname = "No Sleep For The Damned";
-        }
-        if (intvalue == 13) // Complete
-        { // Complete
-            beatname = "She's With Someone Else";
-        }
-        if(intvalue == 14) // Complete
-        {
-            beatname = "Party Time";
-        }
-        if(intvalue == 15) // Complete
-        {
-            beatname = "Her Loss";
-        }
-        if(intvalue == 16) // Complete
-        {
-            beatname = "This Is My Town";
-        }
-        if(intvalue == 17) // Complete
-        {
-            beatname = "What I Love The Most";
-        }
-        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(intvalue));
+        String beatname = beatFileSelector.FileSelector(intvalue);
+        path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatname);
         if(path.exists() != true) {
             final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(CreatedSongsLibrary.this);
             builder.setMessage("Please Download '" + beatname + "' To Be Able To Play This Song.");
@@ -236,14 +144,7 @@ public class CreatedSongsLibrary extends AppCompatActivity
         if(path.exists())
         {
             Intent intent= new Intent(CreatedSongsLibrary.this , CreatedSongPlay.class);
-            String Title = createdSongModel.getSongname();
-            String RecordingName = createdSongModel.getRecordingname();
-            String Lyrics = createdSongModel.getLyricsname();
-            int beatnum = createdSongModel.getBeatnum();
-            intent.putExtra("Title",Title);
-            intent.putExtra("RecordingName",RecordingName);
-            intent.putExtra("Lyrics",Lyrics);
-            intent.putExtra("beatnum",beatnum);
+            intent.putExtra("createdSongModel",createdSongModel);
             startActivity(intent);
         }
     }

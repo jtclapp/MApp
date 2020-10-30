@@ -26,7 +26,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_BEAT_NUMBER = "Beat_Number";
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "SongCreatorDB.db", null, 1);
+        super(context, "SongCreator.db", null, 1);
     }
 
     // this is called the first time the database is called
@@ -190,8 +190,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String Recordingname = cursor.getString(2);
                 String Lyricsname = cursor.getString(3);
                 int BeatNumber = cursor.getInt(4);
-
-                CreatedSongModel createdSongModel = new CreatedSongModel(SongID,Songname,Recordingname,Lyricsname,BeatNumber);
+                int hz = cursor.getInt(5);
+                float volume = cursor.getFloat(6);
+                CreatedSongModel createdSongModel = new CreatedSongModel(SongID,Songname,Recordingname,Lyricsname,BeatNumber,hz,volume);
                 returnlist.add(createdSongModel);
 
             } while (cursor.moveToNext());

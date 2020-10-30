@@ -58,6 +58,8 @@ public class FinalActivity extends AppCompatActivity {
     String recordedvoice;
     AudioTrack audioTrack;
     int intvalue;
+    int hz;
+    float beatvolume;
     BeatFileSelector beatFileSelector;
     LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
@@ -106,10 +108,15 @@ public class FinalActivity extends AppCompatActivity {
         song = "";
         beatFileSelector = new BeatFileSelector();
 
+        Intent HZintent = getIntent();
+        hz = HZintent.getIntExtra("sampleRateInHz", 0);
+        Intent myintent3 = getIntent();
+        beatvolume = myintent3.getFloatExtra("volume",0);
         Intent myintent2 = getIntent();
         intvalue = myintent2.getIntExtra("svalue", 0);
         Intent myintent = getIntent();
         recordedvoice = myintent.getStringExtra("path");
+
         if (recordedvoice != null) {
             button.setVisibility(View.INVISIBLE);
         }
@@ -220,8 +227,7 @@ public class FinalActivity extends AppCompatActivity {
         super.onDestroy();
     }
     public void play() {
-        Intent myintent = getIntent();
-        float final_volume = myintent.getFloatExtra("volume",0);
+
         path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(intvalue));
 
             if (player3 != null) {
@@ -237,7 +243,7 @@ public class FinalActivity extends AppCompatActivity {
                     }
                 });
                 player3.prepare();
-                player3.setVolume(final_volume,final_volume);
+                player3.setVolume(beatvolume,beatvolume);
             }
             catch (IOException e)
             {
@@ -268,9 +274,8 @@ public class FinalActivity extends AppCompatActivity {
             }
         });
         File file = new File(recordedvoice);
-        Intent HZintent = getIntent();
         Intent Bufferintent = getIntent();
-        int SampleHZ = HZintent.getIntExtra("sampleRateInHz", 0);
+
         int bs = Bufferintent.getIntExtra("buffersizeinbytes", 0);
         short[] audioData = new short[bs];
         InputStream inputStream = new FileInputStream(file);
@@ -284,7 +289,7 @@ public class FinalActivity extends AppCompatActivity {
         }
         dataInputStream.close();
         if(bs > 0) {
-            audioTrack = new AudioTrack(3, SampleHZ, 2, 2, bs, 1);
+            audioTrack = new AudioTrack(3,hz, 2, 2, bs, 1);
         }
         play();
         try{
@@ -362,10 +367,10 @@ public class FinalActivity extends AppCompatActivity {
                 if(recordedvoice != null) {
                     CreatedSongModel createdSongModel;
                     try {
-                        createdSongModel = new CreatedSongModel(-1, songtitle.getText().toString(),v1.getText().toString(),recordedvoice,intvalue);
+                        createdSongModel = new CreatedSongModel(-1, songtitle.getText().toString(),v1.getText().toString(),recordedvoice,intvalue,hz,beatvolume);
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Error Saving Song!", Toast.LENGTH_SHORT).show();
-                        createdSongModel = new CreatedSongModel(-1, "Error", "Error", "Error", 0);
+                        createdSongModel = new CreatedSongModel(-1, "Error", "Error", "Error", 0,0,0);
                     }
                     DataBaseHelper dataBaseHelper = new DataBaseHelper(FinalActivity.this);
                     boolean success = dataBaseHelper.addOneSong(createdSongModel);
