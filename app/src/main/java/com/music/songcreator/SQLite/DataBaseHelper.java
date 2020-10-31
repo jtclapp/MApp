@@ -24,9 +24,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_LYRICS2 = "LYRICS";
     private static final String COLUMN_RECORDING_NAME2 = "RECORDING_NAME";
     private static final String COLUMN_BEAT_NUMBER = "Beat_Number";
+    private static final String COLUMN_HZ_NUMBER = "Hz_Number";
+    private static final String COLUMN_BEAT_VOLUME = "Beat_Volume";
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "SongCreator.db", null, 1);
+        super(context, "Song_Creator.db", null, 1);
     }
 
     // this is called the first time the database is called
@@ -35,7 +37,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String createTableStatement = "CREATE TABLE " + LYRICS_TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_LYRICS_NAME + " TEXT, " + COLUMN_LYRICS + " TEXT)";
         String createTableStatement2 = "CREATE TABLE " + RECORDING_TABLE + " (" + COLUMN_ID2 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_RECORDING_NAME + " TEXT)";
         String createTableStatement3 = "CREATE TABLE " + SONG_TABLE + " (" + COLUMN_ID3 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_SONG_NAME + " TEXT, " +
-                                        COLUMN_LYRICS2 + " TEXT, " + COLUMN_RECORDING_NAME2 + " TEXT, " + COLUMN_BEAT_NUMBER + " INTEGER)";
+                                        COLUMN_LYRICS2 + " TEXT, " + COLUMN_RECORDING_NAME2 + " TEXT, " + COLUMN_BEAT_NUMBER + " INTEGER, " + COLUMN_HZ_NUMBER + " INTEGER, " +
+                                        COLUMN_BEAT_VOLUME + " FLOAT)";
         db.execSQL(createTableStatement3);
         db.execSQL(createTableStatement2);
         db.execSQL(createTableStatement);
