@@ -160,6 +160,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_LYRICS2, createdSongModel.getLyricsname());
         cv.put(COLUMN_RECORDING_NAME2, createdSongModel.getRecordingname());
         cv.put(COLUMN_BEAT_NUMBER, createdSongModel.getBeatnum());
+        cv.put(COLUMN_HZ_NUMBER,createdSongModel.getHz());
+        cv.put(COLUMN_BEAT_VOLUME,createdSongModel.getVolume());
 
         long insert = db.insert(SONG_TABLE, null, cv);
         return insert != -1;

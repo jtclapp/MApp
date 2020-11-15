@@ -187,6 +187,7 @@ public class Beatpage4 extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     radioGroup.clearCheck();
                     Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
+                    intentdownload.putExtra("check",check);
                     startActivity(intentdownload);
                 }
             });
@@ -203,5 +204,12 @@ public class Beatpage4 extends AppCompatActivity {
             next.setActivated(true);
             FinalPlay.setEnabled(true);
         }
+    }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Beatpage4.this,MainActivity.class));
+        finish();
     }
 }

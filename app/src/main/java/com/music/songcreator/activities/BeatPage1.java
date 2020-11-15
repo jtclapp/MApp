@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.storage.FirebaseStorage;
 import com.music.songcreator.java_operations.BeatFileSelector;
 import com.music.songcreator.R;
 
@@ -36,6 +37,7 @@ public class BeatPage1 extends AppCompatActivity {
     float setVolume;
     private AdView mAdView;
     BeatFileSelector beatFileSelector;
+    FirebaseStorage firebaseStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,6 +142,8 @@ public class BeatPage1 extends AppCompatActivity {
         });
         next.setActivated(false);
         volumeadj = findViewById(R.id.Volume);
+        firebaseStorage = FirebaseStorage.getInstance("gs://beats-651c7.appspot.com/");
+
     }
     public void openMainAct5() {
         int id = 1;
@@ -192,30 +196,38 @@ public class BeatPage1 extends AppCompatActivity {
         path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(check));
 
         if(path.exists() != true) {
-            next.setActivated(false);
-            FinalPlay.setEnabled(false);
-            final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage1.this);
-            builder.setMessage("Please Download This Beat To Play It.");
-            builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    radioGroup.clearCheck();
-                    Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
-                    startActivity(intentdownload);
-                }
-            });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    radioGroup.clearCheck();
-                }
-            });
-            builder.show();
-        }
+                next.setActivated(false);
+                FinalPlay.setEnabled(false);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(BeatPage1.this);
+                builder.setMessage("Please Download This Beat To Play It.");
+                builder.setPositiveButton("Download", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        radioGroup.clearCheck();
+                        Intent intentdownload = new Intent(getApplicationContext(), DownloadedBeats.class);
+                        intentdownload.putExtra("check",check);
+                        startActivity(intentdownload);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        radioGroup.clearCheck();
+                    }
+                });
+                builder.show();
+            }
         if(path.exists() == true)
         {
             next.setActivated(true);
             FinalPlay.setEnabled(true);
         }
+    }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(BeatPage1.this,MainActivity.class));
+        finish();
     }
 }

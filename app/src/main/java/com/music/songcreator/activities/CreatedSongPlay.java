@@ -87,6 +87,10 @@ public class CreatedSongPlay extends AppCompatActivity {
         songtitle.setText(createdSongModel.getSongname());
         v1.setText(createdSongModel.getLyricsname());
 
+//        Toast.makeText(this, "The Volume: " + createdSongModel.getVolume(),Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "The HZ: " + createdSongModel.getHz(),Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "The Beat Number: " + createdSongModel.getBeatnum(),Toast.LENGTH_LONG).show();
+
         finalplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -111,8 +115,8 @@ public class CreatedSongPlay extends AppCompatActivity {
         });
     }
     public void play() {
-
         path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(createdSongModel.getBeatnum()));
+
         if (player3 != null) {
             stopPlayer();
         }
