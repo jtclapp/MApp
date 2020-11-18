@@ -41,7 +41,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "Song_Creator.db", null, 2);
+        super(context, "SongCreatorDB.db", null, 2);
     }
 
     // this is called the first time the database is called
