@@ -42,6 +42,7 @@ public class Beatpage3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beatpage3);
+
         mAdView = findViewById(R.id.adView4);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

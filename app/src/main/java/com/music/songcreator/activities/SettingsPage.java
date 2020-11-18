@@ -12,9 +12,12 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.music.songcreator.R;
 
 public class SettingsPage extends AppCompatActivity {
+    private AdView mAdView;
     Button B1,B2,B3;
     Switch S1;
     @Override
@@ -23,6 +26,10 @@ public class SettingsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
 
+        mAdView = findViewById(R.id.adView13);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         B1 = findViewById(R.id.about_button);
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +37,7 @@ public class SettingsPage extends AppCompatActivity {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsPage.this);
                 builder.setTitle("About Song Creator");
                 builder.setMessage("With Song Creator you can use many different features to create your own personal song. " +
-                        "We offer 20 personalized beats to create your song with. Song Creator comes with recording features and over 8 different voice changing effects. " +
+                        "We offer 23 personalized beats to create your song with. Song Creator comes with recording features and over 8 different voice changing effects. " +
                         "You can also create your own personalized AI voice that will sing your created song for you. " +
                         "Song Creator also makes writing your own lyrics a thing of the past with Song Creators lyric generator. " +
                         "We also offer saved content libraries so that you can save all your created lyrics and voice recordings. " +

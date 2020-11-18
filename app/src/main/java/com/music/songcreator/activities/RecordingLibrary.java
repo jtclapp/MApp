@@ -40,6 +40,7 @@ public class RecordingLibrary extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recording_library);
+
         mAdView = findViewById(R.id.adView9);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

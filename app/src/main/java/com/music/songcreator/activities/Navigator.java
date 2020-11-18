@@ -24,6 +24,7 @@ public class Navigator extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigator);
+
         mAdView = findViewById(R.id.adView6);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

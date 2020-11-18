@@ -77,4 +77,14 @@
         android:background="@drawable/rounded_button"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"/>
 
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3852614797851381/4260396798">
+    </com.google.android.gms.ads.AdView>
 </LinearLayout>

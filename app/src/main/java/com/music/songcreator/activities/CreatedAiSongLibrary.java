@@ -39,9 +39,9 @@ public class CreatedAiSongLibrary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_created_ai_song_library);
 
-//        mAdView = findViewById(R.id.adView13);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView7);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         lv_songlist = findViewById(R.id.CreatedAISongs_list);
         dataBaseHelper = new DataBaseHelper(CreatedAiSongLibrary.this);
