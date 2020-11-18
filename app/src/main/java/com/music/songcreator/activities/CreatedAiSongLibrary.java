@@ -1,10 +1,14 @@
 package com.music.songcreator.activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,57 +16,53 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.music.songcreator.java_operations.BeatFileSelector;
 import com.music.songcreator.R;
+import com.music.songcreator.SQLite.AISongModel;
 import com.music.songcreator.SQLite.CreatedSongModel;
 import com.music.songcreator.SQLite.DataBaseHelper;
+import com.music.songcreator.java_operations.BeatFileSelector;
 import com.music.songcreator.java_operations.DownloadedBeats;
 
 import java.io.File;
 
-public class CreatedSongsLibrary extends AppCompatActivity
-{
+public class CreatedAiSongLibrary extends AppCompatActivity {
     ListView lv_songlist;
-    ArrayAdapter createdsongArrayAdapter;
+    ArrayAdapter AISongArrayAdapter;
     DataBaseHelper dataBaseHelper;
     private AdView mAdView;
     BeatFileSelector beatFileSelector;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_created_songs_library);
+        setContentView(R.layout.activity_created_ai_song_library);
 
-        mAdView = findViewById(R.id.adView12);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        mAdView = findViewById(R.id.adView13);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
-        lv_songlist = findViewById(R.id.CreatedSongs_list);
-        dataBaseHelper = new DataBaseHelper(CreatedSongsLibrary.this);
+        lv_songlist = findViewById(R.id.CreatedAISongs_list);
+        dataBaseHelper = new DataBaseHelper(CreatedAiSongLibrary.this);
         beatFileSelector = new BeatFileSelector();
-        ShowSong();
+        ShowAISong();
 
         lv_songlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(CreatedSongsLibrary.this);
-                builder.setMessage("Do you want to play or delete this song?");
+                final AlertDialog.Builder builder = new AlertDialog.Builder(CreatedAiSongLibrary.this);
+                builder.setMessage("Do you want to play or delete this AI song?");
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
-                        final AlertDialog.Builder builder1 = new AlertDialog.Builder(CreatedSongsLibrary.this);
+                        final AlertDialog.Builder builder1 = new AlertDialog.Builder(CreatedAiSongLibrary.this);
                         builder1.setMessage("Are you sure you want to delete?");
                         builder1.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                CreatedSongModel createdSongModel = (CreatedSongModel) adapterView.getItemAtPosition(i);
-                                dataBaseHelper.DeleteOneSong(createdSongModel);
-                                ShowSong();
+                                AISongModel aiSongModel = (AISongModel) adapterView.getItemAtPosition(i);
+                                dataBaseHelper.DeleteOneAISong(aiSongModel);
+                                ShowAISong();
                             }
                         });
                         builder1.setNegativeButton("No",null);
@@ -72,17 +72,18 @@ public class CreatedSongsLibrary extends AppCompatActivity
                 builder.setNegativeButton("Play", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        CreatedSongModel createdSongModel = (CreatedSongModel) adapterView.getItemAtPosition(i);
-                        RecordDialog(createdSongModel.getRecordingname(),createdSongModel);
+                        AISongModel aiSong = (AISongModel) adapterView.getItemAtPosition(i);
+                        DownloadDialog(aiSong);
                     }
                 });
                 builder.show();
             }
         });
+
     }
-    private void ShowSong() {
-        createdsongArrayAdapter = new ArrayAdapter<>(CreatedSongsLibrary.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone3());
-        lv_songlist.setAdapter(createdsongArrayAdapter);
+    private void ShowAISong() {
+        AISongArrayAdapter = new ArrayAdapter<>(CreatedAiSongLibrary.this, android.R.layout.simple_list_item_1, dataBaseHelper.getEveryone4());
+        lv_songlist.setAdapter(AISongArrayAdapter);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -100,33 +101,13 @@ public class CreatedSongsLibrary extends AppCompatActivity
         }
         return true;
     }
-    public void RecordDialog(String record,CreatedSongModel createdSongModel)
-    {
-        File recordpath = new File(record);
-        if(recordpath.exists() != true)
-        {
-            final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(CreatedSongsLibrary.this);
-            builder.setMessage("The Recording Attached To This Song No Longer Exists.");
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                }
-            });
-            builder.show();
-        }
-        if(recordpath.exists())
-        {
-            int beatnum = createdSongModel.getBeatnum();
-            DownloadDialog(beatnum,createdSongModel);
-        }
-    }
-    public void DownloadDialog(int intvalue,CreatedSongModel createdSongModel)
+    public void DownloadDialog(AISongModel aiSongModel)
     {
         File path = null;
-        String beatname = beatFileSelector.FileSelector(intvalue);
+        String beatname = beatFileSelector.FileSelector(aiSongModel.getBeatnum());
         path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatname);
         if(path.exists() != true) {
-            final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(CreatedSongsLibrary.this);
+            final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(CreatedAiSongLibrary.this);
             builder.setMessage("Please Download '" + beatname + "' To Be Able To Play This Song.");
             builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 @Override
@@ -137,8 +118,8 @@ public class CreatedSongsLibrary extends AppCompatActivity
         }
         if(path.exists())
         {
-            Intent intent= new Intent(CreatedSongsLibrary.this , CreatedSongPlay.class);
-            intent.putExtra("createdSongModel",createdSongModel);
+            Intent intent= new Intent(CreatedAiSongLibrary.this , CreatedSongPlay.class);
+            intent.putExtra("aiSongModel", (Parcelable) aiSongModel);
             startActivity(intent);
         }
     }

@@ -9,8 +9,8 @@ public class CreatedSongModel implements Serializable
     private String recordingname;
     private String lyricsname;
     private int beatnum;
-    int hz;
-    float volume;
+    private int hz;
+    private float volume;
 
     public CreatedSongModel(int id, String songname, String lyricsname, String recordingname, int beatnum, int hz, float volume)
     {

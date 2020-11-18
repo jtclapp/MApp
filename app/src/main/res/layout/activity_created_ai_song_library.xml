@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".activities.CreatedAiSongLibrary">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewCreatedAISong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Created Songs:"
+            android:layout_margin="5dp"
+            android:textColor="#E6DADA"
+            android:textSize="25sp" />
+        <ListView
+            android:id="@+id/CreatedAISongs_list"
+            android:layout_margin="10dp"
+            android:layout_width="376dp"
+            android:layout_height="469dp"
+            android:textSize="18sp" />
+
+<!--        <com.google.android.gms.ads.AdView-->
+<!--            android:id="@+id/adView13"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            ads:adSize="SMART_BANNER"-->
+<!--            ads:adUnitId=""/>-->
+    </LinearLayout>
+</ScrollView>

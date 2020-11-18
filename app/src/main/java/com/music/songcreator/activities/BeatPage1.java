@@ -21,6 +21,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.firebase.storage.FirebaseStorage;
 import com.music.songcreator.java_operations.BeatFileSelector;
 import com.music.songcreator.R;
+import com.music.songcreator.java_operations.DownloadedBeats;
 
 import java.io.File;
 import java.io.IOException;

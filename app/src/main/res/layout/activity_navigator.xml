@@ -23,7 +23,18 @@
             android:text="Created Songs Library"
             android:textColor="#414345"
             android:textSize="30dp" />
-
+        <Button
+            android:id="@+id/ViewDownloadedBeats"
+            android:layout_width="318dp"
+            android:layout_height="83dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="5dp"
+            android:backgroundTint="#E6DADA"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:text="Created AI Songs Library"
+            android:textColor="#414345"
+            android:textSize="30dp" />
     <Button
         android:id="@+id/ViewLyrics"
         android:layout_width="318dp"
@@ -49,20 +60,6 @@
         android:text="Recordings Library"
         android:textColor="#414345"
         android:textSize="30dp" />
-
-    <Button
-        android:id="@+id/ViewDownloadedBeats"
-        android:layout_width="318dp"
-        android:layout_height="83dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_button"
-        android:layout_margin="5dp"
-        android:backgroundTint="#E6DADA"
-        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:text="Beats Library"
-        android:textColor="#414345"
-        android:textSize="30dp" />
-
 
         <TextView
             android:id="@+id/textView"

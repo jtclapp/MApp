@@ -26,9 +26,22 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_BEAT_NUMBER = "Beat_Number";
     private static final String COLUMN_HZ_NUMBER = "Hz_Number";
     private static final String COLUMN_BEAT_VOLUME = "Beat_Volume";
+    private static final String AI_TABLE = "AI_TABLE";
+    private static final String COLUMN_ID4 = "ID";
+    private static final String COLUMN_SONG_NAME2 = "SONG_NAME";
+    private static final String COLUMN_LYRICS3 = "LYRICS";
+    private static final String COLUMN_VOICE_NAME = "Voice_Name";
+    private static final String COLUMN_VOICE_LANG = "Voice_Lang";
+    private static final String COLUMN_VOICE_COUNTRY = "Voice_Country";
+    private static final String COLUMN_SPEED = "SPEED";
+    private static final String COLUMN_PITCH = "PITCH";
+    private static final String COLUMN_BEAT_NUMBER2 = "Beat_Number";
+    private static final String COLUMN_BEAT_VOLUME2 = "Beat_Volume";
+
+
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "Song_Creator.db", null, 1);
+        super(context, "Song_Creator.db", null, 2);
     }
 
     // this is called the first time the database is called
@@ -207,9 +220,84 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
         return returnlist;
     }
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    public boolean addOneAISong(AISongModel aiSongModel) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+//        private static final String AI_TABLE = "AI_TABLE";
+//        private static final String COLUMN_ID4 = "ID";
+//        private static final String COLUMN_SONG_NAME2 = "SONG_NAME";
+//        private static final String COLUMN_LYRICS3 = "LYRICS";
+//        private static final String COLUMN_VOICE_NAME = "Voice_Name";
+//        private static final String COLUMN_VOICE_LANG = "Voice_Lang";
+//        private static final String COLUMN_VOICE_COUNTRY = "Voice_Country";
+//        private static final String COLUMN_SPEED = "SPEED";
+//        private static final String COLUMN_PITCH = "PITCH";
+//        private static final String COLUMN_BEAT_NUMBER2 = "Beat_Number";
+//        private static final String COLUMN_BEAT_VOLUME2 = "Beat_Volume";
+        cv.put(COLUMN_SONG_NAME2,aiSongModel.getSongTitle());
+        cv.put(COLUMN_LYRICS3,aiSongModel.getSong());
+        cv.put(COLUMN_VOICE_NAME, aiSongModel.getVoicename());
+        cv.put(COLUMN_VOICE_LANG, aiSongModel.getVoicelang());
+        cv.put(COLUMN_VOICE_COUNTRY,aiSongModel.getVoicecountry());
+        cv.put(COLUMN_SPEED,aiSongModel.getSpeed());
+        cv.put(COLUMN_PITCH,aiSongModel.getPitch());
+        cv.put(COLUMN_BEAT_NUMBER2,aiSongModel.getBeatnum());
+        cv.put(COLUMN_BEAT_VOLUME2,aiSongModel.getVolume());
+
+        long insert = db.insert(AI_TABLE, null, cv);
+        return insert != -1;
+    }
+    public boolean updateOneAISong(AISongModel aiSongModel, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_SONG_NAME2, name);
+        db.update(AI_TABLE, cv, COLUMN_ID4 + " = ?", new String[]{String.valueOf(aiSongModel.getId())});
+        return true;
+    }
+    public boolean DeleteOneAISong(AISongModel aiSongModel) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE FROM " + AI_TABLE + " WHERE " + COLUMN_ID4 + " = " + aiSongModel.getId();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        return cursor.moveToFirst();
+    }
+    public List<AISongModel> getEveryone4() {
+        List<AISongModel> returnlist = new ArrayList<>();
+        String queryString = "SELECT * FROM " + AI_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()) {
+            // Loop through the results and create new objects
+            do {
+                int SongID = cursor.getInt(0);
+                String Songname = cursor.getString(1);
+                String Lyricsname = cursor.getString(2);
+                String voicename = cursor.getString(3);
+                String voicelang = cursor.getString(4);
+                String voicecountry = cursor.getString(5);
+                float speed = cursor.getFloat(6);
+                float pitch = cursor.getFloat(7);
+                int beatnum = cursor.getInt(8);
+                float volume = cursor.getFloat(9);
+                AISongModel aiSongModel = new AISongModel(SongID,Songname,Lyricsname,voicename,voicelang,voicecountry,speed,pitch,beatnum,volume);
+                returnlist.add(aiSongModel);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return returnlist;
+    }
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        String createTableStatement4 = "CREATE TABLE " + AI_TABLE + " (" + COLUMN_ID4 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_SONG_NAME2 + " TEXT, " + COLUMN_LYRICS3 + " TEXT, " +
+                COLUMN_VOICE_NAME + " TEXT, " + COLUMN_VOICE_LANG + " TEXT, " + COLUMN_VOICE_COUNTRY + " TEXT, " + COLUMN_SPEED + " FLOAT, " + COLUMN_PITCH + " FLOAT, " +
+                COLUMN_BEAT_NUMBER2 + " INTEGER, " + COLUMN_BEAT_VOLUME2 + " FLOAT)";
+        db.execSQL(createTableStatement4);
     }
 }
 

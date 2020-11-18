@@ -28,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.music.songcreator.SQLite.AISongModel;
 import com.music.songcreator.java_operations.BeatFileSelector;
 import com.music.songcreator.SQLite.CreatedSongModel;
 import com.music.songcreator.SQLite.DataBaseHelper;
@@ -60,6 +61,11 @@ public class FinalActivity extends AppCompatActivity {
     int intvalue;
     int hz;
     float beatvolume;
+    float speed2;
+    float pitch2;
+    String vname;
+    String voicelang;
+    String voicecountry;
     BeatFileSelector beatFileSelector;
     LoadingHelper loadingHelper = new LoadingHelper(FinalActivity.this);
 
@@ -82,7 +88,6 @@ public class FinalActivity extends AppCompatActivity {
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                Log Log = null;
                 if (status == TextToSpeech.SUCCESS) {
                     int result = textToSpeech.setLanguage(Locale.ENGLISH);
                     // int result = tts.setLanguage(Locale.getDefault());
@@ -108,6 +113,16 @@ public class FinalActivity extends AppCompatActivity {
         song = "";
         beatFileSelector = new BeatFileSelector();
 
+        Intent myintent4 = getIntent();
+        speed2 = myintent4.getFloatExtra("speed", 0);
+        Intent myintent5 = getIntent();
+        pitch2 = myintent5.getFloatExtra("pitch", 0);
+        Intent myintent6 = getIntent();
+        vname = myintent6.getStringExtra("voicename");
+        Intent myintent7 = getIntent();
+        voicelang = myintent7.getStringExtra("voicelang");
+        Intent myintent8 = getIntent();
+        voicecountry = myintent8.getStringExtra("voicecountry");
         Intent HZintent = getIntent();
         hz = HZintent.getIntExtra("sampleRateInHz", 0);
         Intent myintent3 = getIntent();
@@ -116,6 +131,7 @@ public class FinalActivity extends AppCompatActivity {
         intvalue = myintent2.getIntExtra("svalue", 0);
         Intent myintent = getIntent();
         recordedvoice = myintent.getStringExtra("path");
+
 
         if (recordedvoice != null) {
             button.setVisibility(View.INVISIBLE);
@@ -165,16 +181,6 @@ public class FinalActivity extends AppCompatActivity {
     }
     public void LoadAI(View view) {
         stopPlayer();
-        Intent myintent2 = getIntent();
-        Intent myintent3 = getIntent();
-        Intent myintent4 = getIntent();
-        Intent myintent5 = getIntent();
-        Intent myintent6 = getIntent();
-        float speed2 = myintent2.getFloatExtra("speed", 0);
-        float pitch2 = myintent3.getFloatExtra("pitch", 0);
-        String vname = myintent4.getStringExtra("voicename");
-        String voicelang = myintent5.getStringExtra("voicelang");
-        String voicecountry = myintent6.getStringExtra("voicecountry");
         Voice voice = null;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -364,6 +370,8 @@ public class FinalActivity extends AppCompatActivity {
                 break;
 
             case R.id.downloadcreatedsong:
+                DataBaseHelper dataBaseHelper;
+                boolean success;
                 if(recordedvoice != null) {
                     CreatedSongModel createdSongModel;
                     try {
@@ -372,18 +380,33 @@ public class FinalActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Error Saving Song!", Toast.LENGTH_SHORT).show();
                         createdSongModel = new CreatedSongModel(-1, "Error", "Error", "Error", 0,0,0);
                     }
-                    DataBaseHelper dataBaseHelper = new DataBaseHelper(FinalActivity.this);
-                    boolean success = dataBaseHelper.addOneSong(createdSongModel);
+                    dataBaseHelper = new DataBaseHelper(FinalActivity.this);
+                    success = dataBaseHelper.addOneSong(createdSongModel);
                     if (success) {
-                        Toast.makeText(getApplicationContext(), "Song was successfully saved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Song was successfully saved!", Toast.LENGTH_SHORT).show();
                     }
                     if (!success) {
-                        Toast.makeText(getApplicationContext(), "Error occurred when trying to save", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error occurred when trying to save song.", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(),"Can't Save AI Songs",Toast.LENGTH_SHORT).show();
+                    AISongModel aiSongModel;
+                    try{
+                        aiSongModel = new AISongModel(-1,songtitle.getText().toString(),v1.getText().toString(),vname,voicelang,voicecountry,speed2,pitch2,intvalue,beatvolume);
+                    } catch (Exception e)
+                    {
+                        Toast.makeText(getApplicationContext(), "Error Saving AI Song!", Toast.LENGTH_SHORT).show();
+                        aiSongModel = new AISongModel(-1, "Error", "Error", "Error", "Error","Error",0,0,0,0);
+                    }
+                    dataBaseHelper = new DataBaseHelper(FinalActivity.this);
+                    success = dataBaseHelper.addOneAISong(aiSongModel);
+                    if (success) {
+                        Toast.makeText(getApplicationContext(), "AI Song was successfully saved!", Toast.LENGTH_SHORT).show();
+                    }
+                    if (!success) {
+                        Toast.makeText(getApplicationContext(), "Error occurred when trying to save AI song.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                break;
         }

@@ -1,4 +1,4 @@
-package com.music.songcreator.activities;
+package com.music.songcreator.java_operations;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,10 +16,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.music.songcreator.java_operations.BeatFileSelector;
-import com.music.songcreator.java_operations.LoadingHelper;
+import com.music.songcreator.activities.BeatPage1;
+import com.music.songcreator.activities.BeatPage2;
+import com.music.songcreator.activities.Beatpage3;
+import com.music.songcreator.activities.Beatpage4;
 import com.music.songcreator.R;
-import com.music.songcreator.java_operations.StorageReferenceSelector;
 
 import java.io.File;
 import java.io.IOException;

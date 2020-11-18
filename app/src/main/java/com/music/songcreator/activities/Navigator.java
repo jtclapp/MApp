@@ -46,7 +46,7 @@ public class Navigator extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDownloadedBeats();
+                openCreatedAISongs();
             }
         });
         button4 = findViewById(R.id.ViewCreatedSongs);
@@ -67,9 +67,9 @@ public class Navigator extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openDownloadedBeats()
+    public void openCreatedAISongs()
     {
-        Intent intent = new Intent(this, DownloadedBeats.class);
+        Intent intent = new Intent(this, CreatedAiSongLibrary.class);
         startActivity(intent);
     }
     public void openCreatedSongs()
