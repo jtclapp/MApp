@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_songicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activities.CreatedAiSongLibrary"
+        <activity android:name=".activities.CreatedAiSongPlay"></activity>
+        <activity
+            android:name=".activities.CreatedAiSongLibrary"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.CreatedSongPlay"

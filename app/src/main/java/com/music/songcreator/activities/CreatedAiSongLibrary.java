@@ -26,6 +26,7 @@ import com.music.songcreator.java_operations.BeatFileSelector;
 import com.music.songcreator.java_operations.DownloadedBeats;
 
 import java.io.File;
+import java.io.Serializable;
 
 public class CreatedAiSongLibrary extends AppCompatActivity {
     ListView lv_songlist;
@@ -103,7 +104,7 @@ public class CreatedAiSongLibrary extends AppCompatActivity {
     }
     public void DownloadDialog(AISongModel aiSongModel)
     {
-        File path = null;
+        File path;
         String beatname = beatFileSelector.FileSelector(aiSongModel.getBeatnum());
         path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatname);
         if(path.exists() != true) {
@@ -118,8 +119,8 @@ public class CreatedAiSongLibrary extends AppCompatActivity {
         }
         if(path.exists())
         {
-            Intent intent= new Intent(CreatedAiSongLibrary.this , CreatedSongPlay.class);
-            intent.putExtra("aiSongModel", (Parcelable) aiSongModel);
+            Intent intent= new Intent(CreatedAiSongLibrary.this , CreatedAiSongPlay.class);
+            intent.putExtra("aiSongModel",aiSongModel);
             startActivity(intent);
         }
     }

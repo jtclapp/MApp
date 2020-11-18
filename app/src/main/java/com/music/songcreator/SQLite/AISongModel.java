@@ -1,6 +1,8 @@
 package com.music.songcreator.SQLite;
 
-public class AISongModel
+import java.io.Serializable;
+
+public class AISongModel implements Serializable
 {
     private int id;
     private String songTitle;
