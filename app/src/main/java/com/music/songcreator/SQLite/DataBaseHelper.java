@@ -230,17 +230,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-//        private static final String AI_TABLE = "AI_TABLE";
-//        private static final String COLUMN_ID4 = "ID";
-//        private static final String COLUMN_SONG_NAME2 = "SONG_NAME";
-//        private static final String COLUMN_LYRICS3 = "LYRICS";
-//        private static final String COLUMN_VOICE_NAME = "Voice_Name";
-//        private static final String COLUMN_VOICE_LANG = "Voice_Lang";
-//        private static final String COLUMN_VOICE_COUNTRY = "Voice_Country";
-//        private static final String COLUMN_SPEED = "SPEED";
-//        private static final String COLUMN_PITCH = "PITCH";
-//        private static final String COLUMN_BEAT_NUMBER2 = "Beat_Number";
-//        private static final String COLUMN_BEAT_VOLUME2 = "Beat_Volume";
         cv.put(COLUMN_SONG_NAME2,aiSongModel.getSongTitle());
         cv.put(COLUMN_LYRICS3,aiSongModel.getSong());
         cv.put(COLUMN_VOICE_NAME, aiSongModel.getVoicename());
