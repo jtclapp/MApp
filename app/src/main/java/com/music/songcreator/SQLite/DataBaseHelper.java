@@ -299,18 +299,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
             String createTableStatement4 = "CREATE TABLE " + AI_TABLE + " (" + COLUMN_ID4 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_SONG_NAME2 + " TEXT, " + COLUMN_LYRICS3 + " TEXT, " +
                     COLUMN_VOICE_NAME + " TEXT, " + COLUMN_VOICE_LANG + " TEXT, " + COLUMN_VOICE_COUNTRY + " TEXT, " + COLUMN_SPEED + " FLOAT, " + COLUMN_PITCH + " FLOAT, " +
                     COLUMN_BEAT_NUMBER2 + " INTEGER, " + COLUMN_BEAT_VOLUME2 + " FLOAT)";
-            String createTableStatement3 = "CREATE TABLE " + SONG_TABLE + " (" + COLUMN_ID3 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_SONG_NAME + " TEXT, " +
-                COLUMN_LYRICS2 + " TEXT, " + COLUMN_RECORDING_NAME2 + " TEXT, " + COLUMN_BEAT_NUMBER + " INTEGER, " + COLUMN_HZ_NUMBER + " INTEGER, " +
-                COLUMN_BEAT_VOLUME + " FLOAT)";
-            String drop = "DROP TABLE " + SONG_TABLE;
-            String dropAI = "DROP TABLE " + AI_TABLE;
-            db.execSQL(dropAI);
-            db.execSQL(drop);
-            db.execSQL(createTableStatement4);
-            db.execSQL(createTableStatement3);
+            String createColumn1 = "ALTER TABLE " + SONG_TABLE + " ADD COLUMN " + COLUMN_HZ_NUMBER + " INTEGER; ";
+            String createColumn2 = "ALTER TABLE " + SONG_TABLE + " ADD COLUMN " + COLUMN_BEAT_VOLUME + " FLOAT; ";
+            if(oldVersion < 2) {
+                db.execSQL(createTableStatement4);
+                db.execSQL(createColumn1);
+                db.execSQL(createColumn2);
+            }
+
     }
 }
 
