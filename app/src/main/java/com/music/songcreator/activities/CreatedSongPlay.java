@@ -126,7 +126,12 @@ public class CreatedSongPlay extends AppCompatActivity {
                 }
             });
             player3.prepare();
-            player3.setVolume(createdSongModel.getVolume(),createdSongModel.getVolume());
+            if(createdSongModel.getVolume() <= 0) {
+                player3.setVolume(1f, 1f);
+            }
+            else {
+                player3.setVolume(createdSongModel.getVolume(), createdSongModel.getVolume());
+            }
         }
         catch (IOException e)
         {
@@ -169,7 +174,13 @@ public class CreatedSongPlay extends AppCompatActivity {
             j++;
         }
         dataInputStream.close();
-        audioTrack = new AudioTrack(3, createdSongModel.getHz(), 2, 2, bs, 1);
+        if(createdSongModel.getHz() <= 0)
+        {
+           audioTrack = new AudioTrack(3,11025,2,2,bs,1);
+        }
+        else {
+            audioTrack = new AudioTrack(3, createdSongModel.getHz(), 2, 2, bs, 1);
+        }
         play();
         try{
             audioTrack.play();
