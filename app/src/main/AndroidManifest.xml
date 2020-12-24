@@ -9,6 +9,12 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_songicon"
@@ -16,61 +22,66 @@
         android:roundIcon="@mipmap/ic_launcher_songicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activities.CreatedAiSongPlay"
+                  android:theme="@style/AppTheme"/>
         <activity
-            android:name="com.music.songcreator.CreatedSongPlay"
-            android:theme="@style/AppTheme"
-            android:configChanges="orientation|screenSize"/>
-        <activity
-            android:name="com.music.songcreator.CreatedSongsLibrary"
+            android:name=".activities.CreatedAiSongLibrary"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.music.songcreator.SettingsPage" />
         <activity
-            android:name="com.music.songcreator.Navigator"
+            android:name=".activities.CreatedSongPlay"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.CreatedSongsLibrary"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.SettingsPage" />
+        <activity
+            android:name=".activities.Navigator"
             android:label="Saved Content"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.music.songcreator.MainActivity" />
+        <activity android:name=".activities.MainActivity" />
         <activity
-            android:name="com.music.songcreator.Beatpage4"
+            android:name=".activities.Beatpage4"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.music.songcreator.Beatpage3"
+            android:name=".activities.Beatpage3"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.music.songcreator.RecordingLibrary"
+            android:name=".activities.RecordingLibrary"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.RecSelector"
+            android:name=".activities.RecSelector"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.Selector"
+            android:name=".activities.Selector"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.LyricsLibrary"
+            android:name=".activities.LyricsLibrary"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.DownloadedBeats"
+            android:name=".java_operations.DownloadedBeats"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.MainActivity5"
+            android:name=".activities.MainActivity5"
             android:configChanges="orientation|screenSize"
             android:label="Record Audio"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.MainActivity4"
+            android:name=".activities.MainActivity4"
             android:configChanges="orientation|screenSize"
             android:label="Create AI Voice"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.FinalActivity"
+            android:name=".activities.FinalActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.music.songcreator.BeatPage2"
+            android:name=".activities.BeatPage2"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.music.songcreator.BeatPage1"
+            android:name=".activities.BeatPage1"
             android:configChanges="orientation|screenSize" />
-        <activity android:name="com.music.songcreator.SplashScreenActivity">
+        <activity android:name=".activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

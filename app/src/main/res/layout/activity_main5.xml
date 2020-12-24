@@ -7,7 +7,7 @@
 
     android:background="@drawable/gradient_background"
     android:keepScreenOn="true"
-    tools:context=".MainActivity5">
+    tools:context=".activities.MainActivity5">
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

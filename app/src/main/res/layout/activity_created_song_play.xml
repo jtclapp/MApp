@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/CreatedSongLayout"
     android:layout_width="match_parent"
@@ -10,7 +9,7 @@
     android:paddingLeft="?attr/actionBarSize"
     android:paddingRight="?attr/actionBarSize"
     android:keepScreenOn="true"
-    tools:context=".CreatedSongPlay">
+    tools:context=".activities.CreatedSongPlay">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -45,31 +44,5 @@
         android:layout_margin="5dp"
         android:textOff=""
         android:textOn="" />
-
-        <Spinner
-            android:id="@+id/CSVoice_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:id="@+id/progress_horizontal7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/CS_adjuster"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="Beat Volume:"
-                android:textColor="#000000" />
-            <SeekBar
-                android:id="@+id/CreatedSongVolume"
-                android:layout_width="152dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:thumb="@drawable/custom_thumb" />
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>
