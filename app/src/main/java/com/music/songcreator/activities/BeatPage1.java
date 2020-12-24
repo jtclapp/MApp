@@ -50,12 +50,15 @@ public class BeatPage1 extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         beatFileSelector = new BeatFileSelector();
+        player = new MediaPlayer();
         radioGroup = findViewById(R.id.Group1);
         R1 = findViewById(R.id.checkBox);
         R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     check = 1;
+                    FinalPlay.setChecked(false);
+                    FinalPlay.callOnClick();
                     DownloadDialog();
             }
         });
@@ -64,6 +67,8 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     check = 2;
+                    FinalPlay.setChecked(false);
+                    FinalPlay.callOnClick();
                     DownloadDialog();
             }
         });
@@ -72,6 +77,8 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     check = 3;
+                    FinalPlay.setChecked(false);
+                    FinalPlay.callOnClick();
                     DownloadDialog();
             }
         });
@@ -80,6 +87,8 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 24;
+                FinalPlay.setChecked(false);
+                FinalPlay.callOnClick();
                 DownloadDialog();
             }
         });
@@ -88,6 +97,8 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 25;
+                FinalPlay.setChecked(false);
+                FinalPlay.callOnClick();
                 DownloadDialog();
             }
         });
@@ -96,6 +107,8 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 26;
+                FinalPlay.setChecked(false);
+                FinalPlay.callOnClick();
                 DownloadDialog();
             }
         });
@@ -104,6 +117,8 @@ public class BeatPage1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 check = 27;
+                FinalPlay.setChecked(false);
+                FinalPlay.callOnClick();
                 DownloadDialog();
             }
         });
@@ -195,6 +210,11 @@ public class BeatPage1 extends AppCompatActivity {
     }
     public void DownloadDialog()
     {
+//        if(player.isPlaying())
+//        {
+//            FinalPlay.setChecked(false);
+//            FinalPlay.callOnClick();
+//        }
         path = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC) + File.separator + beatFileSelector.FileSelector(check));
 
         if(path.exists() != true) {
