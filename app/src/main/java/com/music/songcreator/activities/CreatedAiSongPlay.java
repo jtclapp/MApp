@@ -127,6 +127,8 @@ public class CreatedAiSongPlay extends AppCompatActivity {
                 }
             }
         });
+        Toast.makeText(getApplicationContext(), "Select Load AI First", Toast.LENGTH_LONG).show();
+        finalplay.setEnabled(false);
     }
     public void LoadAI(View view) {
         stopPlayer();

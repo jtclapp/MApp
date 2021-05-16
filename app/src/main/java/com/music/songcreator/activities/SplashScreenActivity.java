@@ -18,8 +18,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
-
+        MobileAds.initialize(this);
 
         EasySplashScreen config = new EasySplashScreen(SplashScreenActivity.this)
                 .withFullScreen()
