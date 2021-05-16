@@ -1,6 +1,7 @@
 package com.music.songcreator.java_operations;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -9,6 +10,7 @@ import android.os.Environment;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -80,10 +82,15 @@ public class DownloadedBeats extends AppCompatActivity {
         }
         else
         {
-            final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(DownloadedBeats.this);
-            builder.setMessage("Please connect to internet to download a beat!");
+            final AlertDialog.Builder builder = new AlertDialog.Builder(DownloadedBeats.this);
+            builder.setMessage("Connect to internet to download this beat.");
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    startActivity(intent);
+                }
+            });
             builder.show();
-            startActivity(intent);
         }
     }
     public Intent getPageIntent()
